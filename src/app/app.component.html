@@ -1,0 +1,53 @@
+<!--slider from https://material.angular.io/components/sidenav/examples-->
+<mat-sidenav-container
+    class="sidenav-container" (backdropClick)="close('backdrop')" >
+
+    <!--Sidenav То, что находится внутри слайдера-->
+        <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose style = "background-color: rgb(32, 33, 36);">
+            <!--кнопка с иконкой для закрытия слайдера-->
+                 <button mat-icon-button (click)="close('toggle button')" style="margin-left:75%;">
+                     <mat-icon style="color: white;">menu</mat-icon>
+                </button>
+            <!--end-->
+
+            <h1 style="text-align: center;color: white">Меню</h1>
+            
+            <!--вкладки для перемещения на другие страницы-->
+                <p style="text-align: center">
+                   <button mat-button routerLink = "game-manage">Управление играми</button>
+                </p>
+
+                <p style="text-align: center">
+                 <button mat-button routerLink = "queue">Очередь желающих</button>
+                </p>
+
+                <p style="text-align: center">
+                  <button mat-button routerLink = "top" style="border-radius: 5px;">Топ игроков</button>
+                </p>
+            <!--end-->
+        </mat-sidenav>
+    <!--end-->
+
+        <mat-sidenav-content>
+            <!--Content То, что находится вне слайдера-->
+                <!--кнопка с иконкой для закрытия слайдера-->
+                    <button mat-icon-button (click)="sidenav.open()" style="margin-left:1%;">
+                     <mat-icon style="color: white;">menu</mat-icon>
+                    </button>
+                <!--end-->
+
+
+
+
+
+
+            <!--end-->
+
+            <!--для перемещения по вкладкам слайдера-->
+                <router-outlet></router-outlet>
+            <!--end-->
+
+        </mat-sidenav-content>
+</mat-sidenav-container>
+<!--end-->
+

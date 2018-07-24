@@ -1,0 +1,37 @@
+<div id="delGame">
+
+    <h1 mat-dialog-title style="text-align: center">Удаление игры</h1>
+
+    <div mat-dialog-content style="text-align: center">
+        
+        
+        <!--Input Ввод данных from https://material.angular.io/components/autocomplete/examples-->
+            <form>
+            <mat-form-field class="mngGame-full-width" >
+                <input type="text" [(ngModel)]="data.oldGame" #Input placeholder="Введите название" style = 'color:black' aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                    <div class="filteredGame"> 
+                        <mat-option *ngFor="let game of filteredGames | async" [value]="game" style="background:rgb(34, 34, 38);color:white;">
+                        {{game}}
+                        </mat-option>
+                    </div>
+                </mat-autocomplete>
+            </mat-form-field>
+            </form>
+        <!---->
+        
+    </div>
+    <div mat-dialog-actions id="dialog-actions" class="dialog-actions">
+        <div id="dialog-actions-deny" style="text-align: center;">
+            <button mat-button (click)="onNoClick()" class="dialog-actions-deny">Отменить</button>
+        </div>
+        <div id="dialog-actions-continue">
+            <div *ngFor="let game of filteredGames | async">
+                    <div *ngIf="Input.value === game" style="text-align: center;">
+                        <button mat-button [mat-dialog-close]="data.oldGame" class="dialog-actions-continue">Продолжить</button>
+                     </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

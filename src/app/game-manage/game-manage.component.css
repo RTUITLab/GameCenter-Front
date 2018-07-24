@@ -1,0 +1,87 @@
+
+.content{
+  display: grid;
+  grid-template-columns: repeat(16,1fr);
+  grid-template-rows: repeat(11,1fr);
+}
+
+.mngGame{
+    grid-column: 2/8;
+    grid-row: 2;
+    text-align: center;
+    color:rgb(226, 226, 226);  
+}
+
+.mngedGame{
+    grid-column: 10/16;
+    grid-row: 2;
+    text-align: center;
+    color:rgb(226, 226, 226); 
+}
+/*стиль кнопки для открытия всплывающего окна для добавления игры*/
+.addGame{
+    grid-column: 8/10;
+    grid-row: 1;
+    justify-self: center;
+    align-self: flex-end;
+    color:rgb(226, 226, 226);
+}
+/*стиль кнопки для открытия всплывающего окна для добавления игры*/
+.delGame{
+    grid-column: 8/10;
+    grid-row: 2;
+    justify-self: center;
+    align-self: center;
+    color:rgb(226, 226, 226);
+}
+/*стиль кнопки для добавления игры в Выбранные игры*/
+.routeToMngedGame{
+    grid-column: 8;
+    grid-row: 3;
+    text-align: left;
+    align-self: left;
+    color:rgb(226, 226, 226);
+}
+
+/*Input Ввод данных from https://material.angular.io/components/autocomplete/examples-->*/
+  .mngGame-input{
+    grid-row: 3;
+   grid-column: 2/8;
+   overflow: hidden;
+    text-align: center;
+  }
+  .mngGame-full-width {
+    text-align: center;
+    grid-column: 2/8;
+     grid-row: 3;
+    color: white;
+    width: 100%;
+  }
+  /**/
+/*список выбранных игр*/
+.pickedGame{
+    color:rgb(226, 226, 226); 
+    grid-column: 11/16;
+    grid-row-start: 3;
+    grid-row-end:11;
+}
+
+.gameNameColumn {
+    width: 80%;
+    text-align: center;
+    float: left;
+}
+.filteredGame{
+    color:white;
+}
+
+/*кнопки для удаления из выбранных игр*/
+.unpick{
+    justify-self: start;
+    line-height: 3.5;
+    width: 20%;
+    float: right;
+    color:rgb(218, 15, 15);
+}
+
+

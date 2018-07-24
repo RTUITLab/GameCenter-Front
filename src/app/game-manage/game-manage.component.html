@@ -1,0 +1,89 @@
+<div id='content'class="content">
+  
+  
+  <div id = 'mngGame' class = "mngGame"><h1>Выберите игру</h1></div>
+  <div id = 'mngedGame' class = "mngedGame"><h1>Выбранные игры{{action}}</h1></div>
+  
+  <!--Выбранные игры и кнопки для удаления из выбранных-->
+  
+      <div class="pickedGame">
+        <div *ngFor="let pickedgame of pickedGames"> 
+
+          <div class="gameNameColumn">
+            <h3 >
+              {{pickedgame.gameName}}
+            </h3> 
+            <mat-divider style="background-color:rgb(41, 41, 158)"></mat-divider>
+          </div>
+
+          <div class="unpick">
+            <button mat-icon-button style="background-color: rgb(23, 23, 99);" (click)="unpick(pickedgame.gameTypeId)">
+              <mat-icon>clear</mat-icon>
+            </button>
+          </div>
+
+        </div>
+      </div>
+  <!---->
+  
+  <!--Добавление новой игры-->
+  <div id="dialog1" class="addGame">
+    <button mat-button (click) = "addGame()" style = "background-color: rgb(23, 23, 99);border-radius: 40px;">
+      <h2>
+        Добавить игру
+      </h2>
+    </button>
+  </div>
+  <!---->
+  <!--Удаление игр-->
+    <div id="dialog2" class="delGame">
+      <button mat-button (click) = "delGame()" style = "background-color: rgb(23, 23, 99);border-radius: 40px;">
+        Удалить игру
+      </button>
+    </div>
+  <!---->
+
+  <!--Добавление игры в Выбранные игры||Кнопка появляется когда желаемая игра есть в доступных играх-->
+  <div id = "routeToMngedGame" class = "routeToMngedGame">
+    <div *ngFor="let game of filteredGames | async">
+       <div *ngIf="Input.value === game">
+           <button mat-icon-button style = "background-color: rgb(23, 23, 99);color:green" (click)="pick(Input.value)">
+              <mat-icon>add</mat-icon>
+            </button>
+        </div>
+    </div>
+  </div>
+  <!---->
+  
+  <div id="mngGame-input" class="mngGame-input">
+
+    <!--Input Ввод данных from https://material.angular.io/components/autocomplete/examples-->
+    <form>
+      <mat-form-field class="mngGame-full-width" >
+        <input type="text" #Input placeholder="Введите название" style = 'color:white' aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <div> 
+            <mat-option *ngFor="let game of filteredGames | async" [value]="game" style="background:rgb(34, 34, 38);color:white;">
+              {{game}}
+            </mat-option>
+          </div>
+        </mat-autocomplete>
+        
+      </mat-form-field>
+      
+      
+    </form>
+      <!---->
+  
+
+  
+   
+      
+
+ 
+  
+    
+</div>
+  
+    
+  

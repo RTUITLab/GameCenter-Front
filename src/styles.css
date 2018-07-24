@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~ngx-toastr/toastr.css';
+
+
+.mainStyle{
+ /*  background-color: rgba(34, 34, 38, 0.938);
+ /* background-color:rgba(79, 142, 236, 0.767);
+ background-image: url();*/
+ background-color:rgb(32, 33, 36);
+ font-family:'Times New Roman', Times, serif;
+}
+p{
+    color: white;
+  }

@@ -1,0 +1,19 @@
+<div id="addGame">
+
+    <h1 mat-dialog-title style="text-align: center">Добавление игры</h1>
+    <div mat-dialog-content style="text-align: center">
+        
+        <mat-form-field style="width: 100%"> 
+            <input matInput #input [(ngModel)]="data.Game" style="text-align: center">
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions id="dialog-actions" class="dialog-actions">
+        <div id="dialog-actions-deny" style="text-align: center;"> 
+            <button mat-button (click)="onNoClick()" class="dialog-actions-deny">Отменить</button>
+        </div>
+        <div id="dialog-actions-continue" style="text-align: center;">
+            <button mat-button [mat-dialog-close]="data.Game" class="dialog-actions-deny">Продолжить</button>
+        </div>
+        
+    </div>
+</div>

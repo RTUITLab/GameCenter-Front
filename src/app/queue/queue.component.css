@@ -1,0 +1,67 @@
+.allGames{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
+    grid-column-gap: 10px;
+    grid-row-gap: 20px;
+    color:white;
+    margin: 20px;
+}
+.header{
+    display: grid;
+    background-color: rgb(27, 40, 56);
+    border-radius: 10px;
+    border-style: ridge;
+    border-color: rgb(36, 53, 75);
+    grid-template-rows:repeat(1,50px);
+    grid-template-columns: repeat(5,1fr);
+    
+}
+.header-name{
+    grid-column: 2/5;
+    align-self: center;
+    font-size: 22px;
+    text-align: center;
+}
+.header-button{
+    grid-column: 5;
+    color:red;
+    align-self: center;
+    text-align: center;
+}
+.queue{
+    display: grid;
+    background-color: rgb(27, 40, 56);
+    border-radius: 10px;
+    border-style: ridge;
+    border-color: rgb(36, 53, 75);
+    grid-template-rows:repeat(5,50px);
+    
+}
+.queue-people-area{
+    margin: 10px;
+    display: grid;
+    grid-gap: 10px;
+    align-self: center;
+    text-align: center;
+    grid-template-columns: repeat(5,1fr);
+
+}
+.queue-user_name{
+    grid-column: 2/4;
+    align-self: center;
+    text-align: center;
+    font-size:18px;
+}
+.queue-user_deny{
+    grid-column: 4;
+    background-color: rgb(23, 23, 99);
+    color:red;
+    border-radius: 10px;
+}
+.queue-user_accept{
+    grid-column: 5;
+    background-color: rgb(23, 23, 99);
+    color:green;
+    border-radius: 10px;
+
+}

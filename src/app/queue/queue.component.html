@@ -1,0 +1,44 @@
+
+<div id="allGames" class="allGames">
+  <div id="area" *ngFor="let pickedGame of pickedGames">
+    
+    <div id="header" class="header">
+
+      <div id="game_name" class="header-name">
+        {{pickedGame.gameName}}
+      </div>
+
+      <div id='button' class="header-button">
+          <button mat-icon-button style="background-color: rgb(23, 23, 99);">
+            <mat-icon>clear</mat-icon>
+          </button>
+      </div>
+
+    </div>
+
+    <div id="queue" class="queue">
+
+      <div id='people-area' *ngFor="let pickedGame of pickedGames" class="queue-people-area">
+
+        <div id="user_name" class="queue-user_name">
+          {{pickedGame.gameName}}
+        </div>
+
+        <div id="btn-deny" class="queue-user_deny">
+          <button mat-button>
+            Отклонить
+          </button>
+        </div>
+
+        <div id="btn-accept" class="queue-user_accept">
+            <button mat-button>
+              Принять
+            </button>
+        </div>
+   
+      </div>
+   
+    </div>
+
+  </div>
+</div>
