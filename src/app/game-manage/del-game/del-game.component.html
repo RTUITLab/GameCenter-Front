@@ -28,7 +28,7 @@
         <div id="dialog-actions-continue">
             <div *ngFor="let game of filteredGames | async">
                     <div *ngIf="Input.value === game" style="text-align: center;">
-                        <button mat-button [mat-dialog-close]="data.oldGame" class="dialog-actions-continue">Продолжить</button>
+                        <button mat-button [mat-dialog-close]="data.oldGame" class="dialog-actions-continue" (click)="Input.value=''">Продолжить</button>
                      </div>
             </div>
         </div>

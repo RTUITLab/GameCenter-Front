@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 //прототип получаемых данных
-import { IData ,TestPickedGamesIData} from '../DataInterface';
+import { IData} from '../DataInterface';
 ////
 
 // сервис для операций с данными
@@ -24,11 +24,11 @@ export class QueueComponent implements OnInit {
     private toastr: ToastrService,
   ) { }
 
-  pickedGames:TestPickedGamesIData[];
+  pickedGames:IData[];
 
 
   private loadPickedGames(){//подгружаем все игры
-    this._userServise.getAllPicked().subscribe((data:TestPickedGamesIData [])=> {//забираем данные из переменной в наш массив
+    this._userServise.getAllPicked().subscribe((data:IData [])=> {//забираем данные из переменной в наш массив
        this.pickedGames=data;//присваиваем данные массиву игр
        console.log(this.pickedGames);//проверяем массив пришедших данных
     });

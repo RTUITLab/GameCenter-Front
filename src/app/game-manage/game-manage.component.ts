@@ -17,12 +17,19 @@ import {UserService} from '../user.service';
 ////
 
 //прототип получаемых данных
-import { IData ,TestPickedGamesIData} from '../DataInterface';
+import { IData } from '../DataInterface';
 ////
 
 //уведомления
 import { ToastrService } from 'ngx-toastr';
 ////
+
+
+//for SignalR
+import { HubConnection } from '@aspnet/signalr';
+import * as SignalR from '@aspnet/signalr'
+////
+
 
 @Component({
   selector: 'app-game-manage',
@@ -43,7 +50,7 @@ export class GameManageComponent implements OnInit {
   ) {}
   
   public games:IData[];//массив игр  типа интерфейса IData[]
-  pickedGames:TestPickedGamesIData[];
+  pickedGames:IData[];
 
   //from https://material.angular.io/components/autocomplete/examples
 
@@ -53,8 +60,28 @@ export class GameManageComponent implements OnInit {
 
   public newGame:string;//переменная для добавления игры по имени actGame
   private oldGame:string;//переменная для добавления игры по имени actGame
+
+  ////////////////////
+  private _hubConnection: HubConnection;
+  message = '1516';
+  messages: string[] = [];
+  data;
+  private global_url:string = "http://51425529.ngrok.io/api/GameType/";//сам сервер
   
-  
+  public sendMessage(): void {
+    this.data =  `Sent: ${this.message}`;
+    
+    if(this._hubConnection){
+      this._hubConnection.invoke('Pick',this.data); //посылаем данные на сервер 
+      console.log(this.data);
+    } 
+    //this.messages.push(data);//локально заносим данные 
+    
+    /*this._hubConnection
+    .invoke('sendToAll', this.nick, this.message)
+    .catch(err => console.error(err));*/
+  }
+  ////////////////////
   
   addGame(): void {        //функция для кнопки для открытия всплывающего окна
     
@@ -115,7 +142,7 @@ export class GameManageComponent implements OnInit {
   }
 
   private loadPickedGames(){//подгружаем все игры
-    this._userServise.getAllPicked().subscribe((data:TestPickedGamesIData [])=> {//забираем данные из переменной в наш массив
+    this._userServise.getAllPicked().subscribe((data:IData [])=> {//забираем данные из переменной в наш массив
        this.pickedGames=data;//присваиваем данные массиву игр
        console.log(this.pickedGames);//проверяем массив пришедших данных
     });
@@ -155,7 +182,30 @@ export class GameManageComponent implements OnInit {
       this.loadAllGames();//подгружаем все игры
       this.loadPickedGames();//подгружаем все выбранные игры
 
-  }
+    //////////////////
+      this._hubConnection = new SignalR.HubConnectionBuilder()
+        .withUrl('http://51425529.ngrok.io/hub')//ссылка на сервер,с каким устанавливаем соединение
+        .build();//подготавливаем к старту
+
+    //this._hubConnection = new HubConnection('http://localhost:5000/chat');
+
+    this._hubConnection
+      .start()//устанавливаем соединение
+      .then(() => console.log('Connection started!'))
+      .catch(err => console.log('Error while establishing connection :'+ err) );
+      
+      
+
+      this._hubConnection.on('Pick', (data: any) => {   //получаем данные из сервера
+        const received = `Received: ${data}`; 
+        console.log(received);
+        this.messages.push(received);         //записываем в локальные данные
+      });
+
+    }
+    ////////////
+
+  
 
   //from https://material.angular.io/components/autocomplete/examples
     private _filter(value:any): string[] {

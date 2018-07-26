@@ -4,9 +4,4 @@ export interface IData{
     state:string;
 
 }
-export interface TestPickedGamesIData{
-    name:string;
-    gameTypeId:string;
-
-}
 
