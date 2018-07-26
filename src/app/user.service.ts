@@ -21,7 +21,13 @@ import * as SignalR from '@aspnet/signalr'
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserService {
+  public ic:number=0;
+
+  public game:IData[];//массив игр  типа интерфейса IData[]
+  pickedGame:Observable<Object>;
+
   private _hubConnection : HubConnection;//SignalR
   private global_url:string = "http://51425529.ngrok.io/api/Gametype/";//сам сервер
   private hub_url:string = "http://51425529.ngrok.io";//сам сервер
@@ -39,8 +45,9 @@ export class UserService {
       .then(() => console.log('Connection started!'))
       .catch(err => console.log('Error while establishing connection :'+ err) );
 
-      this._hubConnection.on('Pick', (data: any) => {   //получаем данные из сервера
-        const received = `Received: ${data}`; 
+      this._hubConnection.on('Pick', () => {   //получаем данные из сервера
+        
+        console.log("Received");
   
       });
 
@@ -63,14 +70,15 @@ export class UserService {
   }
   
   public getAllPicked():Observable<Object>{//получаем все выбранные игры
-    return this.http.get<Object>(this.global_url + 'pickedgames/');//передаем все данные с ссылки
+    this.pickedGame = this.http.get<Object>(this.global_url + 'selected/');//передаем все данные с ссылки
+    return this.pickedGame;
   }
   
-  /*public pickGame(gameid:string):Observable<Object>{//выбираем игру
+  public pickGame(gameid:string):Observable<Object>{//выбираем игру
     console.log("pickGame "+ [gameid]);
     return this.http.put<Object>(this.global_url + 'pickgames/',[gameid]);//посылаем запрос на изменение статуса на Selected
-  }*/
-  public pickGame(gameid:string){
+  }
+ /* public pickGame(gameid:string){
     console.log("pickGame "+ [gameid]);
     if(this._hubConnection){
       return this._hubConnection.invoke('Pick',gameid); //посылаем данные на сервер 
@@ -80,10 +88,15 @@ export class UserService {
 
     });
   }
-  
+  */
   public unpickGame(gameid:string):Observable<Object>{//удаляем игру из выбранных 
     console.log("unpickGame "+ [gameid]);
     return this.http.put<Object>(this.global_url + 'unpickgames/',[gameid]);//посылаем запрос на изменение статуса на Selected
+  }
+
+  public moco(){
+    this.ic++;
+    console.log("service :"+this.ic);
   }
   
 }

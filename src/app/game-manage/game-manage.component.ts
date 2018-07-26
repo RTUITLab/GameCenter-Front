@@ -149,7 +149,7 @@ export class GameManageComponent implements OnInit {
     });
   }
 
-  /*private pick(Gamename:string){//выбираем игру
+  private pick(Gamename:string){//выбираем игру
     const gameId = this.games.find(g => g.name == Gamename).gameId;
     this._userServise.pickGame(gameId)
     .subscribe(
@@ -158,8 +158,8 @@ export class GameManageComponent implements OnInit {
         ()=>this.toastr.success(`Игра ${Gamename} была выбрана`)
      ) ;//обновляем статус на Selected   
     
-  }*/
-  private pick(Gamename:string){//выбираем игру
+  }
+  /*private pick(Gamename:string){//выбираем игру
     const gameId = this.games.find(g => g.name == Gamename).gameId;
     this._userServise.pickGame(gameId)
         .then(()=>{
@@ -167,20 +167,21 @@ export class GameManageComponent implements OnInit {
         .catch(()=>this.toastr.error(`Игра ${Gamename} уже выбрана`,`Игра не была выбрана`));
         this.loadPickedGames();
   }
-
+*/
   private unpick(game:string){//удаляем из выбранных игр
     const gameName = this.games.find(g => g.gameId == game).name;
     this._userServise.unpickGame(game)
-          .subscribe(
-            _=> this.loadPickedGames(),
-            e => this.toastr.error(`Игра ${gameName} уже удалена из выбранных`,`Игра не была удалена из выбранных`),
-            ()=>this.toastr.success(`Игра ${gameName} удалена из выбранных`)
-          );
-   
+    .subscribe(
+      _=> this.loadPickedGames(),
+      e => this.toastr.error(`Игра ${gameName} уже удалена из выбранных`,`Игра не была удалена из выбранных`),
+      ()=>this.toastr.success(`Игра ${gameName} удалена из выбранных`)
+    );
+    
   }
-
+  public y;
   ngOnInit() {
-      //from https://material.angular.io/components/autocomplete/examples
+    //from https://material.angular.io/components/autocomplete/examples
+     this.y=this._userServise.ic;
         this.filteredGames = this.myControl.valueChanges.pipe(
           startWith(''),
           map(value => this._filter(value))//посылаем значение в фильтр
@@ -231,6 +232,12 @@ export class GameManageComponent implements OnInit {
       .filter(game => game.toLowerCase().indexOf(filterValue) !== -1);//фильтруем по словосочетаниям
     }
   ////
+
+  
+
+  public como(){
+    this._userServise.moco();
+  }
     
     
 }
