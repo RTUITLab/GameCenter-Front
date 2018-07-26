@@ -22,11 +22,30 @@ import * as SignalR from '@aspnet/signalr'
   providedIn: 'root'
 })
 export class UserService {
+  private _hubConnection : HubConnection;//SignalR
+  private global_url:string = "http://51425529.ngrok.io/api/Gametype/";//сам сервер
+  private hub_url:string = "http://51425529.ngrok.io";//сам сервер
   constructor(private http: HttpClient ,//для предачи данных
     
-  ) { }
+  ) {
+    this._hubConnection = new SignalR.HubConnectionBuilder()
+        .withUrl(this.hub_url +"/hub")//ссылка на сервер,с каким устанавливаем соединение
+        .build();//подготавливаем к старту
+
+    //this._hubConnection = new HubConnection('http://localhost:5000/chat');
+
+    this._hubConnection
+      .start()//устанавливаем соединение
+      .then(() => console.log('Connection started!'))
+      .catch(err => console.log('Error while establishing connection :'+ err) );
+
+      this._hubConnection.on('Pick', (data: any) => {   //получаем данные из сервера
+        const received = `Received: ${data}`; 
   
-  private global_url:string = "http://51425529.ngrok.io/api/GameType/";//сам сервер
+      });
+
+    }
+   
   //private _url:string = 'https://jsonplaceholder.typicode.com/users/';//ссылка для получения данных
   
   public getAll():Observable<IData []>{
@@ -44,12 +63,22 @@ export class UserService {
   }
   
   public getAllPicked():Observable<Object>{//получаем все выбранные игры
-    return this.http.get<Object>(this.global_url + 'selected/');//передаем все данные с ссылки
+    return this.http.get<Object>(this.global_url + 'pickedgames/');//передаем все данные с ссылки
   }
   
-  public pickGame(gameid:string):Observable<Object>{//выбираем игру
+  /*public pickGame(gameid:string):Observable<Object>{//выбираем игру
     console.log("pickGame "+ [gameid]);
     return this.http.put<Object>(this.global_url + 'pickgames/',[gameid]);//посылаем запрос на изменение статуса на Selected
+  }*/
+  public pickGame(gameid:string){
+    console.log("pickGame "+ [gameid]);
+    if(this._hubConnection){
+      return this._hubConnection.invoke('Pick',gameid); //посылаем данные на сервер 
+    } 
+    this._hubConnection.on('Pick', (data: any) => {   //получаем данные из сервера
+      const received = `Received: ${data}`; 
+
+    });
   }
   
   public unpickGame(gameid:string):Observable<Object>{//удаляем игру из выбранных 

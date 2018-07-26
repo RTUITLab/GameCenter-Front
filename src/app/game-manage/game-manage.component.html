@@ -47,7 +47,7 @@
   <div id = "routeToMngedGame" class = "routeToMngedGame">
     <div *ngFor="let game of filteredGames | async">
        <div *ngIf="Input.value === game">
-           <button mat-icon-button style = "background-color: rgb(23, 23, 99);color:green" (click)="pick(Input.value);Input.value=''">
+           <button mat-icon-button style = "background-color: rgb(23, 23, 99);color:green" (click)="pick(Input.value)">
               <mat-icon>add</mat-icon>
             </button>
         </div>

@@ -62,6 +62,7 @@ export class GameManageComponent implements OnInit {
   private oldGame:string;//переменная для добавления игры по имени actGame
 
   ////////////////////
+  /*
   private _hubConnection: HubConnection;
   message = '1516';
   messages: string[] = [];
@@ -79,10 +80,10 @@ export class GameManageComponent implements OnInit {
     
     /*this._hubConnection
     .invoke('sendToAll', this.nick, this.message)
-    .catch(err => console.error(err));*/
+    .catch(err => console.error(err));
   }
   ////////////////////
-  
+  */
   addGame(): void {        //функция для кнопки для открытия всплывающего окна
     
     const dialogRef = this.dialog.open(AddGameComponent, {
@@ -148,7 +149,7 @@ export class GameManageComponent implements OnInit {
     });
   }
 
-  private pick(Gamename:string){//выбираем игру
+  /*private pick(Gamename:string){//выбираем игру
     const gameId = this.games.find(g => g.name == Gamename).gameId;
     this._userServise.pickGame(gameId)
     .subscribe(
@@ -157,6 +158,14 @@ export class GameManageComponent implements OnInit {
         ()=>this.toastr.success(`Игра ${Gamename} была выбрана`)
      ) ;//обновляем статус на Selected   
     
+  }*/
+  private pick(Gamename:string){//выбираем игру
+    const gameId = this.games.find(g => g.name == Gamename).gameId;
+    this._userServise.pickGame(gameId)
+        .then(()=>{
+                   this.toastr.success(`Игра ${Gamename} была выбрана`)})
+        .catch(()=>this.toastr.error(`Игра ${Gamename} уже выбрана`,`Игра не была выбрана`));
+        this.loadPickedGames();
   }
 
   private unpick(game:string){//удаляем из выбранных игр
@@ -183,6 +192,7 @@ export class GameManageComponent implements OnInit {
       this.loadPickedGames();//подгружаем все выбранные игры
 
     //////////////////
+    /*
       this._hubConnection = new SignalR.HubConnectionBuilder()
         .withUrl('http://51425529.ngrok.io/hub')//ссылка на сервер,с каким устанавливаем соединение
         .build();//подготавливаем к старту
@@ -201,7 +211,7 @@ export class GameManageComponent implements OnInit {
         console.log(received);
         this.messages.push(received);         //записываем в локальные данные
       });
-
+*/
     }
     ////////////
 
