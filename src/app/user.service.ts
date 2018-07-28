@@ -24,7 +24,7 @@ export class UserService {
   public game:IData[];//массив игр  типа интерфейса IData[]
   pickedGame:Observable<Object>;
 
-  private global_url:string = "http://51425529.ngrok.io/api/Gametype/";//сам сервер
+  private global_url:string = "http://d75da873.ngrok.io/api/Gametype/";//сам сервер
   constructor(private http: HttpClient ,//для предачи данных  
   ) {
     }
@@ -46,6 +46,7 @@ export class UserService {
   }
   
   public getAllPicked():Observable<Object>{//получаем все выбранные игры
+    console.log("user-service");
     this.pickedGame = this.http.get<Object>(this.global_url + 'selected/');//передаем все данные с ссылки
     return this.pickedGame;
   }

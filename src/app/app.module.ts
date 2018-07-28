@@ -124,7 +124,7 @@ import {MatCardModule} from '@angular/material/card';
 
   ],
   entryComponents:[AddGameComponent,DelGameComponent],
-  providers: [UserService,HubService,],
+  providers: [UserService,HubService,GameManageComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

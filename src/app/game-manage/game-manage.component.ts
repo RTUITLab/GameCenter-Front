@@ -37,6 +37,7 @@ import { ToastrService } from 'ngx-toastr';
 
 export class GameManageComponent implements OnInit {
 
+  
   constructor(
     public dialog: MatDialog, // всплывающее окно для добавления игры
     private _userServise: UserService, // переменная для обращения к сервису
@@ -134,14 +135,15 @@ export class GameManageComponent implements OnInit {
         return this._userServise.getAll().subscribe((data:IData [])=> {//забираем данные из переменной в наш массив
            this.games=data;//присваиваем данные массиву игр
             this.myControl.setValue('');//важная штука
+            console.log("Game-manage-all");
            console.log(this.games);//проверяем массив пришедших данных
         });
   }
 
   public loadPickedGames(){//подгружаем все игры
     this._userServise.getAllPicked().subscribe((data:IData [])=> {//забираем данные из переменной в наш массив
-       this.pickedGames=data;//присваиваем данные массиву игр
-       console.log(this.pickedGames);//проверяем массив пришедших данных
+      this.pickedGames=data;//присваиваем данные массиву игр
+       console.log(data);//проверяем массив пришедших данных
     });
   }
 
