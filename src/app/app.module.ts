@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';//основной компонент со слайдером
 import { GameManageComponent} from './game-manage/game-manage.component';//окно управления играми
 import { AddGameComponent } from './game-manage/addGame/addGame.component';//всплывающее окно для добавления игры в список доступных игр
+import { DelGameComponent } from './game-manage/del-game/del-game.component';
 import { QueueComponent } from './queue/queue.component';//вкладка очередь желающих
 import { TopComponent } from './top/top.component';//вкладка топ игроков
 
@@ -32,8 +33,8 @@ import {MatDialogModule} from '@angular/material/dialog';//всплывающе�
 ////
 
 //сервис для работы ;
-import { DelGameComponent } from './game-manage/del-game/del-game.component';
 import { UserService } from './user.service';
+import { HubService } from './hub.service'
 ////
 
 //разделитель по горизонтали
@@ -123,7 +124,7 @@ import {MatCardModule} from '@angular/material/card';
 
   ],
   entryComponents:[AddGameComponent,DelGameComponent],
-  providers: [UserService],
+  providers: [UserService,HubService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -25,11 +25,6 @@ import { ToastrService } from 'ngx-toastr';
 ////
 
 
-//for SignalR
-import { HubConnection } from '@aspnet/signalr';
-import * as SignalR from '@aspnet/signalr'
-////
-
 
 @Component({
   selector: 'app-game-manage',
@@ -45,12 +40,13 @@ export class GameManageComponent implements OnInit {
   constructor(
     public dialog: MatDialog, // всплывающее окно для добавления игры
     private _userServise: UserService, // переменная для обращения к сервису
-    private toastr: ToastrService,
+    private toastr: ToastrService, //уведомления
 
   ) {}
   
   public games:IData[];//массив игр  типа интерфейса IData[]
-  pickedGames:IData[];
+
+  pickedGames:IData[];//массив выбранных игр  типа интерфейса IData[]
 
   //from https://material.angular.io/components/autocomplete/examples
 
@@ -84,7 +80,7 @@ export class GameManageComponent implements OnInit {
   }
   ////////////////////
   */
-  addGame(): void {        //функция для кнопки для открытия всплывающего окна
+  private addGame(): void {        //функция для кнопки для открытия всплывающего окна
     
     const dialogRef = this.dialog.open(AddGameComponent, {
         width: '512px', //ширина всплывающего окна
@@ -108,7 +104,7 @@ export class GameManageComponent implements OnInit {
         }
     });
   }
-  delGame(): void {        //функция для кнопки для открытия всплывающего окна
+  private delGame(): void {        //функция для кнопки для открытия всплывающего окна
 
     const dialogRef = this.dialog.open(DelGameComponent, {
         width: '512px', //ширина всплывающего окна
@@ -134,7 +130,7 @@ export class GameManageComponent implements OnInit {
     });
   }
 
-  private loadAllGames(){//подгружаем все игры
+  public loadAllGames(){//подгружаем все игры
         return this._userServise.getAll().subscribe((data:IData [])=> {//забираем данные из переменной в наш массив
            this.games=data;//присваиваем данные массиву игр
             this.myControl.setValue('');//важная штука
@@ -142,7 +138,7 @@ export class GameManageComponent implements OnInit {
         });
   }
 
-  private loadPickedGames(){//подгружаем все игры
+  public loadPickedGames(){//подгружаем все игры
     this._userServise.getAllPicked().subscribe((data:IData [])=> {//забираем данные из переменной в наш массив
        this.pickedGames=data;//присваиваем данные массиву игр
        console.log(this.pickedGames);//проверяем массив пришедших данных
@@ -178,10 +174,11 @@ export class GameManageComponent implements OnInit {
     );
     
   }
-  public y;
+
   ngOnInit() {
+
     //from https://material.angular.io/components/autocomplete/examples
-     this.y=this._userServise.ic;
+
         this.filteredGames = this.myControl.valueChanges.pipe(
           startWith(''),
           map(value => this._filter(value))//посылаем значение в фильтр
@@ -214,7 +211,7 @@ export class GameManageComponent implements OnInit {
       });
 */
     }
-    ////////////
+
 
   
 
@@ -232,12 +229,6 @@ export class GameManageComponent implements OnInit {
       .filter(game => game.toLowerCase().indexOf(filterValue) !== -1);//фильтруем по словосочетаниям
     }
   ////
-
-  
-
-  public como(){
-    this._userServise.moco();
-  }
     
     
 }
