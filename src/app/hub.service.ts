@@ -19,7 +19,7 @@ export class HubService {
     private _gamemng:GameManageComponent,
     
   ) { 
-    console.log("cerf")
+    console.log("HUB here")
   }
   public connect(){
   this._hubConnection = new SignalR.HubConnectionBuilder()
