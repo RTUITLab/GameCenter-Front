@@ -197,6 +197,21 @@ export class GameManageComponent implements OnInit {
       err => console.log(err),
       () => console.log('_hubService.pickNotifier complete')
     );
+    this._hubService.unpickNotifier.subscribe(
+      n => this.loadPickedGames(),
+      err => console.log(err),
+      () => console.log('_hubService.unpickNotifier complete')
+    );
+    this._hubService.addNotifier.subscribe(
+      n => this.loadAllGames(),
+      err => console.log(err),
+      () => console.log('_hubService.addNotifier complete')
+    );
+    this._hubService.deleteNotifier.subscribe(
+      n => this.loadAllGames(),
+      err => console.log(err),
+      () => console.log('_hubService.deleteNotifier complete')
+    );
     //////////////////
     /*
       this._hubConnection = new SignalR.HubConnectionBuilder()

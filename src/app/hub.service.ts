@@ -15,14 +15,26 @@ import { Observable, Subscriber } from '../../node_modules/rxjs';
 })
 export class HubService {
   public _hubConnection: HubConnection; // SignalR
-  public hub_url = 'http://d75da873.ngrok.io'; // сам сервер
+  public hub_url = 'http://d4bda822.ngrok.io'; // сам сервер
 
   public pickNotifier: Observable<Object>;
-  private pickSubscriper: Subscriber<Object>;
+  private pickSubscriber: Subscriber<Object>;
+
+  public unpickNotifier: Observable<Object>;
+  private unpickSubscriber: Subscriber<Object>;
+
+  public addNotifier: Observable<Object>;
+  private addSubscriber: Subscriber<Object>;
+
+  public deleteNotifier: Observable<Object>;
+  private deleteSubscriber: Subscriber<Object>;
   constructor(
   ) {
     console.log('HUB here');
-    this.pickNotifier = new Observable<Object>(sub => this.pickSubscriper = sub);
+    this.pickNotifier = new Observable<Object>(sub => this.pickSubscriber = sub);
+    this.unpickNotifier = new Observable<Object>(sub => this.unpickSubscriber = sub);
+    this.addNotifier = new Observable<Object>(sub => this.addSubscriber = sub);
+    this.deleteNotifier = new Observable<Object>(sub => this.deleteSubscriber = sub);
   }
   public connect() {
     this._hubConnection = new SignalR.HubConnectionBuilder()
@@ -37,8 +49,23 @@ export class HubService {
       .catch(err => console.log('Error while establishing connection :' + err));
 
     this._hubConnection.on('Pick', () => { // получаем данные из сервер
-      console.log('Received');
-      this.pickSubscriper.next();
+      console.log('Received Pick');
+      this.pickSubscriber.next();
+    }
+    );
+    this._hubConnection.on('Unpick', () => { // получаем данные из сервер
+      console.log('Received Unpick');
+      this.unpickSubscriber.next();
+    }
+    );
+    this._hubConnection.on('Add', () => { // получаем данные из сервер
+      console.log('Received Add');
+      this.addSubscriber.next();
+    }
+    );
+    this._hubConnection.on('Delete', () => { // получаем данные из сервер
+      console.log('Received Delete');
+      this.deleteSubscriber.next();
     }
     );
   }

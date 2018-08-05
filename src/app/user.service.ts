@@ -23,7 +23,7 @@ export class UserService {
 
   public game: IData[]; // массив игр  типа интерфейса IData[]
 
-  private global_url = 'http://d75da873.ngrok.io/api/Gametype/'; // сам сервер
+  private global_url = 'http://d4bda822.ngrok.io/api/Gametype/'; // сам сервер
   constructor(private http: HttpClient, // для предачи данных
   ) {
   }
