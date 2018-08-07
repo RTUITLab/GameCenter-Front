@@ -8,32 +8,28 @@
 }
 .header{
     display: grid;
-    background-color: rgb(27, 40, 56);
-    border-radius: 10px;
-    border-style: ridge;
-    border-color: rgb(36, 53, 75);
-    grid-template-rows:repeat(1,50px);
-    grid-template-columns: repeat(5,1fr);
+    background-color: rgba(8, 8, 110, 0.555);
+    border-radius: 2px;
+    grid-template-columns: repeat(12,1fr);
     
 }
 .header-name{
-    grid-column: 2/5;
+    grid-column: 4/8;
     align-self: center;
     font-size: 22px;
     text-align: center;
 }
 .header-button{
-    grid-column: 5;
+    grid-column: 8/13;
     color:red;
     align-self: center;
+    background-color: rgba(0, 0, 0, 0);
     text-align: center;
 }
 .queue{
     display: grid;
-    background-color: rgb(27, 40, 56);
-    border-radius: 10px;
-    border-style: ridge;
-    border-color: rgb(36, 53, 75);
+    background-color: rgba(8, 8, 110, 0.432);
+    border-radius: 2px;
     grid-template-rows:repeat(5,50px);
     
 }

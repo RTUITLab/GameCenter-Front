@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-//прототип получаемых данных
+// прототип получаемых данных
 import { IData} from '../DataInterface';
 ////
 
@@ -8,7 +8,7 @@ import { IData} from '../DataInterface';
 import {UserService} from '../user.service';
 ////
 
-//уведомления
+// уведомления
 import { ToastrService } from 'ngx-toastr';
 ////
 
@@ -24,18 +24,18 @@ export class QueueComponent implements OnInit {
     private toastr: ToastrService,
   ) { }
 
-  pickedGames:IData[];
+  pickedGames: IData[];
 
 
-  private loadPickedGames(){//подгружаем все игры
-    this._userServise.getAllPicked().subscribe((data:IData [])=> {//забираем данные из переменной в наш массив
-       this.pickedGames=data;//присваиваем данные массиву игр
-       console.log(this.pickedGames);//проверяем массив пришедших данных
+  private loadPickedGames() {// подгружаем все игры
+    this._userServise.getAllPicked().subscribe((data: IData []) => {// забираем данные из переменной в наш массив
+       this.pickedGames = data; // присваиваем данные массиву игр
+       console.log(this.pickedGames); // проверяем массив пришедших данных
     });
   }
 
   ngOnInit() {
-    this.loadPickedGames();//подгружаем все выбранные игры
+    this.loadPickedGames(); // подгружаем все выбранные игры
   }
 
 }

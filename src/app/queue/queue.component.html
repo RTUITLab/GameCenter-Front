@@ -9,36 +9,40 @@
       </div>
 
       <div id='button' class="header-button">
-          <button mat-icon-button style="background-color: rgb(23, 23, 99);">
-            <mat-icon>clear</mat-icon>
+          <button mat-button >
+            Отклонить все
           </button>
       </div>
 
     </div>
+
+    <mat-divider style="background-color:rgb(41, 41, 158)"></mat-divider>
 
     <div id="queue" class="queue">
 
       <div id='people-area' *ngFor="let pickedGame of pickedGames" class="queue-people-area">
-
+        
         <div id="user_name" class="queue-user_name">
           {{pickedGame.gameName}}
         </div>
-
-        <div id="btn-deny" class="queue-user_deny">
-          <button mat-button>
+        
+        <div id="btn-deny">
+          <button mat-button class="queue-user_deny">
             Отклонить
           </button>
         </div>
-
+        
         <div id="btn-accept" class="queue-user_accept">
-            <button mat-button>
-              Принять
-            </button>
+          <button mat-button class="queue-user_accept">
+            Принять
+          </button>
         </div>
-   
+        
+        
       </div>
-   
+      
     </div>
+    <mat-divider style="background-color:rgb(41, 41, 158)"></mat-divider>
 
   </div>
 </div>
