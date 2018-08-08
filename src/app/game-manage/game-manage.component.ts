@@ -22,6 +22,9 @@ import { IData } from '../DataInterface';
 
 // уведомления
 import { ToastrService } from 'ngx-toastr';
+////
+
+// связь с другими пользователями
 import { HubService } from '../hub.service';
 ////
 

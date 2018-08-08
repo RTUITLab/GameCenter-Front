@@ -12,6 +12,10 @@ import {UserService} from '../user.service';
 import { ToastrService } from 'ngx-toastr';
 ////
 
+// связь с другими пользователями
+import { HubService } from '../hub.service';
+////
+
 @Component({
   selector: 'app-queue',
   templateUrl: './queue.component.html',
@@ -22,6 +26,7 @@ export class QueueComponent implements OnInit {
   constructor(
     private _userServise: UserService, // переменная для обращения к сервису
     private toastr: ToastrService,
+    private _hubService: HubService,
   ) { }
 
   pickedGames: IData[];
@@ -36,6 +41,21 @@ export class QueueComponent implements OnInit {
 
   ngOnInit() {
     this.loadPickedGames(); // подгружаем все выбранные игры
+    this._hubService.pickNotifier.subscribe(
+      n => this.loadPickedGames(),
+      err => console.log(err),
+      () => console.log('_hubService.pickNotifier complete')
+    );
+    this._hubService.unpickNotifier.subscribe(
+      n => this.loadPickedGames(),
+      err => console.log(err),
+      () => console.log('_hubService.unpickNotifier complete')
+    );
+    this._hubService.deleteNotifier.subscribe(
+      n => this.loadPickedGames(),
+      err => console.log(err),
+      () => console.log('_hubService.deleteNotifier complete')
+    );
   }
 
 }
