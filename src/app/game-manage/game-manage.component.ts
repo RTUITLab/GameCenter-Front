@@ -208,7 +208,8 @@ export class GameManageComponent implements OnInit {
       () => console.log('_hubService.addNotifier complete')
     );
     this._hubService.deleteNotifier.subscribe(
-      n => this.loadAllGames(),
+      n => {this.loadAllGames();
+            this.loadPickedGames(); },
       err => console.log(err),
       () => console.log('_hubService.deleteNotifier complete')
     );
