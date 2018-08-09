@@ -39,19 +39,26 @@ export class QueueComponent implements OnInit {
     });
   }
 
+  private decline_all(name: string) { // отменяем все заявки конкретной игры
+  }
+  private decline_user(name: string) { // отклоняем заявку желающего поиграть
+  }
+  private accept_user(name: string) { // отклоняем заявку желающего поиграть
+  }
+
   ngOnInit() {
     this.loadPickedGames(); // подгружаем все выбранные игры
-    this._hubService.pickNotifier.subscribe(
+    this._hubService.pickNotifier.subscribe( // подписываемся на событие выбора игры,совершенного другим пользователем
       n => this.loadPickedGames(),
       err => console.log(err),
       () => console.log('_hubService.pickNotifier complete')
     );
-    this._hubService.unpickNotifier.subscribe(
+    this._hubService.unpickNotifier.subscribe( // подписываемся на событие удаления игры из выбранных игр,совершенного другим пользователем
       n => this.loadPickedGames(),
       err => console.log(err),
       () => console.log('_hubService.unpickNotifier complete')
     );
-    this._hubService.deleteNotifier.subscribe(
+    this._hubService.deleteNotifier.subscribe( // подписываемся на событие удаления игры,совершенного другим пользователем
       n => this.loadPickedGames(),
       err => console.log(err),
       () => console.log('_hubService.deleteNotifier complete')

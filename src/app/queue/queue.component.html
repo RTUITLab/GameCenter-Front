@@ -9,7 +9,7 @@
       </div>
 
       <div id='button' class="header-button">
-         <button class="">
+         <button class="" (click) = "decline_all(pickedGame.name)">
             <img class="decline_all_icon" src="assets/icons/decline_user.svg">
           </button>
       </div>
@@ -27,14 +27,14 @@
         </div>
         
         <div id="btn-deny">
-          <button class="queue-user_deny">
+          <button class="queue-user_deny" (click) = "decline_user(pickedGame.name)">
             <img class="icon decline_icon " src="assets/icons/decline_user.svg" />
           </button>
 
         </div>
         
         <div id="btn-accept" class="queue-user_accept">
-          <button  class="queue-user_accept">
+          <button  class="queue-user_accept" (click) = "accept_user(pickedGame.name)">
             <img class="icon" src="assets/icons/accept_user.svg" />
           </button> 
         </div>
