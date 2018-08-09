@@ -5,18 +5,26 @@
     <div id="header" class="header">
 
       <div id="game_name" class="header-name">
+<<<<<<< HEAD
         {{pickedGame.name}}
+=======
+        {{pickedGame.gameName}}
+        Sample Game Name
+>>>>>>> 1f8cc17088163ddc4d0f1080e1a59f4f70bd375b
       </div>
 
       <div id='button' class="header-button">
-          <button mat-button >
+          <!-- <button mat-button  class="decline_all">
             Отклонить все
-          </button>
+          </button> -->
+          <img class="decline_all_icon" src="assets/icons/decline_user.svg"/>
+          <img class="decline_all_icon dec_all_2" src="assets/icons/decline_user.svg"/>
+          <img class="decline_all_icon dec_all_3" src="assets/icons/decline_user.svg"/>
       </div>
 
     </div>
 
-    <mat-divider style="background-color:rgb(41, 41, 158)"></mat-divider>
+    <!-- <mat-divider style="background-color:rgb(41, 41, 158)"></mat-divider> -->
 
     <div id="queue" class="queue">
 
@@ -27,22 +35,25 @@
         </div>
         
         <div id="btn-deny">
-          <button mat-button class="queue-user_deny">
+          <!-- <button mat-button class="queue-user_deny">
             Отклонить
-          </button>
+          </button> -->
+          <img class="icon decline_icon" src="assets/icons/decline_user.svg" />
+
         </div>
         
         <div id="btn-accept" class="queue-user_accept">
-          <button mat-button class="queue-user_accept">
+          <!-- <button mat-button class="queue-user_accept">
             Принять
-          </button>
+          </button> -->
+          <img class="icon" src="assets/icons/accept_user.svg" />
         </div>
         
         
       </div>
       
     </div>
-    <mat-divider style="background-color:rgb(41, 41, 158)"></mat-divider>
+    <!-- <mat-divider style="background-color:rgb(41, 101, 158)"></mat-divider> -->
 
   </div>
 </div>
