@@ -38,6 +38,7 @@
     background-color: gray;
     /* text-align: center; */
     border-radius: 15px;
+    
 }
 .queue{
     /* display: grid; */
@@ -67,9 +68,9 @@
 }
 .queue-user_deny{
     grid-column: 2;
-    background-color: #ef5350;
+    /*background-color: #ef5350;
     color: whitesmoke;
-    border-radius: 10px;
+    border-radius: 10px; */
 }
 .queue-user_accept{
     grid-column: 3;
@@ -87,10 +88,16 @@
 }
 
 .decline_all_icon {
+    /*
     transform: rotate3d(45deg);
-    width: 30%;
+    width: 30%;*/
+    transform: rotate(45deg);
+    width: 50%;
+
 }
 
+/*
 .dec_all_2 {
     transform: translate(-15px) rotate(45deg);
 }
+*/

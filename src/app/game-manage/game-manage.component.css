@@ -9,14 +9,14 @@
     grid-column: 2/8;
     grid-row: 2;
     text-align: center;
-    color:rgb(226, 226, 226);  
+    color:black;  
 }
 
 .mngedGame{
     grid-column: 10/16;
     grid-row: 2;
     text-align: center;
-    color:rgb(226, 226, 226); 
+    color:black;  
 }
 /*стиль кнопки для открытия всплывающего окна для добавления игры*/
 .addGame{
@@ -54,13 +54,13 @@
     text-align: center;
     grid-column: 2/8;
      grid-row: 3;
-    color: white;
+    color:black;  
     width: 100%;
   }
   /**/
 /*список выбранных игр*/
 .pickedGame{
-    color:rgb(226, 226, 226); 
+    color:black;  
     grid-column: 11/16;
     grid-row-start: 3;
     grid-row-end:11;
