@@ -47,7 +47,7 @@
   <div id = "routeToMngedGame" class = "routeToMngedGame">
     <div *ngFor="let game of filteredGames | async">
        <div *ngIf="Input.value === game">
-           <button mat-icon-button style = "background-color: rgb(23, 23, 99);color:green" (click)="pick(Input.value)">
+           <button mat-icon-button type = "reset" form = 'input' style = "background-color: rgb(23, 23, 99);color:green" (click)="pick(Input.value)">
               <mat-icon>add</mat-icon>
             </button>
         </div>
@@ -58,7 +58,7 @@
   <div id="mngGame-input" class="mngGame-input">
 
     <!--Input Ввод данных from https://material.angular.io/components/autocomplete/examples-->
-    <form>
+    <form id="input">
       <mat-form-field class="mngGame-full-width" >
         <input type="text" #Input placeholder="Введите название" style = 'color:white' aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
         <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">

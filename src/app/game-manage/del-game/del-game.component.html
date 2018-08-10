@@ -8,7 +8,7 @@
         <!--Input Ввод данных from https://material.angular.io/components/autocomplete/examples-->
             <form>
             <mat-form-field class="mngGame-full-width" >
-                <input type="text" [(ngModel)]="data.oldGame" #Input placeholder="Введите название" style = 'color:black' aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                <input type="text" matInput [(ngModel)]="data.oldGame" #Input placeholder="Введите название" style = 'color:black' aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
                 <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
                     <div class="filteredGame"> 
                         <mat-option *ngFor="let game of filteredGames | async" [value]="game" style="background:rgb(34, 34, 38);color:white;">
@@ -23,12 +23,12 @@
     </div>
     <div mat-dialog-actions id="dialog-actions" class="dialog-actions">
         <div id="dialog-actions-deny" style="text-align: center;">
-            <button mat-button (click)="onNoClick()" class="dialog-actions-deny">Отменить</button>
+            <button mat-button type = 'reset' form="matInput" (click)="onNoClick()" class="dialog-actions-deny">Отменить</button>
         </div>
         <div id="dialog-actions-continue">
             <div *ngFor="let game of filteredGames | async">
                     <div *ngIf="Input.value === game" style="text-align: center;">
-                        <button mat-button [mat-dialog-close]="data.oldGame" class="dialog-actions-continue" (click)="Input.value=''">Продолжить</button>
+                        <button mat-button type = 'reset' form="matInput" [mat-dialog-close]="data.oldGame" class="dialog-actions-continue" (click)="Input.value=''">Продолжить</button>
                      </div>
             </div>
         </div>
