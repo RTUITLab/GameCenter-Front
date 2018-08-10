@@ -127,7 +127,15 @@ export class GameManageComponent implements OnInit {
     const gameId = this.games.find(g => g.name === Gamename).gameId;
     this._userServise.pickGame(gameId)
       .subscribe(
-        _ => this.loadPickedGames(),
+        _ => {this.loadPickedGames();
+          // from https://material.angular.io/components/autocomplete/examples || фильтр автозаполнения поля ввода
+
+          this.filteredGames = this.myControl.valueChanges.pipe(
+          startWith(''),
+          map(value => this._filter(value)) // посылаем значение в фильтр
+
+          ); },
+         ////
         e => { this.toastr.error(`Игра ${Gamename} уже выбрана`, `Игра не была выбрана`); },
         () => this.toastr.success(`Игра ${Gamename} была выбрана`)
       ); // обновляем статус на Selected
