@@ -1,0 +1,116 @@
+.top_page {
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: repeat(16,1fr);
+    background-color: antiquewhite;
+}
+.top {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    grid-template-columns: repeat(5,1fr);
+    grid-column: 1/17;
+    grid-row: 1;
+    background-color: aqua;
+}
+.header_top {
+    grid-row: 1;
+    grid-column: 2/5;
+    text-align: center;
+    background-color: beige;
+}
+.game_top_area {
+    display: grid;
+    grid-row: 2/6;
+    grid-column: inherit;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+.game_top {
+    display: grid;
+    background-color: blue;
+}
+.game_top_name {
+    background-color: rgb(224, 140, 13);
+    font-size: 24px;
+    align-self: center;
+    text-align: center;
+}
+.people_top {
+    display: grid;
+    grid-template-columns:repeat(5,1fr);
+    background-color: red;
+}
+.medal_top {
+    background-color: green;
+    grid-column: 1;
+    align-self: center;
+    font-size: 24px;
+    text-align: center;
+}
+.name_top {
+    grid-column: 2/4;
+    align-self: center;
+    font-size: 18px;
+    text-align: center;
+    background-color: grey;
+}
+.score_top {
+    grid-column: 4/6;
+    align-self: center;
+    font-size: 18px;
+    text-align: center;
+    background-color: saddlebrown;
+}
+
+/***********/
+
+.last {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    grid-template-columns: repeat(5,1fr);
+    grid-column: 1/17;
+    grid-row: 2;
+    background-color: aquamarine;
+}
+.header_last {
+    grid-row: 1;
+    grid-column: 2/5;
+    text-align: center;
+    background-color: bisque;
+}
+.game_last_area {
+    display: grid;
+    grid-row: 2/6;
+    grid-column: inherit;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+.game_last {
+    display: grid;
+    background-color: blue;
+}
+.game_last_name {
+    background-color: rgb(224, 140, 13);
+    font-size: 24px;
+    align-self: center;
+    text-align: center;
+}
+.people_last {
+    display: grid;
+    grid-template-columns:repeat(5,1fr);
+    background-color: red;
+}
+.name_last {
+    grid-column: 1/4;
+    align-self: center;
+    font-size: 18px;
+    text-align: center;
+    background-color: grey;
+}
+.score_last {
+    grid-column: 4/6;
+    align-self: center;
+    font-size: 18px;
+    text-align: center;
+    background-color: saddlebrown;
+}

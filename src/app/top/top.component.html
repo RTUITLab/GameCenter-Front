@@ -1,4 +1,77 @@
-<p>
-  top works!
-</p>
+<div id = "top_page" class = "top_page">
 
+  <div id = "top" class = "top">
+
+    <div id = "header_top" class = "header_top">
+      <h1>
+        Топ игроков
+      </h1>
+    </div>
+    
+    <div id = "game_top_area" class = "game_top_area">
+
+      <div id = "game_top"  *ngFor="let pickedGame of pickedGames" class = "game_top">
+
+        <div id = "game_top_name" class = "game_top_name">
+          # {{pickedGame.name}}
+        </div>
+        
+        <div id = "people_top" *ngFor="let pickedGame of pickedGames; let i = index" class = "people_top">
+          
+          <div id = "medal_top"  *ngIf = "3>i" class = "medal_top">
+            #
+          </div>
+          
+          <div id = "name_top"  *ngIf = "3>i"  class = "name_top">
+            {{pickedGame.name}}
+            qqqqqqqqqqqqq
+          </div>
+          
+          <div id = "score_top" *ngIf = "3>i"   class = "score_top">
+          {{pickedGame.name}}
+          </div>
+          
+        </div>   
+
+      </div>
+        
+    </div>
+
+  </div>
+
+  <div id = "last" class = "last">
+
+    <div id = "header_last" class = "header_last">
+      <h1>
+        Последние результаты игроков
+      </h1>
+    </div>
+
+    <div id = "game_last_area" class = "game_last_area">
+      <div id = "game_last" *ngFor="let pickedGame of pickedGames" class = "game_last">
+        
+        <div id = "game_last_name" class = "game_last_name">
+         # {{pickedGame.name}}
+        </div>
+        
+        <div id = "people_last" *ngFor="let pickedGame of pickedGames; let i = index" class = "people_last">
+          
+          <div id = "name_last"  *ngIf = "5>i" class = "name_last">
+            {{pickedGame.name}}
+            qqqqqqqqqqqqq
+          </div>
+          
+          <div id = "score_last"  *ngIf = "5>i" class = "score_last">
+            {{pickedGame.name}}
+          </div>
+          
+        </div>
+        
+      </div>
+
+    </div>
+    
+
+  </div>
+
+</div>
