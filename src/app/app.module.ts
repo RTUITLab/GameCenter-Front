@@ -7,45 +7,45 @@ import {MatTabsModule} from '@angular/material/tabs';
 
 import { HttpClientModule } from '@angular/common/http';
 
-import { AppComponent } from './app.component';//основной компонент со слайдером
-import { GameManageComponent} from './game-manage/game-manage.component';//окно управления играми
-import { AddGameComponent } from './game-manage/addGame/addGame.component';//всплывающее окно для добавления игры в список доступных игр
+import { AppComponent } from './app.component'; // основной компонент со слайдером
+import { GameManageComponent} from './game-manage/game-manage.component'; // окно управления играми
+import { AddGameComponent } from './game-manage/addGame/addGame.component'; // всплывающее окно для добавления игры в список доступных игр
 import { DelGameComponent } from './game-manage/del-game/del-game.component';
-import { QueueComponent } from './queue/queue.component';//вкладка очередь желающих
-import { TopComponent } from './top/top.component';//вкладка топ игроков
+import { QueueComponent } from './queue/queue.component'; // вкладка очередь желающих
+import { TopComponent } from './top/top.component'; // вкладка топ игроков
 
 
 
-//Game-manage //from https://material.angular.io/components/autocomplete/examples
-import {MatAutocompleteModule,MatFormFieldModule,MatInputModule} from '@angular/material';//автозаполнение
-import {ReactiveFormsModule,FormsModule} from '@angular/forms';
+// Game-manage //from https://material.angular.io/components/autocomplete/examples
+import {MatAutocompleteModule, MatFormFieldModule, MatInputModule} from '@angular/material'; // автозаполнение
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 
-//slider from https://material.angular.io/components/sidenav/examples
-import {MatSidenavModule, MatIconModule} from '@angular/material';//слайдер
+// slider from https://material.angular.io/components/sidenav/examples
+import {MatSidenavModule, MatIconModule} from '@angular/material'; // слайдер
 ////
 
-//routes
-import { RouterModule} from '@angular/router';//переходы между страницами
+// routes
+import { RouterModule} from '@angular/router'; // переходы между страницами
 ////
 
-//dialog in game-manage
-import {MatDialogModule} from '@angular/material/dialog';//всплывающее окно
+// dialog in game-manage
+import {MatDialogModule} from '@angular/material/dialog'; // всплывающее окно
 ////
 
-//сервис для работы ;
+// сервис для работы ;
 import { UserService } from './user.service';
-import { HubService } from './hub.service'
+import { HubService } from './hub.service';
 ////
 
-//разделитель по горизонтали
+// разделитель по горизонтали
 import {MatDividerModule} from '@angular/material/divider';
 ////
 
-//уведомления
+// уведомления
 import { ToastrModule } from 'ngx-toastr';
 ////
 
-//карточки с header and content
+// карточки с header and content
 import {MatCardModule} from '@angular/material/card';
 ////
 
@@ -69,62 +69,62 @@ import {MatCardModule} from '@angular/material/card';
     MatTabsModule,
     MatButtonModule,
 
-    //Game-manage //from https://material.angular.io/components/autocomplete/examples
+    // Game-manage //from https://material.angular.io/components/autocomplete/examples
     MatAutocompleteModule,
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
     FormsModule,
 
-    //slider from https://material.angular.io/components/sidenav/examples
+    // slider from https://material.angular.io/components/sidenav/examples
     MatSidenavModule,
     MatIconModule,
     ////
 
-    //routes
+    // routes
     RouterModule.forRoot([
       {
          path: '',
-         component:GameManageComponent
+         component: GameManageComponent
       },
       {
-        path:'game-manage',
-        component:GameManageComponent
+        path: 'game-manage',
+        component: GameManageComponent
        },
       {
-        path:'queue',
-        component:QueueComponent
+        path: 'queue',
+        component: QueueComponent
        },
       {
-        path:'top',
-        component:TopComponent
+        path: 'top',
+        component: TopComponent
        },
     ]),
     ////
 
-    //dialog in game-manage
+    // dialog in game-manage
     MatDialogModule,
     ////
 
-    //для переноса данных
+    // для переноса данных
     HttpClientModule,
     ////
 
-    //разделитель по горизонтали
+    // разделитель по горизонтали
     MatDividerModule,
     ////
 
-    //уведомления
+    // уведомления
     ToastrModule.forRoot(),
     ////
 
-    //карточки с header and content
+    // карточки с header and content
     MatCardModule
     ////
 
   ],
-  entryComponents:[AddGameComponent,DelGameComponent],
-  providers: [UserService,HubService,GameManageComponent],
+  entryComponents: [AddGameComponent, DelGameComponent],
+  providers: [UserService, HubService, GameManageComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
