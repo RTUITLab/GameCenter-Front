@@ -48,6 +48,7 @@ export class QueueComponent implements OnInit {
 
   ngOnInit() {
     this.loadPickedGames(); // подгружаем все выбранные игры
+    // SignalR || Связь с другими пользователями
     this._hubService.pickNotifier.subscribe( // подписываемся на событие выбора игры,совершенного другим пользователем
       n => this.loadPickedGames(),
       err => console.log(err),
@@ -63,6 +64,7 @@ export class QueueComponent implements OnInit {
       err => console.log(err),
       () => console.log('_hubService.deleteNotifier complete')
     );
+    ////
   }
 
 }
