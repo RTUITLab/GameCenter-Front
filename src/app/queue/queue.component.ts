@@ -25,11 +25,11 @@ export class QueueComponent implements OnInit {
 
   constructor(
     private _userServise: UserService, // переменная для обращения к сервису
-    private toastr: ToastrService,
-    private _hubService: HubService,
+    private toastr: ToastrService, // уведомления
+    private _hubService: HubService, // связь с другими пользователями
   ) { }
 
-  pickedGames: IData[];
+  pickedGames: IData[]; // массив выбранных игр  типа интерфейса IData[]
 
 
   private loadPickedGames() {// подгружаем все игры
