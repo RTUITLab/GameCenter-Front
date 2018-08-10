@@ -45,45 +45,22 @@ export class GameManageComponent implements OnInit {
     public dialog: MatDialog, // всплывающее окно для добавления игры
     private _userServise: UserService, // переменная для обращения к сервису
     private toastr: ToastrService, // уведомления
-    private _hubService: HubService
+    private _hubService: HubService // связь с другими пользователями
   ) { }
 
   public games: IData[]; // массив игр  типа интерфейса IData[]
 
   pickedGames: IData[]; // массив выбранных игр  типа интерфейса IData[]
 
-  // from https://material.angular.io/components/autocomplete/examples
+  // from https://material.angular.io/components/autocomplete/examples || фильтр автозаполнения поля ввода
 
   myControl = new FormControl();
   filteredGames: Observable<string[]>; // отфильтрованные данные из input
   ////
 
   public newGame: string; // переменная для добавления игры по имени actGame
-  private oldGame: string; // переменная для добавления игры по имени actGame
+  private oldGame: string; // переменная для удаления игры по имени actGame
 
-  ////////////////////
-  /*
-  private _hubConnection: HubConnection;
-  message = '1516';
-  messages: string[] = [];
-  data;
-  private global_url:string = 'http://51425529.ngrok.io/api/GameType/';//сам сервер
-
-  public sendMessage(): void {
-    this.data =  `Sent: ${this.message}`;
-
-    if(this._hubConnection){
-      this._hubConnection.invoke('Pick',this.data); //посылаем данные на сервер
-      console.log(this.data);
-    }
-    //this.messages.push(data);//локально заносим данные
-
-    /*this._hubConnection
-    .invoke('sendToAll', this.nick, this.message)
-    .catch(err => console.error(err));
-  }
-  ////////////////////
-  */
   private addGame(): void { // функция для кнопки для открытия всплывающего окна
 
     const dialogRef = this.dialog.open(AddGameComponent, {
@@ -93,7 +70,6 @@ export class GameManageComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-
       this.newGame = result;
       if (this.newGame !== undefined) {
         // добавляем игру по имени this.newGame
@@ -117,7 +93,6 @@ export class GameManageComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
       this.oldGame = result;
       if (this.oldGame !== undefined) {
         // добавляем игру по имени this.newGame
@@ -140,18 +115,14 @@ export class GameManageComponent implements OnInit {
     return this._userServise.getAll().subscribe((data: IData[]) => { // забираем данные из переменной в наш массив
       this.games = data; // присваиваем данные массиву игр
       this.myControl.setValue(''); // важная штука
-      console.log('Game-manage-all');
-      console.log(this.games); // проверяем массив пришедших данных
     });
   }
 
   public loadPickedGames() { // подгружаем все игры
     this._userServise.getAllPicked().subscribe((data: IData[]) => { // забираем данные из переменной в наш массив
       this.pickedGames = data; // присваиваем данные массиву игр
-      console.log(data); // проверяем массив пришедших данных
     });
   }
-
   private pick(Gamename: string) { // выбираем игру
     const gameId = this.games.find(g => g.name === Gamename).gameId;
     this._userServise.pickGame(gameId)
@@ -162,15 +133,6 @@ export class GameManageComponent implements OnInit {
       ); // обновляем статус на Selected
 
   }
-  /*private pick(Gamename:string){ // выбираем игру
-    const gameId = this.games.find(g => g.name === Gamename).gameId;
-    this._userServise.pickGame(gameId)
-        .then(()=>{
-                   this.toastr.success(`Игра ${Gamename} была выбрана`)})
-        .catch(()=>this.toastr.error(`Игра ${Gamename} уже выбрана`,`Игра не была выбрана`));
-        this.loadPickedGames();
-  }
-*/
   private unpick(game: string) { // удаляем из выбранных игр
     const gameName = this.games.find(g => g.gameId === game).name;
     this._userServise.unpickGame(game)
@@ -184,65 +146,42 @@ export class GameManageComponent implements OnInit {
 
   ngOnInit() {
 
-     // from https://material.angular.io/components/autocomplete/examples
+    // from https://material.angular.io/components/autocomplete/examples || фильтр автозаполнения поля ввода
 
-    this.filteredGames = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value)) // посылаем значение в фильтр
+      this.filteredGames = this.myControl.valueChanges.pipe(
+        startWith(''),
+        map(value => this._filter(value)) // посылаем значение в фильтр
 
-    );
+      );
     ////
 
     this.loadAllGames(); // подгружаем все игры
     this.loadPickedGames(); // подгружаем все выбранные игры
-    this._hubService.pickNotifier.subscribe(
+    // SignalR || Связь с другими пользователями
+    this._hubService.pickNotifier.subscribe( // подписываемся на событие выбора игры,совершенного другим пользователем
       n => this.loadPickedGames(),
       err => console.log(err),
       () => console.log('_hubService.pickNotifier complete')
     );
-    this._hubService.unpickNotifier.subscribe(
+    this._hubService.unpickNotifier.subscribe( // подписываемся на событие удаления игры из выбранных игр,совершенного другим пользователем
       n => this.loadPickedGames(),
       err => console.log(err),
       () => console.log('_hubService.unpickNotifier complete')
     );
-    this._hubService.addNotifier.subscribe(
+    this._hubService.addNotifier.subscribe( // подписываемся на событие добавления игры,совершенного другим пользователем
       n => this.loadAllGames(),
       err => console.log(err),
       () => console.log('_hubService.addNotifier complete')
     );
-    this._hubService.deleteNotifier.subscribe(
+    this._hubService.deleteNotifier.subscribe( // подписываемся на событие удаления игры,совершенного другим пользователем
       n => {this.loadAllGames();
             this.loadPickedGames(); },
       err => console.log(err),
       () => console.log('_hubService.deleteNotifier complete')
     );
-    //////////////////
-    /*
-      this._hubConnection = new SignalR.HubConnectionBuilder()
-        .withUrl('http://51425529.ngrok.io/hub') // ссылка на сервер,с каким устанавливаем соединение
-        .build(); // подготавливаем к старту
-
-     // this._hubConnection = new HubConnection('http://localhost:5000/chat');
-
-    this._hubConnection
-      .start() // устанавливаем соединение
-      .then(() => console.log('Connection started!'))
-      .catch(err => console.log('Error while establishing connection :'+ err) );
-
-
-
-      this._hubConnection.on('Pick', (data: any) => {    // получаем данные из сервера
-        const received = `Received: ${data}`;
-        console.log(received);
-        this.messages.push(received);          // записываем в локальные данные
-      });
-*/
+    ////
   }
-
-
-
-
-   // from https://material.angular.io/components/autocomplete/examples
+  // from https://material.angular.io/components/autocomplete/examples || фильтр автозаполнения поля ввода
   private _filter(value: any): string[] {
 
     const filterValue = value.toLowerCase();
