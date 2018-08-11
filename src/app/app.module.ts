@@ -12,6 +12,7 @@ import { GameManageComponent} from './game-manage/game-manage.component'; // о�
 import { AddGameComponent } from './game-manage/addGame/addGame.component'; // всплывающее окно для добавления игры в список доступных игр
 import { DelGameComponent } from './game-manage/del-game/del-game.component';
 import { QueueComponent } from './queue/queue.component'; // вкладка очередь желающих
+import { RecordManageComponent } from './record-manage/record-manage.component'; // вкладка Выборки рекордов
 import { TopComponent } from './top/top.component'; // вкладка топ игроков
 
 
@@ -22,6 +23,10 @@ import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 
 // slider from https://material.angular.io/components/sidenav/examples
 import {MatSidenavModule, MatIconModule} from '@angular/material'; // слайдер
+////
+
+// table from https://material.angular.io/components/table/api
+import {MatTableModule, MatSortModule, MatPaginatorModule} from '@angular/material';
 ////
 
 // routes
@@ -57,6 +62,7 @@ import {MatCardModule} from '@angular/material/card';
     AddGameComponent,
     DelGameComponent,
     QueueComponent,
+    RecordManageComponent,
     TopComponent,
 
   ],
@@ -81,6 +87,12 @@ import {MatCardModule} from '@angular/material/card';
     MatIconModule,
     ////
 
+   // table from https://material.angular.io/components/table/api
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    ////
+
     // routes
     RouterModule.forRoot([
       {
@@ -94,6 +106,10 @@ import {MatCardModule} from '@angular/material/card';
       {
         path: 'queue',
         component: QueueComponent
+       },
+      {
+        path: 'record-manage',
+        component: RecordManageComponent
        },
       {
         path: 'top',

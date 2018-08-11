@@ -6,7 +6,7 @@ import * as SignalR from '@aspnet/signalr';
 ////
 
 import { GameManageComponent } from './game-manage/game-manage.component'; // окно управления играми
-import { Observable, Subscriber } from '../../node_modules/rxjs';
+import { Observable, Subscriber } from 'rxjs';
 
 
 @Injectable({
