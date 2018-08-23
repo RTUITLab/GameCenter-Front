@@ -9,7 +9,7 @@
     grid-column: 2/8;
     grid-row: 2;
     text-align: center;
-    color:black;  
+    color:rgb(0, 0, 0);  
 }
 
 .mngedGame{
@@ -24,7 +24,17 @@
     grid-row: 1;
     justify-self: center;
     align-self: flex-end;
-    color:green;
+    border-radius: 10px; 
+    text-align: center;
+    color: rgb(255, 255, 255);     
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    display: inline-block;
+     text-decoration: none;
+     cursor: pointer;
+     border-collapse: 10px;
+    background-color: rgb(83, 83, 83); 
+
 }
 /*стиль кнопки для открытия всплывающего окна для добавления игры*/
 .delGame{
