@@ -5,7 +5,7 @@
     <!--Sidenav То, что находится внутри слайдера-->
         <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose style = "background-color: rgb(32, 33, 36);">
             <!--кнопка с иконкой для закрытия слайдера-->
-                 <button mat-icon-button (click)="close('toggle button')" style="margin-left:75%;">
+                 <button mat-icon-button (click)="close('toggle button')" style="margin-left:75%">
                      <mat-icon style="color: white;">menu</mat-icon>
                 </button>
             <!--end-->
@@ -35,7 +35,7 @@
         <mat-sidenav-content>
             <!--Content То, что находится вне слайдера-->
                 <!--кнопка с иконкой для закрытия слайдера-->
-                    <button mat-icon-button (click)="sidenav.open()" style="margin-left:1%;">
+                    <button mat-icon-button (click)="sidenav.open()" style="margin-left:1%;position: fixed">
                      <mat-icon style="color: black;">menu</mat-icon>
                     </button>
                 <!--end-->
