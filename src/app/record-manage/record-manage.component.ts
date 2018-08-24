@@ -18,10 +18,11 @@ import { HubService } from '../hub.service';
 ////
 
 export interface UserData {
-  id: string;
+  rating: string;
+  vkId: string;
   name: string;
-  progress: string;
-  color: string;
+  score: string;
+  date: string;
 }
 /** Constants used to fill up our data base. */
 const COLORS: string[] = ['maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple',
@@ -51,13 +52,14 @@ export class RecordManageComponent implements OnInit {
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource(users);
   }
-  displayedColumns: string[] = ['id', 'name', 'progress', 'color'];
-  dataSource: MatTableDataSource<UserData>;
-
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-
   public games: IData[]; // массив игр  типа интерфейса IData[]
+  displayedColumns: string[] = ['rating', 'vkId', 'name', 'score', 'date', 'delete'];
+  dataSource: MatTableDataSource<UserData>;
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  private delScore(name: string) {
+    console.log(name);
+  }
   public loadAllGames() { // подгружаем все игры
     return this._userServise.getAll().subscribe((data: IData[]) => { // забираем данные из переменной в наш массив
       this.games = data; // присваиваем данные массиву игр
@@ -100,10 +102,11 @@ function createNewUser(id: number): UserData {
       NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
 
   return {
-    id: id.toString(),
+    rating: id.toString(),
+    vkId: id.toString(),
     name: name,
-    progress: Math.round(Math.random() * 100).toString(),
-    color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
+    score: Math.round(Math.random() * 100).toString(),
+    date: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
   };
 }
 
