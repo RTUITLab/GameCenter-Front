@@ -13,11 +13,11 @@
             <h3 >
               {{pickedgame.name}}
             </h3> 
-            <mat-divider style="background-color:rgb(41, 41, 158)"></mat-divider>
+            <mat-divider style="background-color:rgb(225, 228, 232);"></mat-divider>
           </div>
 
           <div class="unpick">
-            <button mat-icon-button style="background-color: rgb(23, 23, 99);" (click)="unpick(pickedgame.gameId)">
+            <button mat-icon-button style="background-color:rgb(225, 228, 232);" (click)="unpick(pickedgame.gameId)">
               <mat-icon>clear</mat-icon>
             </button>
           </div>
@@ -28,7 +28,7 @@
   
   <!--Добавление новой игры-->
   <div id="dialog1" class="addGame">
-    <button mat-button (click) = "addGame()" style = "background-color: rgb(23, 23, 99);border-radius: 40px;">
+    <button mat-button (click) = "addGame()" style = "background-color:rgb(225, 228, 232);border-radius: 40px;">
       <h2>
         Добавить игру
       </h2>
@@ -37,7 +37,7 @@
   <!---->
   <!--Удаление игр-->
     <div id="dialog2" class="delGame">
-      <button mat-button (click) = "delGame()" style = "background-color: rgb(23, 23, 99);border-radius: 40px;">
+      <button mat-button (click) = "delGame()" style = "background-color:rgb(225, 228, 232);border-radius: 40px;">
         Удалить игру
       </button>
     </div>
@@ -47,7 +47,7 @@
   <div id = "routeToMngedGame" class = "routeToMngedGame">
     <div *ngFor="let game of filteredGames | async">
        <div *ngIf="Input.value === game">
-           <button mat-icon-button type = "reset" form = 'input' style = "background-color: rgb(23, 23, 99);color:green" (click)="pick(Input.value)">
+           <button mat-icon-button type = "reset" form = 'input' style = "background-color:rgb(225, 228, 232);color:green" (click)="pick(Input.value)">
               <mat-icon>add</mat-icon>
             </button>
         </div>
@@ -62,8 +62,8 @@
       <mat-form-field class="mngGame-full-width" >
         <input type="text" #Input placeholder="Введите название" style = 'color:black;' aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
         <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-          <div> 
-            <mat-option *ngFor="let game of filteredGames | async" [value]="game" style="background:rgb(34, 34, 38);color:white;">
+          <div > 
+            <mat-option *ngFor="let game of filteredGames | async" [value]="game" style="background-color:rgb(225, 228, 232);color:black;overflow: hidden;">
               {{game}}
             </mat-option>
           </div>

@@ -4,16 +4,16 @@
     grid-column-gap: 5px;
 }
 .dialog-actions-continue{
-    color: white;  
+    color: green;  
     text-align: center;
-    background-color: rgb(23, 23, 99);
+    background-color:rgb(225, 228, 232);
     border-radius:10px;
    
 }
 .dialog-actions-deny{
     text-align: center;
-    color: white;     
-    background-color: rgb(23, 23, 99);
+    color: red;     
+    background-color:rgb(225, 228, 232);
     border-radius: 10px;                                                
     
 }
@@ -27,11 +27,11 @@
     text-align: center;
     grid-column: 2/8;
      grid-row: 3;
-    color: white;
+    color: black;
     width: 100%;
   }
   /**/
   .filteredGame{
-    color:white
+    color:black;
 }
 

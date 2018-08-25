@@ -11,7 +11,7 @@
                 <input type="text" matInput [(ngModel)]="data.oldGame" #Input placeholder="Введите название" style = 'color:black' aria-label="Number" [formControl]="myControl" [matAutocomplete]="auto">
                 <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
                     <div class="filteredGame"> 
-                        <mat-option *ngFor="let game of filteredGames | async" [value]="game" style="background:rgb(34, 34, 38);color:white;">
+                        <mat-option *ngFor="let game of filteredGames | async" [value]="game" style="background-color:rgb(225, 228, 232);color:black;">
                         {{game}}
                         </mat-option>
                     </div>

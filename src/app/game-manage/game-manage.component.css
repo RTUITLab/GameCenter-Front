@@ -40,7 +40,7 @@
     grid-row: 3;
     text-align: left;
     align-self: left;
-    color:rgb(226, 226, 226);
+    color:black;
 }
 
 /*Input Ввод данных from https://material.angular.io/components/autocomplete/examples-->*/
@@ -72,7 +72,7 @@
     float: left;
 }
 .filteredGame{
-    color:white;
+    color:black;
 }
 
 /*кнопки для удаления из выбранных игр*/

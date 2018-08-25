@@ -3,30 +3,30 @@
     class="sidenav-container" (backdropClick)="close('backdrop')" >
 
     <!--Sidenav То, что находится внутри слайдера-->
-        <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose style = "background-color: rgb(32, 33, 36);">
+        <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose style = "background-color:rgb(225, 228, 232);">
             <!--кнопка с иконкой для закрытия слайдера-->
                  <button mat-icon-button (click)="close('toggle button')" style="margin-left:75%">
-                     <mat-icon style="color: white;">menu</mat-icon>
+                     <mat-icon style="color: black;">menu</mat-icon>
                 </button>
             <!--end-->
 
-            <h1 style="text-align: center;color: white">Меню</h1>
+            <h1 style="text-align: center;color: black">Меню</h1>
             
             <!--вкладки для перемещения на другие страницы-->
                 <p style="text-align: center">
-                   <button mat-button routerLink = "game-manage" style="border-radius: 5px;width: 100%;">Управление играми</button>
+                   <button mat-button routerLink = "game-manage" style="color: black;border-radius: 5px;width: 100%;">Управление играми</button>
                 </p>
 
                 <p style="text-align: center">
-                 <button mat-button routerLink = "queue" style="border-radius: 5px;width: 100%;">Очередь желающих</button>
+                 <button mat-button routerLink = "queue" style="color: black;border-radius: 5px;width: 100%;">Очередь желающих</button>
                 </p>
 
                 <p style="text-align: center">
-                 <button mat-button routerLink = "record-manage" style="border-radius: 5px;width: 100%;">Управление рекордами</button>
+                 <button mat-button routerLink = "record-manage" style="color: black;border-radius: 5px;width: 100%;">Управление рекордами</button>
                 </p>
 
                 <p style="text-align: center">
-                  <button mat-button routerLink = "top" style="border-radius: 5px;width: 100%;">Топ игроков</button>
+                  <button mat-button routerLink = "top" style="color: black;border-radius: 5px;width: 100%;">Топ игроков</button>
                 </p>
             <!--end-->
         </mat-sidenav>
