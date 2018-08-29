@@ -31,11 +31,26 @@ export class TopComponent implements OnInit {
 
   pickedGames: IData[]; // массив выбранных игр  типа интерфейса IData[]
 
-
   private loadPickedGames() {// подгружаем все игры
     this._userServise.getAllPicked().subscribe((data: IData []) => {// забираем данные из переменной в наш массив
        this.pickedGames = data; // присваиваем данные массиву игр
-       console.log(this.pickedGames); // проверяем массив пришедших данных
+
+       // если выбранных игр больше 4 и меньше 9 , то устанавливаем двуслайдовую анимацию
+       if (this.pickedGames.length > 4 && this.pickedGames.length <= 8 ) {
+        document.getElementById('game_top_area').style.animation = '10s twoSlides infinite';
+        document.getElementById('game_last_area').style.animation = '10s twoSlides infinite';
+       }
+       // если выбранных игр больше 4 и меньше 9 , то устанавливаем двуслайдовую анимацию
+       if (this.pickedGames.length > 8 && this.pickedGames.length <= 12 ) {
+        document.getElementById('game_top_area').style.animation = '15s threeSlides infinite';
+        document.getElementById('game_last_area').style.animation = '15s threeSlides infinite';
+       }
+       // если выбранных игр больше 4 и меньше 9 , то устанавливаем двуслайдовую анимацию
+       if (this.pickedGames.length > 12 && this.pickedGames.length <= 16 ) {
+        document.getElementById('game_top_area').style.animation = '20s fourSlides infinite';
+        document.getElementById('game_last_area').style.animation = '20s fourSlides infinite';
+       }
+
     });
   }
 
