@@ -2,8 +2,10 @@
 
   <div id='select_game' class="select_game">
 
-    <div id='mngGameText' class="mngGameText">
-      Выберите игру
+    <div id='mngGameText' class="mngGameText_area">
+      <div class="mngGameText">
+          Выберите игру
+      </div>
     </div>
 
     <div id='games_area' class="games_area">
@@ -22,17 +24,19 @@
 
     <div id='header_buttons' class="header_buttons">
 
-      <div id='addRecord' class="addRecord">
-        <button mat-icon-button>
+        <button mat-icon-button id='addRecord' class="addRecord">
           <mat-icon>add</mat-icon>
-        </button> 
-      </div>
+        </button>
 
-      <div id='delRecord' class="delRecord">
-        <button mat-icon-button>
+        <mat-button-toggle-group class="period">
+            <mat-button-toggle value="day">За день</mat-button-toggle>
+            <mat-button-toggle value="month">За месяц</mat-button-toggle>
+            <mat-button-toggle value="year">За год</mat-button-toggle>
+        </mat-button-toggle-group>
+
+        <button mat-icon-button id='delRecord' class="delRecord">
           <mat-icon>delete</mat-icon>
         </button> 
-      </div>
 
     </div>
 

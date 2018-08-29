@@ -1,30 +1,36 @@
 .global_rec_mng_style {
     display: grid;
     grid-template-columns: repeat(16,1fr);
-    grid-template-rows: repeat(1,1fr);
+    word-wrap: break-word; /* Перенос слов */ 
 }
 .select_game {
     display: grid;
     grid-column: 2/6;
     grid-template-columns: repeat(5,1fr);
-    grid-template-rows: 50px;
     box-shadow: 0 0 10px rgba(0,0,0,0.25);
 }
-.mngGameText{
+.mngGameText_area{
     grid-column: 1/6;
+    background-color: #24292e;
+}
+.mngGameText{
+    color:white;
     text-align: center;
     font-size: 24px;
-    align-self: center;
+    padding: 15px;
 }
 .games_area{
     grid-column: 1/6;
+    background-color: rgb(225, 228, 232);
 }
-.all_games {
+.select_record {
     text-align: center;
 }
 .pickGame {
     width: 100%;
     font-size: 18px;
+    white-space: normal;
+    word-break: break-all; /* Перенос слов */ 
 }
 .records_area {
         display: grid;
@@ -37,15 +43,23 @@
     grid-row: 1;
     grid-column: 1/17;
     grid-template-columns: repeat(16,1fr);
-    background-color: blueviolet;
 }
 .addRecord {
     grid-column: 2;
     align-self: center;
+    color: green;
+    background-color: rgb(225, 228, 232);
+}
+.period {
+    grid-column: 5/10;
+    align-self: center;
+    justify-self: center;
 }
 .delRecord {
     grid-column: 15;
-    text-align: end;
+    justify-self: end;
+    color:red;
+    background-color: rgb(225, 228, 232);
 }
 .table {
     grid-column: 1/17;

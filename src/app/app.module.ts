@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {MatButtonModule} from '@angular/material/button';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatTabsModule} from '@angular/material/tabs';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -74,6 +75,7 @@ import {MatCardModule} from '@angular/material/card';
     ReactiveFormsModule,
     MatTabsModule,
     MatButtonModule,
+    MatButtonToggleModule,
 
     // Game-manage //from https://material.angular.io/components/autocomplete/examples
     MatAutocompleteModule,

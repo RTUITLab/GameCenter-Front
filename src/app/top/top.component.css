@@ -1,47 +1,75 @@
+/*ONLY for 1920x1080 screen*/
 .top_page {
     display: grid;
     grid-template-rows: 50% 50%;
     grid-template-columns: repeat(16,1fr);
-    background-color: antiquewhite;
+    word-wrap: break-word; /* Перенос слов */ 
+    background: #1e2a38;
+    background: linear-gradient(rgb(12,16,22) 0%,rgb(30,42,56) 100%);
+    height: 100%;
+    overflow: hidden;
 }
 .top {
     display: grid;
-    grid-template-rows: 1fr 2fr;
+    grid-template-rows: 85px;
     grid-template-columns: repeat(5,1fr);
     grid-column: 1/17;
     grid-row: 1;
-    background-color: aqua;
+    overflow: hidden;
 }
 .header_top {
     grid-row: 1;
-    grid-column: 2/5;
+    grid-column: 1/20;
     text-align: center;
-    background-color: beige;
+    background-color: #05090e;
+    color:white;
 }
+@keyframes slidy {
+    0% { left: 100%; }
+    1% { left: 0% }
+    33% { left: 0% }
+    34% { left : -100.3%; }
+    65% { left: -100.3%; }
+    66% { left: -200.8%; }
+    99% { left: -200.8% }
+    100% { left: -303%; }
+    }
 .game_top_area {
     display: grid;
     grid-row: 2/6;
     grid-column: inherit;
-    grid-gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(20,1fr);
+    width: 100%;
+    justify-self: center;
+    align-self: center;
+    grid-column-gap: 10px;
+    position: relative;
+    animation: 10s slidy infinite; 
+    white-space: normal;
+    word-break: break-all; /* Перенос слов */ 
 }
 .game_top {
     display: grid;
     background-color: blue;
+    width: 470px;
+    grid-row-gap: 1px;
+    background: #000;
+    border: 1px solid #012f40;
+    box-shadow: 0 0 10px 0 #000;
 }
 .game_top_name {
-    background-color: rgb(224, 140, 13);
+    background-color: #111217;
+    color:white;
     font-size: 24px;
-    align-self: center;
     text-align: center;
 }
 .people_top {
     display: grid;
     grid-template-columns:repeat(5,1fr);
-    background-color: red;
+    background-color: #1d1e22;
+    color:white;
 }
 .medal_top {
-    background-color: green;
     grid-column: 1;
     align-self: center;
     font-size: 24px;
@@ -52,65 +80,78 @@
     align-self: center;
     font-size: 18px;
     text-align: center;
-    background-color: grey;
 }
 .score_top {
     grid-column: 4/6;
     align-self: center;
     font-size: 18px;
     text-align: center;
-    background-color: saddlebrown;
 }
 
 /***********/
 
 .last {
     display: grid;
-    grid-template-rows: 1fr 2fr;
+    grid-template-rows: 85px;
     grid-template-columns: repeat(5,1fr);
     grid-column: 1/17;
     grid-row: 2;
-    background-color: aquamarine;
+    overflow: hidden;
+    grid-gap: 10px;
 }
 .header_last {
     grid-row: 1;
-    grid-column: 2/5;
+    grid-column: 1/20;
     text-align: center;
-    background-color: bisque;
+    background-color: #05090e;
+    color:white;
 }
 .game_last_area {
     display: grid;
     grid-row: 2/6;
     grid-column: inherit;
     grid-gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(20,1fr);
+    width: 100%;
+    justify-self: center;
+    align-self: center;
+    grid-column-gap: 10px;
+    position: relative;
+    animation: 10s slidy infinite; 
+    white-space: normal;
+    word-break: break-all; /* Перенос слов */ 
 }
 .game_last {
     display: grid;
     background-color: blue;
+    width: 470px;
+    grid-row-gap: 1px;
+    background: #000;
+    border: 1px solid #012f40;
+    box-shadow: 0 0 10px 0 #000;
 }
 .game_last_name {
-    background-color: rgb(224, 140, 13);
+    background-color: #111217;
+    color:white;
     font-size: 24px;
-    align-self: center;
     text-align: center;
 }
 .people_last {
     display: grid;
     grid-template-columns:repeat(5,1fr);
-    background-color: red;
+    background-color: #1d1e22;
+    color:white;
 }
 .name_last {
     grid-column: 1/4;
     align-self: center;
     font-size: 18px;
     text-align: center;
-    background-color: grey;
 }
 .score_last {
     grid-column: 4/6;
     align-self: center;
     font-size: 18px;
     text-align: center;
-    background-color: saddlebrown;
+
 }

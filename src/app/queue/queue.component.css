@@ -3,40 +3,36 @@
     grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
     grid-column-gap: 20px;
     grid-row-gap: 20px;
-    color:white;
-    margin: 20px;
+    color:black;
+    padding: 20px;
+    margin: 35px;
+    word-wrap: break-word; /* Перенос слов */ 
 }
 .header{
     display: grid;
     padding: 7px;
-
-    background-color: #bdbdbd;
+    background-color: #24292e;
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
-    /* grid-template-columns: repeat(12,1fr); */
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 90% 10%;
     
 }
 .header-name{
-    /* grid-column: 4/8; */
     grid-column: 1;
     align-self: center;
-    font-size: 4vw;
+    font-size: 20px;
     text-align: center;
+    color:white;
 }
 .header-button{
     grid-column: 2;
-    width: auto;
-    float: right;
+    float: inherit;
 }
 
 .decline_all {
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    font-size: 4vw; 
     margin: auto;
     color: black;
-    background-color: gray;
-    /* text-align: center; */
     border-radius: 15px;
     
 }
@@ -44,18 +40,21 @@
     /* display: grid; */
     padding: 10px;
     margin-top: 2px;
-    background-color:#e0e0e0;
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
+    background-color:rgb(225, 228, 232);
+    border-bottom-right-radius: 7px;
+    border-bottom-left-radius: 7px;
     /* grid-template-rows:repeat(50,50px); */
+    overflow-y: scroll;
+    height: 290px;
     
 }
 .queue-people-area{
     display: grid;
-    /* grid-gap: 10px; */
     align-self: center;
     text-align: center;
     grid-template-columns: 70% 15% 15%;
+    padding-top: 5px;
+    padding-bottom: 5px;
 
 }
 .queue-user_name{
@@ -63,25 +62,20 @@
     align-self: center;
     text-align: center;
     font-size:18px;
-    color:  rgb(77, 76, 76);
+    color:  black;
 
 }
 .queue-user_deny{
     grid-column: 2;
-    /*background-color: #ef5350;
-    color: whitesmoke;
-    border-radius: 10px; */
 }
 .queue-user_accept{
     grid-column: 3;
-    /* background-color: #66bb6a;
-    color: whitesmoke;
-    border-radius: 10px; */
-
 }
 
 .icon {
     width: 60%;
+    width: 40px;
+    height: 40px;
 }
 .decline_icon {
     transform: rotate(45deg);
@@ -92,7 +86,6 @@
     transform: rotate3d(45deg);
     width: 30%;*/
     transform: rotate(45deg);
-    width: 50%;
 
 }
 

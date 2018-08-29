@@ -3,6 +3,7 @@
     display: grid;
     grid-template-columns: repeat(16,1fr);
     grid-template-rows: repeat(12,1fr);
+    word-wrap: break-word; /* Перенос слов */ 
     }
     .mngGame{
         grid-column: 3/15;
