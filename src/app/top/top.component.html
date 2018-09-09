@@ -2,10 +2,10 @@
 
   <div id = "top" class = "top">
 
-    <div id = "header_top" class = "header_top">
-      <h1>
+    <div id = "header_top" class = "header">
+      <div class="header_text">
         Топ игроков
-      </h1>
+      </div>
     </div>
     
     <div id = "game_top_area" class = "game_top_area">
@@ -42,16 +42,16 @@
 
   <div id = "last" class = "last">
 
-    <div id = "header_last" class = "header_last">
-      <h1>
+    <div id = "header_last" class = "header">
+      <div class="header_text">
         Последние результаты игроков
-      </h1>
+      </div>
     </div>
 
     <div id = "game_last_area" class = "game_last_area">
       <div id = "game_last" *ngFor="let pickedGame of pickedGames" class = "game_last">
         
-        <div id = "game_last_name" class = "game_last_name">
+        <div id = "game_last" class = "game_last_name">
          # {{pickedGame.name}}
         </div>
         

@@ -44,14 +44,8 @@
     grid-column: 1/17;
     grid-template-columns: repeat(16,1fr);
 }
-.addRecord {
-    grid-column: 2;
-    align-self: center;
-    color: green;
-    background-color: rgb(225, 228, 232);
-}
 .period {
-    grid-column: 5/10;
+    grid-column: 6/12;
     align-self: center;
     justify-self: center;
 }
