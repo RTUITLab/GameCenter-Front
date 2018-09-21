@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 // прототип получаемых данных
-import { IData} from '../DataInterface';
+import { IData, IQueue} from '../DataInterface';
 ////
 
 // сервис для операций с данными
@@ -30,13 +30,23 @@ export class QueueComponent implements OnInit {
   ) { }
 
   pickedGames: IData[]; // массив выбранных игр  типа интерфейса IData[]
+  peopleQueue: IQueue[]; // массив людей в очереди
 
 
   private loadPickedGames() {// подгружаем все игры
     this._userServise.getAllPicked().subscribe((data: IData []) => {// забираем данные из переменной в наш массив
        this.pickedGames = data; // присваиваем данные массиву игр
-       console.log(this.pickedGames); // проверяем массив пришедших данных
+       console.log(this.pickedGames + 'PIcked games'); // проверяем массив пришедших данных
     });
+  }
+  private loadPeople() { // подгружаем очередь
+    this._userServise.getAllPeople().subscribe((data: IQueue []) => {// забираем данные из переменной в наш массив
+      this.peopleQueue = data; // присваиваем данные массиву игр
+      console.log(this.peopleQueue + 'QUeue '); // проверяем массив пришедших данных
+   });
+  }
+  private sendPeople() {
+    this._hubService._hubConnection.invoke('New', {});
   }
 
   private decline_all(name: string) { // отменяем все заявки конкретной игры
@@ -48,9 +58,16 @@ export class QueueComponent implements OnInit {
 
   ngOnInit() {
     this.loadPickedGames(); // подгружаем все выбранные игры
+    this.loadPeople(); // Подгружаем людей в очередь
+    console.log(this.peopleQueue + `QUEUESTAck`);
     // SignalR || Связь с другими пользователями
     this._hubService.pickNotifier.subscribe( // подписываемся на событие выбора игры,совершенного другим пользователем
       n => this.loadPickedGames(),
+      err => console.log(err),
+      () => console.log('_hubService.pickNotifier complete')
+    );
+    this._hubService.queueNotifier.subscribe( // подписываемся на событие выбора игры,совершенного другим пользователем
+      n => this.loadPeople() ,
       err => console.log(err),
       () => console.log('_hubService.pickNotifier complete')
     );

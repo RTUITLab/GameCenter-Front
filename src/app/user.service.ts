@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 ////
 
 // прототип получаемых данных
-import { IData } from './DataInterface';
+import { IData, IQueue } from './DataInterface';
 ////
 
 //
@@ -23,7 +23,8 @@ export class UserService {
 
   public game: IData[]; // массив игр  типа интерфейса IData[]
 
-  private global_url = 'https://gamecenterback.azurewebsites.net/api/Gametype/'; // сам сервер
+  // private global_url = 'https://gamecenterback.azurewebsites.net/api/Gametype/'; // сам сервер
+  public global_url = 'http://4412d474.ngrok.io/api/Gametype/';
   constructor(private http: HttpClient, // для предачи данных
   ) {
   }
@@ -43,9 +44,13 @@ export class UserService {
     console.log('delGame ' + game);
     return this.http.delete<Object>(this.global_url + 'delete/' + game);
   }
+  public getAllPeople(): Observable<IQueue[]> { // получаем всех людей в очереди
+    console.log(`getallpeople`);
+    return this.http.get<IQueue[]>(`http://4412d474.ngrok.io/api/VkBot/getqueue/`);
+  }
 
   public getAllPicked(): Observable<IData[]> {// получаем все выбранные игры
-    console.log('user-service');
+    console.log('getallpicked');
     return this.http.get<IData[]>(this.global_url + 'selected/'); // передаем все данные с ссылки;
   }
 

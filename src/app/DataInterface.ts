@@ -4,4 +4,8 @@ export interface IData {
     state: string;
 
 }
+export interface IQueue {
+    username: string;
+    GameName: string;
+}
 
