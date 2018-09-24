@@ -1,8 +1,8 @@
 <div id='content'class="content">
   
   
-  <div id = 'mngGame' class = "mngGame"><h1>Выберите игру {{data}}</h1></div>
-  <div id = 'mngedGame' class = "mngedGame"><h1>Выбранные игры{{action}}</h1></div>
+  <div id = 'mngGame' class = "mngGame">Выберите игру {{data}}</div>
+  <div id = 'mngedGame' class = "mngedGame">Выбранные игры{{action}}</div>
   
   <!--Выбранные игры и кнопки для удаления из выбранных-->
   
@@ -10,9 +10,10 @@
         <div *ngFor="let pickedgame of pickedGames"> 
 
           <div class="gameNameColumn">
-            <h3 >
+            <h3>
+
               {{pickedgame.name}}
-            </h3> 
+            </h3>
             <mat-divider style="background-color:rgb(225, 228, 232);"></mat-divider>
           </div>
 
@@ -60,10 +61,10 @@
     <!--Input Ввод данных from https://material.angular.io/components/autocomplete/examples-->
     <form id="input">
       <mat-form-field class="mngGame-full-width" >
-        <input type="text" #Input placeholder="Введите название" style = 'color:black;' aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
-        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <input type="text" #Input placeholder="Введите название" style = 'color:black;font-size: 1.5vh;' aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" >
           <div > 
-            <mat-option *ngFor="let game of filteredGames | async" [value]="game" style="background-color:rgb(225, 228, 232);color:black;overflow: hidden;">
+            <mat-option *ngFor="let game of filteredGames | async" [value]="game" class="filteredgames">
               {{game}}
             </mat-option>
           </div>

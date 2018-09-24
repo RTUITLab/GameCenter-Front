@@ -4,17 +4,20 @@
   grid-template-columns: repeat(16,1fr);
   grid-template-rows: repeat(11,1fr);
   word-wrap: break-word; /* Перенос слов */ 
+  height: 100vh;
 }
 
 .mngGame{
     grid-column: 2/8;
     grid-row: 2;
+    font-size: 3.5vh;
     text-align: center;
     color:black;  
 }
 
 .mngedGame{
     grid-column: 10/16;
+    font-size: 3.5vh;
     grid-row: 2;
     text-align: center;
     color:black;  
@@ -49,9 +52,17 @@
     grid-row: 3;
    grid-column: 2/8;
    overflow: hidden;
-    text-align: center;
-  }
-  .mngGame-full-width {
+   text-align: center;
+}
+.filteredgames{
+    background-color:rgb(225, 228, 232);
+    background-color: aqua;
+    color:black;
+    font-size: 1.5vh;
+    overflow: hidden;
+}
+.mngGame-full-width {
+    height: 100vh;
     text-align: center;
     grid-column: 2/8;
      grid-row: 3;
@@ -65,12 +76,18 @@
     grid-column: 11/16;
     grid-row-start: 3;
     grid-row-end:11;
+    display: inline-block;
 }
 
 .gameNameColumn {
     width: 80%;
+    font-size: 1.17em;
     text-align: center;
+    align-self: center;
     float: left;
+}
+h3{
+    font-size: 2vh;
 }
 .filteredGame{
     color:black;

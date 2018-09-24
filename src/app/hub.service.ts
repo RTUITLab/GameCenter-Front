@@ -17,8 +17,8 @@ import {IQueue} from './DataInterface';
 })
 export class HubService {
   public _hubConnection: HubConnection; // SignalR
- // public hub_url = 'https://gamecenterback.azurewebsites.net'; // сам сервер
- public hub_url = 'http://4412d474.ngrok.io';
+  public hub_url = 'https://gamecenterback.azurewebsites.net'; // сам сервер
+ // public hub_url = 'http://4412d474.ngrok.io';
   peopleQueue: IQueue[]; // массив людей в очереди
 
   public pickNotifier: Observable<Object>;

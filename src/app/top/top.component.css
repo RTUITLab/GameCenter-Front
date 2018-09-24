@@ -3,12 +3,12 @@
     display: grid;
     grid-template-rows: 50% 50%;
     grid-template-columns: repeat(16,1fr);
-    word-wrap: break-word; /* Перенос слов */ 
+    /* word-wrap: break-word; /* Перенос слов */  
     background: #1e2a38;
     background: linear-gradient(rgb(12,16,22) 0%,rgb(30,42,56) 100%);
     height: 100vh;
     overflow: hidden;
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 .top {
     display: grid;
@@ -19,31 +19,35 @@
     overflow: hidden;
 }
 .header {
-    grid-row: 1;
-    grid-column: 1/20;
+    width: 100vw;
     text-align: center;
     height: 8vh;
     background-color: #05090e;
     color:white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
 }
 .header_text{
-    font-size: 3.5vh;
     padding: 1.5vh;
+    font-size: 3.5vh;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 @keyframes twoSlides {
     0% { left: 100vw; }
     1% { left: 0%; }
     50.99% { left : 0%; }
-    51% { left: -100.45vw; }
-    99.99% { left: -100.45vw; }
+    51% { left: -100.399vw; }
+    99.99% { left: -100.399vw; }
     100% { left: -203vw; }
 }
 @keyframes threeSlides {
     0% { left: 100vw; }
     1% { left: 0% }
     33.99% { left: 0% }
-    34% { left : -100.45vw; }
-    65.99% { left: -100.45vw; }
+    34% { left : -100.399vw; }
+    65.99% { left: -100.399vw; }
     66% { left: -200.91vw; }
     99.99% { left: -200.91vw }
     100% { left: -303vw; }
@@ -52,8 +56,8 @@
     0% { left: 100vw; }
     1% { left: 0% }
     25.99% { left: 0% }
-    26% { left : -100.45vw; }
-    50.99% { left: -100.45vw; }
+    26% { left : -100.399vw; }
+    50.99% { left: -100.399vw; }
     51% { left: -200.91vw; }
     75.99% { left: -200.91vw; }
     76% { left: -301.39vw; }
@@ -68,46 +72,62 @@
     grid-column-gap: 0.5vw;
     position: relative;
     align-content: space-between;
-    white-space: normal;
-    word-break: break-all; /* Перенос слов */ 
+    /* white-space: normal;
+    word-break: break-all; /* Перенос слов */  
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 .game_top {
     display: grid;
     grid-row-gap: 1px;
     width: 24.52vw;
+    height: 30vh;
     background: #000;
     border: 0.05vw solid #012f40;
     box-shadow: 0 0 10px 0 #000;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    background-color: #111217;
 }
 .game_top_name {
-    background-color: #111217;
     color:white;
     font-size: 3vh;
     text-align: center;
+    align-self: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .people_top {
     display: grid;
     grid-template-columns:repeat(5,1fr);
     background-color: #1d1e22;
+    font-size: 2vh;
     color:white;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .medal_top {
     grid-column: 1;
     align-self: center;
     font-size: 2vh;
     text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .name_top {
     grid-column: 2/4;
     align-self: center;
-    font-size: 2vh;
     text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .score_top {
     grid-column: 4/6;
     align-self: center;
     font-size: 2vh;
     text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /***********/
@@ -137,39 +157,52 @@
     align-content: space-between;
     grid-column-gap: 0.5vw;
     position: relative;
-    white-space: normal;
+    /* white-space: normal;
     word-break: break-all; /* Перенос слов */ 
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 .game_last {
     display: grid;
     width: 24.52vw;
+    height: 35vh;
     grid-row-gap: 1px;
     background: #000;
     border: 0.05vw  solid #012f40;
     box-shadow: 0 0 10px 0 #000;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 .game_last_name {
     background-color: #111217;
     color:white;
     font-size: 3vh;
     text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 .people_last {
     display: grid;
     grid-template-columns:repeat(5,1fr);
     background-color: #1d1e22;
     color:white;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 .name_last {
     grid-column: 1/4;
     align-self: center;
     font-size: 2vh;
     text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 .score_last {
     grid-column: 4/6;
     align-self: center;
     font-size: 2vh;
     text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
 
 }
