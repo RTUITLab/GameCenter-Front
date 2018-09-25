@@ -3,7 +3,6 @@
   display: grid;
   grid-template-columns: repeat(16,1fr);
   grid-template-rows: repeat(11,1fr);
-  word-wrap: break-word; /* Перенос слов */ 
   height: 100vh;
 }
 
@@ -30,6 +29,10 @@
     align-self: flex-end;
     color:green;
 }
+.dialog_opener_text{
+    background-color:rgb(225, 228, 232);
+    border-radius: 40px;
+}
 /*стиль кнопки для открытия всплывающего окна для добавления игры*/
 .delGame{
     grid-column: 8/10;
@@ -37,6 +40,7 @@
     justify-self: center;
     align-self: center;
     color:red;
+    height:2.5vh;
 }
 /*стиль кнопки для добавления игры в Выбранные игры*/
 .routeToMngedGame{
@@ -54,11 +58,21 @@
    overflow: hidden;
    text-align: center;
 }
+::ng-deep .mat-autocomplete-panel.extended { //изменяем ширину стандартного окна с помощью ::ng-deep
+    max-height: 60vh;
+  }
+::ng-deep .mat-icon-button.extended {
+    height: 5vh;
+    width: 5vh;
+}
+::ng-deep .mat-icon.extended {
+    width: auto;
+    font-size: 3vh;
+}
+
 .filteredgames{
-    background-color:rgb(225, 228, 232);
-    background-color: aqua;
-    color:black;
-    font-size: 1.5vh;
+    font-size: 1.6vh;
+    height: 4.5vh;
     overflow: hidden;
 }
 .mngGame-full-width {
@@ -87,6 +101,8 @@
     float: left;
 }
 h3{
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-size: 2vh;
 }
 .filteredGame{

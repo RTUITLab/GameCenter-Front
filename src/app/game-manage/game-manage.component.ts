@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 // from https://material.angular.io/components/autocomplete/examples Фильтр вводимого названия
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
+import { map, startWith, find } from 'rxjs/operators';
 ////
 
 // from https://material.angular.io/components/dialog/examples Всплывающее окно для Добавления / удаления игр
@@ -17,7 +17,7 @@ import { UserService } from '../user.service';
 ////
 
 // прототип получаемых данных
-import { IData } from '../DataInterface';
+import { IAllGames , IPickedGames } from '../DataInterface';
 ////
 
 // уведомления
@@ -33,8 +33,8 @@ import { HubService } from '../hub.service';
 @Component({
   selector: 'app-game-manage',
   templateUrl: './game-manage.component.html',
-  styleUrls: ['./game-manage.component.css',
-    './game-manage.component-mob.css'] // для ширины экрана 900px
+  styleUrls: ['./game-manage.component.scss',
+    './game-manage.component-mob.scss'] // для ширины экрана 900px
 })
 
 
@@ -48,14 +48,14 @@ export class GameManageComponent implements OnInit {
     private _hubService: HubService // связь с другими пользователями
   ) { }
 
-  public games: IData[]; // массив игр  типа интерфейса IData[]
+  public games: IAllGames[]; // массив игр  типа интерфейса IAllGames[]
 
-  pickedGames: IData[]; // массив выбранных игр  типа интерфейса IData[]
-
+  pickedGames: IPickedGames[]; // массив выбранных игр  типа интерфейса IPickedGames[]
   // from https://material.angular.io/components/autocomplete/examples || фильтр автозаполнения поля ввода
 
   myControl = new FormControl();
   filteredGames: Observable<string[]>; // отфильтрованные данные из input
+  unPickedGames: Observable<string[]>;
   ////
 
   public newGame: string; // переменная для добавления игры по имени actGame
@@ -87,8 +87,6 @@ export class GameManageComponent implements OnInit {
   private delGame(): void { // функция для кнопки для открытия всплывающего окна
 
     const dialogRef = this.dialog.open(DelGameComponent, {
-      width: '512px', // ширина всплывающего окна
-      height: '228px', // высота всплывающего окна
       data: { oldGame: this.oldGame } // название новой игры из Inputa
     });
 
@@ -112,14 +110,14 @@ export class GameManageComponent implements OnInit {
   }
 
   public loadAllGames() { // подгружаем все игры
-    return this._userServise.getAll().subscribe((data: IData[]) => { // забираем данные из переменной в наш массив
+    return this._userServise.getAll().subscribe((data: IAllGames[]) => { // забираем данные из переменной в наш массив
       this.games = data; // присваиваем данные массиву игр
       this.myControl.setValue(''); // важная штука
     });
   }
 
   public loadPickedGames() { // подгружаем все игры
-    this._userServise.getAllPicked().subscribe((data: IData[]) => { // забираем данные из переменной в наш массив
+    this._userServise.getAllPicked().subscribe((data: IPickedGames[]) => { // забираем данные из переменной в наш массив
       this.pickedGames = data; // присваиваем данные массиву игр
     });
   }
@@ -165,6 +163,7 @@ export class GameManageComponent implements OnInit {
 
     this.loadAllGames(); // подгружаем все игры
     this.loadPickedGames(); // подгружаем все выбранные игры
+    console.log(this.pickedGames);
     // SignalR || Связь с другими пользователями
     this._hubService.pickNotifier.subscribe( // подписываемся на событие выбора игры,совершенного другим пользователем
       n => this.loadPickedGames(),

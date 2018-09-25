@@ -3,7 +3,6 @@
     display: grid;
     grid-template-columns: repeat(16,1fr);
     grid-template-rows: repeat(12,1fr);
-    word-wrap: break-word; /* Перенос слов */ 
     }
     .mngGame{
         grid-column: 3/15;
@@ -43,7 +42,18 @@
         overflow: hidden;
       text-align: center;
     
-    }
+  }
+    ::ng-deep .mat-autocomplete-panel.extended { //изменяем ширину стандартного окна с помощью ::ng-deep
+      max-height: 40vh;
+  }
+    ::ng-deep .mat-icon-button.extended {
+      height: 5vh;
+      width: 5vh;
+  }
+  ::ng-deep .mat-icon.extended {
+    width: auto;
+    font-size: 3vh;
+}
 
     /*стиль карточек выбранных игр*/
     .cardsOfmngedGames{
@@ -70,6 +80,11 @@
 }
 .filteredGame{
   color:black;
+}
+h3{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 2vh;
 }
 
 /*кнопки для удаления из выбранных игр*/

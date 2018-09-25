@@ -9,7 +9,7 @@
             <form>
             <mat-form-field class="mngGame-full-width" >
                 <input type="text" matInput [(ngModel)]="data.oldGame" #Input placeholder="Введите название" style = 'color:black' aria-label="Number" [formControl]="myControl" [matAutocomplete]="auto">
-                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" class="extended">
                     <div class="filteredGame"> 
                         <mat-option *ngFor="let game of filteredGames | async" [value]="game" style="background-color:rgb(225, 228, 232);color:black;">
                         {{game}}

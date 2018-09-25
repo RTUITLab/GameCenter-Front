@@ -9,7 +9,7 @@ import { UserService } from '../../user.service';
 ////
 
 // интерфейс данных
-import { IData } from '../../DataInterface';
+import { IAllGames } from '../../DataInterface';
 ////
 
 // from https://material.angular.io/components/autocomplete/examples Фильтр вводимого названия
@@ -21,7 +21,7 @@ import {map, startWith} from 'rxjs/operators';
 @Component({
   selector: 'app-del-game',
   templateUrl: './del-game.component.html',
-  styleUrls: ['./del-game.component.css']
+  styleUrls: ['./del-game.component.scss']
 })
 export class DelGameComponent implements OnInit {
 
@@ -34,7 +34,7 @@ export class DelGameComponent implements OnInit {
     private _userService: UserService, // сервис для получения данных
   ) {}
 
-  public games: IData[]; // переменная для хранения данных о всех играх
+  public games: IAllGames[]; // переменная для хранения данных о всех играх
 
   // from https://material.angular.io/components/autocomplete/examples
   myControl = new FormControl();
@@ -45,10 +45,9 @@ export class DelGameComponent implements OnInit {
   }
 
   private loadAllGames() { // подгружаем все игры
-   return this._userService.getAll().subscribe((data: IData []) => { // забираем данные из переменной в наш массив
+   return this._userService.getAll().subscribe((data: IAllGames []) => { // забираем данные из переменной в наш массив
        this.games = data; // присваиваем данные массиву игр
         this.myControl.setValue(''); // важная штука
-       console.log(this.games); // проверяем массив пришедших данных
     });
   }
 

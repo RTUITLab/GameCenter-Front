@@ -11,15 +11,14 @@
 
           <div class="gameNameColumn">
             <h3>
-
               {{pickedgame.name}}
             </h3>
             <mat-divider style="background-color:rgb(225, 228, 232);"></mat-divider>
           </div>
 
           <div class="unpick">
-            <button mat-icon-button style="background-color:rgb(225, 228, 232);" (click)="unpick(pickedgame.gameId)">
-              <mat-icon>clear</mat-icon>
+            <button mat-icon-button class="extended" style="background-color:rgb(225, 228, 232);" (click)="unpick(pickedgame.gameId)">
+              <mat-icon class="extended">clear</mat-icon>
             </button>
           </div>
 
@@ -38,7 +37,7 @@
   <!---->
   <!--Удаление игр-->
     <div id="dialog2" class="delGame">
-      <button mat-button (click) = "delGame()" style = "background-color:rgb(225, 228, 232);border-radius: 40px;">
+      <button mat-button (click) = "delGame()" class="dialog_opener_text">
         Удалить игру
       </button>
     </div>
@@ -61,11 +60,11 @@
     <!--Input Ввод данных from https://material.angular.io/components/autocomplete/examples-->
     <form id="input">
       <mat-form-field class="mngGame-full-width" >
-        <input type="text" #Input placeholder="Введите название" style = 'color:black;font-size: 1.5vh;' aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
-        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" >
-          <div > 
+        <input type="text" #Input placeholder="Введите название"aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" class="extended">
+          <div> 
             <mat-option *ngFor="let game of filteredGames | async" [value]="game" class="filteredgames">
-              {{game}}
+                  {{game}}
             </mat-option>
           </div>
         </mat-autocomplete>

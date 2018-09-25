@@ -20,10 +20,10 @@
 
     <div id="queue" class="queue">
 
-      <div id='people-area' *ngFor="let pickedGame of pickedGames" class="queue-people-area">
+      <div id='people-area' *ngFor="let people of peopleQueue" class="queue-people-area">
         
         <div id="user_name" class="queue-user_name">
-          {{peopleQueue.username}}
+          {{people.playerName}
         </div>
         
         <div id="btn-deny">
