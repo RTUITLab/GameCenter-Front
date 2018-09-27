@@ -1,6 +1,6 @@
 .allGames{
     display: grid;
-    grid-template-columns: repeat(12,500px);
+    grid-template-columns: repeat(auto-fill,minmax(470px,1fr));
     grid-column-gap: 20px;
     grid-row-gap: 20px;
     color:black;
@@ -52,13 +52,19 @@
     display: grid;
     align-self: center;
     text-align: center;
-    grid-template-columns: 70% 15% 15%;
+    grid-template-columns: 15% 55% 15% 15%;
     padding-top: 5px;
     padding-bottom: 5px;
 
 }
-.queue-user_name{
+.queue-user_state{
     grid-column: 1;
+    text-align: center;
+    align-self: center;
+
+}
+.queue-user_name{
+    grid-column: 2;
     align-self: center;
     text-align: center;
     font-size:18px;

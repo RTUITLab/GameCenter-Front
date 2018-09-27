@@ -24,7 +24,8 @@ export class UserService {
   public game: IData[]; // массив игр  типа интерфейса IData[]
 
   // private global_url = 'https://gamecenterback.azurewebsites.net/api/Gametype/'; // сам сервер
-  public global_url = 'http://4412d474.ngrok.io/api/Gametype/';
+   public global_url = 'http://3682530d.ngrok.io/api/Gametype/';
+   public second_url = 'http://3682530d.ngrok.io/api/playermanager/';
   constructor(private http: HttpClient, // для предачи данных
   ) {
   }
@@ -45,8 +46,12 @@ export class UserService {
     return this.http.delete<Object>(this.global_url + 'delete/' + game);
   }
   public getAllPeople(): Observable<IQueue[]> { // получаем всех людей в очереди
-    console.log(`getallpeople`);
-    return this.http.get<IQueue[]>(`http://4412d474.ngrok.io/api/VkBot/getqueue/`);
+    console.log(`getallpeople try to GET`);
+    return this.http.get(`http://3682530d.ngrok.io/api/VkBot/getqueue/`);
+  }
+  public acceptUser(username: string): Observable<Object> {
+    console.log( `acceptUser` );
+    return this.http.put<Object>(this.second_url + 'accept/' + username);
   }
 
   public getAllPicked(): Observable<IData[]> {// получаем все выбранные игры

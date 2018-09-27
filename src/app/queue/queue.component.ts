@@ -40,9 +40,9 @@ export class QueueComponent implements OnInit {
     });
   }
   private loadPeople() { // подгружаем очередь
-    this._userServise.getAllPeople().subscribe((data: IQueue []) => {// забираем данные из переменной в наш массив
+    this._userServise.getAllPeople().subscribe((data: IQueue[]) => {// забираем данные из переменной в наш массив
       this.peopleQueue = data; // присваиваем данные массиву игр
-      console.log(this.peopleQueue + 'QUeue '); // проверяем массив пришедших данных
+      console.log(this.peopleQueue + 'QUeueLOADALLPEOPLE '); // проверяем массив пришедших данных
    });
   }
   private sendPeople() {
@@ -53,7 +53,18 @@ export class QueueComponent implements OnInit {
   }
   private decline_user(name: string) { // отклоняем заявку желающего поиграть
   }
-  private accept_user(name: string) { // отклоняем заявку желающего поиграть
+  private accept_user(username: string) { // отклоняем заявку желающего поиграть
+    this._userServise.acceptUser(username)
+    .subscribe(
+      _ => {
+        this.loadPickedGames();
+        this.loadPeople();
+      },
+      e => {
+        this.toastr.error(`Пользователь ${username} не одобрен`);
+      },
+      () => this.toastr.success(`Пользователь ${username} одобрен`)
+    );
   }
 
   ngOnInit() {

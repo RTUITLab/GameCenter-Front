@@ -5,7 +5,8 @@ export interface IData {
 
 }
 export interface IQueue {
-    username: string;
-    GameName: string;
+  gameName: string;
+  username: string;
+  status: string;
 }
 
