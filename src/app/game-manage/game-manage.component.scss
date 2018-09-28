@@ -3,18 +3,20 @@
   display: grid;
   grid-template-columns: repeat(16,1fr);
   grid-template-rows: repeat(11,1fr);
-  word-wrap: break-word; /* Перенос слов */ 
+  height: 100vh;
 }
 
 .mngGame{
     grid-column: 2/8;
     grid-row: 2;
+    font-size: 3.5vh;
     text-align: center;
     color:black;  
 }
 
 .mngedGame{
     grid-column: 10/16;
+    font-size: 3.5vh;
     grid-row: 2;
     text-align: center;
     color:black;  
@@ -27,6 +29,10 @@
     align-self: flex-end;
     color:green;
 }
+.dialog_opener_text{
+    background-color:rgb(225, 228, 232);
+    border-radius: 40px;
+}
 /*стиль кнопки для открытия всплывающего окна для добавления игры*/
 .delGame{
     grid-column: 8/10;
@@ -34,6 +40,7 @@
     justify-self: center;
     align-self: center;
     color:red;
+    height:2.5vh;
 }
 /*стиль кнопки для добавления игры в Выбранные игры*/
 .routeToMngedGame{
@@ -49,9 +56,27 @@
     grid-row: 3;
    grid-column: 2/8;
    overflow: hidden;
-    text-align: center;
+   text-align: center;
+}
+::ng-deep .mat-autocomplete-panel.extended { //изменяем ширину стандартного окна с помощью ::ng-deep
+    max-height: 60vh;
   }
-  .mngGame-full-width {
+::ng-deep .mat-icon-button.extended {
+    height: 5vh;
+    width: 5vh;
+}
+::ng-deep .mat-icon.extended {
+    width: auto;
+    font-size: 3vh;
+}
+
+.filteredgames{
+    font-size: 1.6vh;
+    height: 4.5vh;
+    overflow: hidden;
+}
+.mngGame-full-width {
+    height: 100vh;
     text-align: center;
     grid-column: 2/8;
      grid-row: 3;
@@ -65,12 +90,20 @@
     grid-column: 11/16;
     grid-row-start: 3;
     grid-row-end:11;
+    display: inline-block;
 }
 
 .gameNameColumn {
     width: 80%;
+    font-size: 1.17em;
     text-align: center;
+    align-self: center;
     float: left;
+}
+h3{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 2vh;
 }
 .filteredGame{
     color:black;

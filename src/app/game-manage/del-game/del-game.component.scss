@@ -17,6 +17,13 @@
     border-radius: 10px;                                                
     
 }
+::ng-deep .mat-autocomplete-panel.extended {
+    max-height: 40vh;
+  }
+::ng-deep .mat-dialog-container{
+    height: 28vh;
+    width: 80vh;
+}
 /*Input Ввод данных from https://material.angular.io/components/autocomplete/examples-->*/
 .mngGame-input{
     grid-row: 3;

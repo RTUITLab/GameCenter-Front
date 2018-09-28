@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 ////
 
 // прототип получаемых данных
-import { IData, IQueue } from './DataInterface';
+import {  IQueue, IAllGames, IPickedGames } from './DataInterface';
 ////
 
 //
@@ -21,7 +21,7 @@ import { Observable } from 'rxjs';
 export class UserService {
   public ic = 0;
 
-  public game: IData[]; // массив игр  типа интерфейса IData[]
+  public game: IAllGames[]; // массив игр  типа интерфейса IAllGames[]
 
   // private global_url = 'https://gamecenterback.azurewebsites.net/api/Gametype/'; // сам сервер
    public global_url = 'http://3682530d.ngrok.io/api/Gametype/';
@@ -32,8 +32,8 @@ export class UserService {
 
   // private _url:string = 'https://jsonplaceholder.typicode.com/users/';//ссылка для получения данных
 
-  public getAll(): Observable<IData[]> {
-    return this.http.get<IData[]>(this.global_url); // передаем все данные с ссылки
+  public getAll(): Observable<IAllGames[]> {
+    return this.http.get<IAllGames[]>(this.global_url); // передаем все данные с ссылки
   }
 
   public addGame(game: string): Observable<Object> { // добавляем игру
@@ -45,18 +45,18 @@ export class UserService {
     console.log('delGame ' + game);
     return this.http.delete<Object>(this.global_url + 'delete/' + game);
   }
-  public getAllPeople(): Observable<IQueue[]> { // получаем всех людей в очереди
+  public getAllPeople(): Observable<Object> { // получаем всех людей в очереди
     console.log(`getallpeople try to GET`);
     return this.http.get(`http://3682530d.ngrok.io/api/VkBot/getqueue/`);
   }
   public acceptUser(username: string): Observable<Object> {
     console.log( `acceptUser` );
-    return this.http.put<Object>(this.second_url + 'accept/' + username);
+    return this.http.put<Object>(this.second_url + 'accept/' + username, '');
   }
 
-  public getAllPicked(): Observable<IData[]> {// получаем все выбранные игры
+  public getAllPicked(): Observable<IPickedGames[]> {// получаем все выбранные игры
     console.log('getallpicked');
-    return this.http.get<IData[]>(this.global_url + 'selected/'); // передаем все данные с ссылки;
+    return this.http.get<IPickedGames[]>(this.global_url + 'selected/'); // передаем все данные с ссылки;
   }
 
   public pickGame(gameid: string): Observable<Object> {// выбираем игру

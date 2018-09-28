@@ -13,20 +13,20 @@
             <h1 style="text-align: center;color: black">Меню</h1>
             
             <!--вкладки для перемещения на другие страницы-->
-                <p style="text-align: center">
-                   <button mat-button routerLink = "game-manage" style="color: black;border-radius: 5px;width: 100%;">Управление играми</button>
+                <p>
+                   <button mat-button routerLink = "game-manage" (click)="close('toggle button')" class="btn">Управление играми</button>
                 </p>
 
-                <p style="text-align: center">
-                 <button mat-button routerLink = "queue" style="color: black;border-radius: 5px;width: 100%;">Очередь желающих</button>
+                <p>
+                 <button mat-button routerLink = "queue" (click)="close('toggle button')" class="btn">Очередь желающих</button>
                 </p>
 
-                <p style="text-align: center">
-                 <button mat-button routerLink = "record-manage" style="color: black;border-radius: 5px;width: 100%;">Управление рекордами</button>
+                <p>
+                 <button mat-button routerLink = "record-manage" (click)="close('toggle button')" class="btn">Управление рекордами</button>
                 </p>
 
-                <p style="text-align: center">
-                  <button mat-button routerLink = "top" style="color: black;border-radius: 5px;width: 100%;">Топ игроков</button>
+                <p>
+                  <button mat-button routerLink = "top" (click)="close('toggle button')" class="btn">Топ игроков</button>
                 </p>
             <!--end-->
         </mat-sidenav>

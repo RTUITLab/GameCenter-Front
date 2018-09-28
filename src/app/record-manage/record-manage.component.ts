@@ -6,7 +6,7 @@ import { UserService } from '../user.service';
 ////
 
 // прототип получаемых данных
-import { IData } from '../DataInterface';
+import { IAllGames } from '../DataInterface';
 ////
 
 // уведомления
@@ -52,7 +52,7 @@ export class RecordManageComponent implements OnInit {
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource(users);
   }
-  public games: IData[]; // массив игр  типа интерфейса IData[]
+  public games: IAllGames[]; // массив игр  типа интерфейса IAllGames[]
   displayedColumns: string[] = ['rating', 'vkId', 'name', 'score', 'date', 'delete'];
   dataSource: MatTableDataSource<UserData>;
   @ViewChild(MatSort) sort: MatSort;
@@ -61,7 +61,7 @@ export class RecordManageComponent implements OnInit {
     console.log(name);
   }
   public loadAllGames() { // подгружаем все игры
-    return this._userServise.getAll().subscribe((data: IData[]) => { // забираем данные из переменной в наш массив
+    return this._userServise.getAll().subscribe((data: IAllGames[]) => { // забираем данные из переменной в наш массив
       this.games = data; // присваиваем данные массиву игр
     });
   }

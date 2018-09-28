@@ -5,10 +5,7 @@ import { HubConnection } from '@aspnet/signalr';
 import * as SignalR from '@aspnet/signalr';
 ////
 
-import { GameManageComponent } from './game-manage/game-manage.component'; // окно управления играми
 import { Observable, Subscriber } from 'rxjs';
-
-import {IQueue} from './DataInterface';
 
 
 @Injectable({
@@ -17,9 +14,8 @@ import {IQueue} from './DataInterface';
 })
 export class HubService {
   public _hubConnection: HubConnection; // SignalR
- // public hub_url = 'https://gamecenterback.azurewebsites.net'; // сам сервер
- public hub_url = 'http://3682530d.ngrok.io';
-  peopleQueue: IQueue[]; // массив людей в очереди
+  public hub_url = 'https://gamecenterback.azurewebsites.net'; // сам сервер
+  // public hub_url = 'http://5a6b5acb.ngrok.io';
 
   public pickNotifier: Observable<Object>;
   private pickSubscriber: Subscriber<Object>;
@@ -43,9 +39,6 @@ export class HubService {
     this.queueNotifier = new Observable<Object>(sub => this.queueSubscriber = sub );
     this.addNotifier = new Observable<Object>(sub => this.addSubscriber = sub);
     this.deleteNotifier = new Observable<Object>(sub => this.deleteSubscriber = sub);
-  }
-  public rotateToQueue() { // Отсылаем в очередь
-    return this.peopleQueue;
   }
   public connect() {
     this._hubConnection = new SignalR.HubConnectionBuilder()
