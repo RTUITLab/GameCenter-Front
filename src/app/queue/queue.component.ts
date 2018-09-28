@@ -58,6 +58,7 @@ export class QueueComponent implements OnInit {
       _ => {
         this.loadPickedGames();
         this.loadPeople();
+        this._hubService.queueSubscriber.next();
       },
       e => {
         this.toastr.error(`Пользователь ${username} не одобрен`);
@@ -81,6 +82,11 @@ export class QueueComponent implements OnInit {
       err => console.log(err),
       () => console.log('_hubService.pickNotifier complete')
     );
+    /*this._hubService.queueNotifier.subscribe( // подписываемся на событие выбора игры,совершенного другим пользователем
+      (data: string) => {// забираем данные из переменной в наш массив
+        this.peopleQueue.find(g => g.playerId === data).status = `In game`;
+        console.log(this.peopleQueue + 'QUeueLOADALLPEOPLE '); // проверяем массив пришедших данных
+     });*/
     this._hubService.unpickNotifier.subscribe( // подписываемся на событие удаления игры из выбранных игр,совершенного другим пользователем
       n => this.loadPickedGames(),
       err => console.log(err),

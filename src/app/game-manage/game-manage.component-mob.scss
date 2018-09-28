@@ -12,7 +12,7 @@
     }
     .mngedGame{
         grid-column: 1/17;
-        grid-row: 6;
+        grid-row: 7;
       text-align: center;
       color:black;
     }
@@ -28,7 +28,7 @@
       /*стиль кнопки для добавления игры в Выбранные игры*/
     .routeToMngedGame{
         grid-column: 15;
-        grid-row: 3;
+        grid-row: 4;
       text-align: left;
       align-self: center;
       color:black;
@@ -38,7 +38,7 @@
     .mngGame-input{
       
         grid-column: 3/15;
-        grid-row: 4;
+        grid-row: 5;
         overflow: hidden;
       text-align: center;
     

@@ -87,6 +87,8 @@ export class GameManageComponent implements OnInit {
   private delGame(): void { // функция для кнопки для открытия всплывающего окна
 
     const dialogRef = this.dialog.open(DelGameComponent, {
+      width: '512px', // ширина всплывающего окна
+      height: '228px', // высота всплывающего окна
       data: { oldGame: this.oldGame } // название новой игры из Inputa
     });
 

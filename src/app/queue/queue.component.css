@@ -1,12 +1,12 @@
 .allGames{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(470px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(44vw,44vw));
     grid-column-gap: 20px;
     grid-row-gap: 20px;
     color:black;
-    padding: 20px;
-    margin: 35px;
-    word-wrap: break-word; /* Перенос слов */ 
+    padding: 50px;
+    justify-content: center;
+    text-overflow: ellipsis;
     box-sizing: border-box;
 }
 .header{
@@ -15,20 +15,26 @@
     background-color: #24292e;
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
-    grid-template-columns: 90% 10%;
+    display: inline-flex;
+    box-sizing: border-box;
+    width: 100%;
     
 }
 .header-name{
     text-overflow: ellipsis;
-    grid-column: 1;
-    align-self: center;
-    font-size: 20px;
+    width: 80%;
+    overflow: hidden;
+    font-size: 4vh;
     text-align: center;
     color:white;
+    float: left;
+    box-sizing: border-box;
 }
-.header-button{
-    grid-column: 2;
-    float: inherit;
+.header-place{
+    width: 20%;
+    float: right;
+    text-align: center;
+    box-sizing: border-box;
 }
 
 .decline_all {
@@ -81,9 +87,8 @@
 }
 
 .icon {
-    width: 60%;
-    width: 40px;
-    height: 40px;
+  width: 5vw;
+  height: 5vh;
 }
 .decline_icon {
     transform: rotate(45deg);

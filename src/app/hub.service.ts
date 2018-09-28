@@ -14,8 +14,8 @@ import { Observable, Subscriber } from 'rxjs';
 })
 export class HubService {
   public _hubConnection: HubConnection; // SignalR
-  public hub_url = 'https://gamecenterback.azurewebsites.net'; // сам сервер
-  // public hub_url = 'http://5a6b5acb.ngrok.io';
+  // public hub_url = 'https://gamecenterback.azurewebsites.net'; // сам сервер
+   public hub_url = 'http://31ba73e2.ngrok.io';
 
   public pickNotifier: Observable<Object>;
   private pickSubscriber: Subscriber<Object>;
@@ -24,7 +24,7 @@ export class HubService {
   private unpickSubscriber: Subscriber<Object>;
 
   public queueNotifier: Observable<Object>;
-  private queueSubscriber: Subscriber<Object>;
+  public queueSubscriber: Subscriber<Object>;
 
   public addNotifier: Observable<Object>;
   private addSubscriber: Subscriber<Object>;
@@ -62,7 +62,7 @@ export class HubService {
       this.unpickSubscriber.next();
     }
     );
-    this._hubConnection.on('New', () => { // получаем данные из сервер
+    this._hubConnection.on('Accept', () => { // получаем данные из сервер
       console.log('Received NewQueue');
       this.queueSubscriber.next();
     }

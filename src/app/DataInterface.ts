@@ -11,5 +11,6 @@ export interface IQueue {
   gameName: string;
   username: string;
   status: string;
+  playerId: string;
 }
 

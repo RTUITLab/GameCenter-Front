@@ -1,44 +1,44 @@
-.dialog-actions{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    grid-column-gap: 5px;
+.dialog-actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 5px;
 }
-.dialog-actions-continue{
-    color: green;  
-    text-align: center;
-    background-color:rgb(225, 228, 232);
-    border-radius:10px;
-   
+.dialog-actions-continue {
+  color: green;
+  text-align: center;
+  background-color: rgb(225, 228, 232);
+  border-radius: 10px;
+  &:hover{
+      padding: 10px;
+      background-color:blue;
+  }
 }
-.dialog-actions-deny{
-    text-align: center;
-    color: red;     
-    background-color:rgb(225, 228, 232);
-    border-radius: 10px;                                                
-    
+.dialog-actions-deny {
+  text-align: center;
+  color: red;
+  background-color: rgb(225, 228, 232);
+  border-radius: 10px;
 }
-::ng-deep .mat-autocomplete-panel.extended {
+/*::ng-deep {
+  .mat-autocomplete-panel.extended {
     max-height: 40vh;
-  }
-::ng-deep .mat-dialog-container{
-    height: 28vh;
-    width: 80vh;
-}
-/*Input Ввод данных from https://material.angular.io/components/autocomplete/examples-->*/
-.mngGame-input{
-    grid-row: 3;
-   grid-column: 2/8;
-    text-align: center;
-  }
-  .mngGame-full-width {
-    text-align: center;
-    grid-column: 2/8;
-     grid-row: 3;
-    color: black;
-    width: 100%;
-  }
-  /**/
-  .filteredGame{
-    color:black;
-}
+  }*/
 
+//}
+/*Input Ввод данных from https://material.angular.io/components/autocomplete/examples-->*/
+.mngGame-input {
+  grid-row: 3;
+  grid-column: 2/8;
+  text-align: center;
+}
+.mngGame-full-width {
+  text-align: center;
+  grid-column: 2/8;
+  grid-row: 3;
+  color: black;
+  width: 100%;
+}
+/**/
+.filteredGame {
+  color: black;
+}

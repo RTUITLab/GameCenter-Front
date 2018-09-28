@@ -8,7 +8,7 @@
         {{pickedGame.name}}
       </div>
 
-      <div id='button'>
+      <div id='button' class="header-place">
          <button mat-icon-button class="header-button" (click) = "decline_all(pickedGame.name)">
             <img class="icon decline_icon" src="assets/icons/decline_user.svg">
           </button>
@@ -22,7 +22,6 @@
 
       <div id='people-area' *ngFor="let people of peopleQueue" class="queue-people-area">
         
-<<<<<<< HEAD
           <div class="queue-user_state" *ngIf='pickedGame.name===people.gameName'>
             {{people.status}}
           </div>
@@ -30,16 +29,6 @@
           <div id="user_name" class="queue-user_name" *ngIf='pickedGame.name===people.gameName'>
             {{people.username}}
           </div>
-=======
-        <div id="user_name" class="queue-user_name">
-          {{people.playerName}
-        </div>
-        
-        <div id="btn-deny">
-          <button mat-icon-button class="queue-user_deny" (click) = "decline_user(pickedGame.name)">
-                <img class="icon decline_icon " src="assets/icons/decline_user.svg" />
-          </button>
->>>>>>> 6089c286bb79cad98a5fdf11a90d457575824508
           
           <div id="btn-deny" *ngIf='pickedGame.name===people.gameName'>
             <button mat-icon-button class="queue-user_deny" (click) = "decline_user(people.username)">
