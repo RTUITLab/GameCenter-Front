@@ -1,0 +1,21 @@
+.dialog-actions{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-column-gap: 5px;
+
+}
+.dialog-actions-continue{
+
+    color: green;  
+    text-align: center;
+    border-radius: 10px;
+    background-color:rgb(225, 228, 232);
+}
+.dialog-actions-deny{
+    text-align: center;
+    color: red;     
+    border-radius: 10px;
+    background-color:rgb(225, 228, 232);
+    
+}
+

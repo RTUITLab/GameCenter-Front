@@ -9,7 +9,7 @@
       </div>
 
       <div id='button' class="header-place">
-         <button mat-icon-button class="header-button" (click) = "decline_all(pickedGame.name)">
+         <button mat-icon-button class="header-button" (click) = "decline_all(pickedGame.gameId)">
             <img class="icon decline_icon" src="assets/icons/decline_user.svg">
           </button>
       </div>
@@ -31,7 +31,7 @@
           </div>
           
           <div id="btn-deny" *ngIf='pickedGame.name===people.gameName'>
-            <button mat-icon-button class="queue-user_deny" (click) = "decline_user(people.username)">
+            <button mat-icon-button class="queue-user_deny" (click) = "delUser(people.username)">
                   <img class="icon decline_icon " src="assets/icons/decline_user.svg" />
             </button>
             

@@ -53,6 +53,14 @@ export class UserService {
     console.log( `acceptUser` );
     return this.http.put<Object>(this.second_url + 'accept/' + username, '');
   }
+  public declineUser(name: string , score: Number ): Observable<Object> {
+    console.log( `declineUser`);
+    return this.http.put<Object>(this.second_url + 'refuse/' + name + '/' + score, '');
+  }
+  public declineAllUsers(name: string): Observable<Object> {
+    console.log(`declineALLusers`);
+    return this.http.put<Object>(this.second_url + `deleteall/` + name, '');
+  }
 
   public getAllPicked(): Observable<IPickedGames[]> {// получаем все выбранные игры
     console.log('getallpicked');

@@ -13,6 +13,7 @@ import { GameManageComponent} from './game-manage/game-manage.component'; // о�
 import { AddGameComponent } from './game-manage/addGame/addGame.component'; // всплывающее окно для добавления игры в список доступных игр
 import { DelGameComponent } from './game-manage/del-game/del-game.component';
 import { QueueComponent } from './queue/queue.component'; // вкладка очередь желающих
+import { DelUserComponent } from './queue/del-user/del-user.component';
 import { RecordManageComponent } from './record-manage/record-manage.component'; // вкладка Выборки рекордов
 import { TopComponent } from './top/top.component'; // вкладка топ игроков
 
@@ -65,6 +66,7 @@ import {MatCardModule} from '@angular/material/card';
     QueueComponent,
     RecordManageComponent,
     TopComponent,
+    DelUserComponent,
 
   ],
 
@@ -141,7 +143,7 @@ import {MatCardModule} from '@angular/material/card';
     ////
 
   ],
-  entryComponents: [AddGameComponent, DelGameComponent],
+  entryComponents: [AddGameComponent, DelGameComponent, DelUserComponent],
   providers: [UserService, HubService, GameManageComponent],
   bootstrap: [AppComponent]
 })
