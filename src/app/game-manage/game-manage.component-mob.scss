@@ -16,14 +16,26 @@
       text-align: center;
       color:black;
     }
-
     /*стиль кнопки для открытия всплывающего окна для добавления игры*/
-    .dialog{
-      grid-column: 4/14;
-      grid-row: 2;
+    .addGame{
       text-align: center;
-      color:black;
+      grid-column: 8/10;
+      grid-row: 1;
+      padding-top: 1vh;
+      justify-self: center;
+      align-self: flex-end;
+      color:green;
+      box-sizing: border-box;
       }
+    .addGame_btn{
+      background-color:rgb(225, 228, 232);
+      border-radius: 40px;
+      block-size: 4vh;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 3vh;
+      box-sizing: border-box;
+    }
 
       /*стиль кнопки для добавления игры в Выбранные игры*/
     .routeToMngedGame{

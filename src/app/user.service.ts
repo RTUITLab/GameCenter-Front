@@ -23,8 +23,8 @@ export class UserService {
 
   public game: IAllGames[]; // массив игр  типа интерфейса IAllGames[]
 
-   /// private global_url = 'https://gamecenterback.azurewebsites.net/api/'; // сам сервер';
-   private global_url = 'http://7565abbf.ngrok.io/api/';
+  // private global_url = 'https://gamecenterback.azurewebsites.net/api/Gametype/'; // сам сервер
+   public global_url = 'https://gamecenterback.azurewebsites.net/api/';
   constructor(private http: HttpClient, // для предачи данных
   ) {
   }
@@ -46,7 +46,7 @@ export class UserService {
   }
   public getAllPeople(): Observable<Object> { // получаем всех людей в очереди
     console.log(`getallpeople try to GET`);
-    return this.http.get(this.global_url + `VkBot/getqueue/`);
+    return this.http.get(`${this.global_url}VkBot/getqueue/`);
   }
   public acceptUser(usernameId: string): Observable<Object> {
     console.log( `acceptUser` );

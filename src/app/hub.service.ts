@@ -14,8 +14,8 @@ import { Observable, Subscriber } from 'rxjs';
 })
 export class HubService {
   public _hubConnection: HubConnection; // SignalR
-  // public hub_url = 'https://gamecenterback.azurewebsites.net'; // сам сервер
-   public hub_url = 'http://7565abbf.ngrok.io';
+   public hub_url = 'https://gamecenterback.azurewebsites.net'; // сам сервер
+  // public hub_url = 'http://31ba73e2.ngrok.io';
 
   public pickNotifier: Observable<Object>;
   private pickSubscriber: Subscriber<Object>;
