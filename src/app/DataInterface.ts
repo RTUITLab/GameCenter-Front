@@ -12,5 +12,22 @@ export interface IQueue {
   username: string;
   status: string;
   playerId: string;
+  gameTypeId: string;
+}
+export interface IRating {
+    id: string;
+    name: string;
+    score: string;
+    date: string;
+  }
+export interface ITop {
+    gameName: string;
+    username: string;
+    scoreCount: Number;
+}
+export interface ILast {
+    gameName: string;
+    username: string;
+    scoreCount: Number;
 }
 

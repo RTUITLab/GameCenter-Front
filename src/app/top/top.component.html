@@ -13,24 +13,57 @@
       <div id = "game_top"  *ngFor="let pickedGame of pickedGames" class = "game_top">
 
         <div id = "game_top_name" class = "game_top_name">
-          {{pickedGame.name}}0000000000000000000000000000000000000000000000000000000000000000000
+          {{pickedGame.name}}
         </div>
         
-        <div id = "people_top" *ngFor="let pickedGame of pickedGames; let i = index" class = "people_top">
-          
-          <div id = "medal_top"  *ngIf = "3>i" class = "medal_top">
-            #0000000000000000000000000000000000000000000000000000000000000000000
+        <div id = "people_top" *ngFor="let people of Top; let i = index" class = "people_top">
+          <div *ngIf="people[0].gameName===pickedGame.name" class="top3">
+            
+            <div id = "medal_top1"  *ngIf = "3>i" class = "medal_top1">
+              #
+            </div>
+            
+            <div id = "name_top1"  *ngIf = "3>i"  class = "name_top1">
+              {{people[0].username}}
+            </div>
+            
+            <div id = "score_top1" *ngIf = "3>i"   class = "score_top1">
+              {{people[0].scoreCount}}
+            </div>
+            
           </div>
-          
+          <div *ngIf="people[1].gameName===pickedGame.name" class="top2">
 
-          <div id = "name_top"  *ngIf = "3>i"  class = "name_top">
-            {{pickedGame.name}}0000000000000000000000000000000000000000000000000000000000000000000
+            <div id = "medal_top2"  *ngIf = "3>i" class = "medal_top2">
+              #
+            </div>
+            
+            
+            <div id = "name_top2"  *ngIf = "3>i"  class = "name_top2">
+              {{people[1].username}}
+            </div>
+            
+            <div id = "score_top2" *ngIf = "3>i"   class = "score_top2">
+              {{people[1].scoreCount}}
+            </div>
+            
           </div>
-          
-          <div id = "score_top" *ngIf = "3>i"   class = "score_top">
-            {{pickedGame.name}}0000000000000000000000000000000000000000000000000000000000000000000
+          <div *ngIf="people[2].gameName===pickedGame.name" class="top3">
+
+            <div id = "medal_top3"  *ngIf = "3>i" class = "medal_top3">
+              #
+            </div>
+            
+            
+            <div id = "name_top3"  *ngIf = "3>i"  class = "name_top3">
+              {{people[2].username}}
+            </div>
+            
+            <div id = "score_top3" *ngIf = "3>i"   class = "score_top3">
+              {{people[2].scoreCount}}
+            </div>
+            
           </div>
-          
         </div>   
         
       </div>

@@ -16,10 +16,10 @@ import { ToastrService } from 'ngx-toastr';
 // связь с другими пользователями
 import { HubService } from '../hub.service';
 ////
+import { IRating } from '../DataInterface';
 
 export interface UserData {
   rating: string;
-  vkId: string;
   name: string;
   score: string;
   date: string;
@@ -53,20 +53,24 @@ export class RecordManageComponent implements OnInit {
     this.dataSource = new MatTableDataSource(users);
   }
   public games: IAllGames[]; // массив игр  типа интерфейса IAllGames[]
-  displayedColumns: string[] = ['rating', 'vkId', 'name', 'score', 'date', 'delete'];
-  dataSource: MatTableDataSource<UserData>;
+  public Records: IRating[];
+  displayedColumns: string[] = ['rating', 'name', 'score', 'date', 'delete'];
+  dataSource: MatTableDataSource<IRating>;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   private delScore(name: string) {
     console.log(name);
   }
   public loadAllGames() { // подгружаем все игры
-    return this._userServise.getAll().subscribe((data: IAllGames[]) => { // забираем данные из переменной в наш массив
+     this._userServise.getAll().subscribe((data: IAllGames[]) => { // забираем данные из переменной в наш массив
       this.games = data; // присваиваем данные массиву игр
     });
   }
-  public loadRecords(name: string) { // подгружаем все рекорды
-
+  public loadRecords(gameId) { // подгружаем все рекорды
+    console.log('loadRECOrdINRECORDMANAGe');
+    this._userServise.getRecords(gameId).subscribe((data: IRating[]) => {
+      this.Records = data;
+    });
   }
 
 
@@ -96,14 +100,13 @@ export class RecordManageComponent implements OnInit {
   }
 }
 
-function createNewUser(id: number): UserData {
+function createNewUser(id: number): IRating {
   const name =
       NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
       NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
 
   return {
-    rating: id.toString(),
-    vkId: id.toString(),
+    id: id.toString(),
     name: name,
     score: Math.round(Math.random() * 100).toString(),
     date: COLORS[Math.round(Math.random() * (COLORS.length - 1))]

@@ -31,14 +31,14 @@
           </div>
           
           <div id="btn-deny" *ngIf='pickedGame.name===people.gameName'>
-            <button mat-icon-button class="queue-user_deny" (click) = "delUser(people.username)">
+            <button mat-icon-button class="queue-user_deny" (click) = "delUser(people.playerId,people.gameTypeId)">
                   <img class="icon decline_icon " src="assets/icons/decline_user.svg" />
             </button>
             
           </div>
           
           <div id="btn-accept" *ngIf='pickedGame.name===people.gameName'>
-            <button mat-icon-button class="queue-user_accept" (click) = "accept_user(people.username)">
+            <button mat-icon-button class="queue-user_accept" (click) = "accept_user(people.playerId)">
               <img class="icon" src="assets/icons/accept_user.svg" />
             </button> 
           </div>

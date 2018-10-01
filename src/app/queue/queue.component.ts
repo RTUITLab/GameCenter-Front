@@ -67,8 +67,8 @@ export class QueueComponent implements OnInit {
   }
   private decline_user(name: string) { // отклоняем заявку желающего поиграть
   }
-  private accept_user(username: string) { // отклоняем заявку желающего поиграть
-    this._userServise.acceptUser(username)
+  private accept_user(usernameId: string) { // отклоняем заявку желающего поиграть
+    this._userServise.acceptUser(usernameId)
     .subscribe(
       _ => {
         this.loadPickedGames();
@@ -76,12 +76,12 @@ export class QueueComponent implements OnInit {
         this._hubService.queueSubscriber.next();
       },
       e => {
-        this.toastr.error(`Пользователь ${username} не одобрен`);
+        this.toastr.error(`Пользователь не одобрен | Ошибка`);
       },
-      () => this.toastr.success(`Пользователь ${username} одобрен`)
+      () => this.toastr.success(`Пользователь одобрен`)
     );
   }
-  private delUser(name: string): void { // функция для кнопки для открытия всплывающего окна
+  private delUser(nameId: string, gamenameId: string): void { // функция для кнопки для открытия всплывающего окна
 
     const dialogRef = this.dialog.open(DelUserComponent, {
       width: '512px', // ширина всплывающего окна
@@ -95,7 +95,7 @@ export class QueueComponent implements OnInit {
         this.userToDel = parseInt(this.userToDel, 10);
         // добавляем игру по имени this.newGame
         if (Number.isInteger(this.userToDel)) {
-        this._userServise.declineUser(name, this.userToDel)
+        this._userServise.declineUser(nameId, gamenameId, this.userToDel)
           .subscribe(
             _ => {
               this.loadPeople();

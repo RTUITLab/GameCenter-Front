@@ -99,35 +99,59 @@
 }
 .people_top {
     display: grid;
-    grid-template-columns:repeat(5,1fr);
     background-color: #1d1e22;
+    grid-template-rows: 3;
     font-size: 2vh;
     color:white;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.medal_top {
+.top1 {
+    display:grid;
+    grid-row:1;
+}
+.top2 {
+    display:grid;
+    grid-row:2;
+}
+.top3 {
+    display:grid;
+    grid-row:3;
+}
+.medal_top1 {
     grid-column: 1;
-    align-self: center;
-    font-size: 2vh;
-    text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
-.name_top {
+.name_top1 {
     grid-column: 2/4;
-    align-self: center;
-    text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
+
 }
-.score_top {
+.score_top1 {
     grid-column: 4/6;
-    align-self: center;
-    font-size: 2vh;
-    text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
+
+}
+.medal_top2 {
+    grid-column: 1;
+
+}
+.name_top2 {
+    grid-column: 2/4;
+
+}
+.score_top2 {
+    grid-column: 4/6;
+
+}
+.medal_top3 {
+    grid-column: 1;
+
+}
+.name_top3 {
+    grid-column: 2/4;;
+
+}
+.score_top3 {
+    grid-column: 4/6;
+
 }
 
 /***********/
