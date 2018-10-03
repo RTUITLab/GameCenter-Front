@@ -18,51 +18,29 @@ import { HubService } from '../hub.service';
 ////
 import { IRating } from '../DataInterface';
 
-export interface UserData {
-  rating: string;
-  name: string;
-  score: string;
-  date: string;
-}
-/** Constants used to fill up our data base. */
-const COLORS: string[] = ['maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple',
-  'fuchsia', 'lime', 'teal', 'aqua', 'blue', 'navy', 'black', 'gray'];
-const NAMES: string[] = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack',
-  'Charlotte', 'Theodore', 'Isla', 'Oliver', 'Isabella', 'Jasper',
-  'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'];
-
-
-/**
- * @title Data table with sorting, pagination, and filtering.
- */
-
 @Component({
   selector: 'app-record-manage',
   templateUrl: './record-manage.component.html',
   styleUrls: ['./record-manage.component.css']
 })
 export class RecordManageComponent implements OnInit {
+  public games: IAllGames[]; // массив игр  типа интерфейса IAllGames[]
+  Records: IRating[]; // лист рекордов
+  displayedColumns: string[] = ['rating', 'name', 'score', 'date', 'delete']; // отображаемые колонки таблицы
+  dataSource: MatTableDataSource<IRating>; // переменная для отображения листа Records
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(
     private _userServise: UserService, // переменная для обращения к сервису
     private toastr: ToastrService, // уведомления
     private _hubService: HubService // связь с другими пользователями
   ) {
-    // Create 100 users
-    const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
   }
-  public games: IAllGames[]; // массив игр  типа интерфейса IAllGames[]
-  public Records: IRating[];
-  displayedColumns: string[] = ['rating', 'name', 'score', 'date', 'delete'];
-  dataSource: MatTableDataSource<IRating>;
-  @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
   private delScore(name: string) {
     console.log(name);
   }
   public loadAllGames() { // подгружаем все игры
-     this._userServise.getAll().subscribe((data: IAllGames[]) => { // забираем данные из переменной в наш массив
+    this._userServise.getAll().subscribe((data: IAllGames[]) => { // забираем данные из переменной в наш массив
       this.games = data; // присваиваем данные массиву игр
     });
   }
@@ -70,6 +48,9 @@ export class RecordManageComponent implements OnInit {
     console.log('loadRECOrdINRECORDMANAGe');
     this._userServise.getRecords(gameId).subscribe((data: IRating[]) => {
       this.Records = data;
+      this.dataSource = new MatTableDataSource(this.Records); // Данные для таблицы с рекордами
+      this.dataSource.sort = this.sort; // Сортировка в таблице
+      this.dataSource.paginator = this.paginator; // для того чтобы менять страницы
     });
   }
 
@@ -88,29 +69,14 @@ export class RecordManageComponent implements OnInit {
       () => console.log('_hubService.deleteNotifier complete')
     );
     ////
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort; // Подгрузка данных
   }
   applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.dataSource.filter = filterValue.trim().toLowerCase(); // фильтруем введёное в поле ввода у таблицы
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
   }
-}
-
-function createNewUser(id: number): IRating {
-  const name =
-      NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-      NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
-
-  return {
-    id: id.toString(),
-    name: name,
-    score: Math.round(Math.random() * 100).toString(),
-    date: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
-  };
 }
 
 
