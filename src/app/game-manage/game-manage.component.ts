@@ -137,7 +137,10 @@ export class GameManageComponent implements OnInit {
 
           ); },
          ////
-        e => { this.toastr.error(`Игра ${Gamename} уже выбрана`, `Игра не была выбрана`); },
+        e => { this.filteredGames = this.myControl.valueChanges.pipe(
+          startWith(''),
+          map(value => this._filter(value))); // посылаем значение в фильтр
+          this.toastr.error(`Игра ${Gamename} уже выбрана`, `Игра не была выбрана`); },
         () => this.toastr.success(`Игра ${Gamename} была выбрана`)
       ); // обновляем статус на Selected
 

@@ -21,7 +21,8 @@ import { MatDialog } from '@angular/material';
 @Component({
   selector: 'app-queue',
   templateUrl: './queue.component.html',
-  styleUrls: ['./queue.component.css']
+  styleUrls: ['./queue.component.css',
+                'queue.component-mob.css']
 })
 export class QueueComponent implements OnInit {
 
