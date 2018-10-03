@@ -31,7 +31,7 @@
           </div>
           
           <div id="btn-deny" *ngIf='pickedGame.name===people.gameName'>
-            <button mat-icon-button class="queue-user_deny" (click) = "delUser(people.playerId,people.gameTypeId)">
+            <button mat-icon-button class="queue-user_deny" (click) = "declineUser(people.playerId,people.gameTypeId)">
                   <img class="icon decline_icon " src="assets/icons/decline_user.svg" />
             </button>
             

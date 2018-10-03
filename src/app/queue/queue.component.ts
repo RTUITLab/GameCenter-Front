@@ -35,7 +35,7 @@ export class QueueComponent implements OnInit {
 
   pickedGames: IPickedGames[]; // массив выбранных игр  типа интерфейса IPickedGames[]
   peopleQueue: IQueue[]; // массив людей в очереди
-  userToDel: any;
+  score: any; // переменная для счёта человека
 
   private loadPickedGames() {// подгружаем все игры
     this._userServise.getAllPicked().subscribe((data: IPickedGames []) => {// забираем данные из переменной в наш массив
@@ -48,31 +48,25 @@ export class QueueComponent implements OnInit {
       console.log(this.peopleQueue + 'QUeueLOADALLPEOPLE '); // проверяем массив пришедших данных
    });
   }
-  private sendPeople() {
-    this._hubService._hubConnection.invoke('New', {});
-  }
-
-  private decline_all(name: string) { // отменяем все заявки конкретной игры
-    this._userServise.declineAllUsers(name)
+  private decline_all(gameId: string) { // отменяем все заявки конкретной игры
+    this._userServise.declineAllUsers(gameId)
           .subscribe(
             _ => {
-              this.loadPeople();
-              this.loadPickedGames();
+              this.loadPeople(); // подгружаем людей в очередь
+              this.loadPickedGames(); // подгружаем выбранные игры
             },
             e => {
-              this.toastr.error(`Игра ${this.userToDel} уже удалена или её не существует`, `Игра не была удалена`);
+              this.toastr.error('Все желающие не были отклонены | Ошибка');
             },
-            () => this.toastr.success(`Все желающие игры ${name} удалены`)
+            () => this.toastr.success('Все желающие отклонены')
           );
   }
-  private decline_user(name: string) { // отклоняем заявку желающего поиграть
-  }
-  private accept_user(usernameId: string) { // отклоняем заявку желающего поиграть
+  private accept_user(usernameId: string) { // принимаем заявку желающего поиграть
     this._userServise.acceptUser(usernameId)
     .subscribe(
       _ => {
-        this.loadPickedGames();
-        this.loadPeople();
+        this.loadPickedGames(); // подгружает выбранные игры
+        this.loadPeople(); // подгружаем людей в очередь
         this._hubService.queueSubscriber.next();
       },
       e => {
@@ -81,32 +75,30 @@ export class QueueComponent implements OnInit {
       () => this.toastr.success(`Пользователь одобрен`)
     );
   }
-  private delUser(nameId: string, gamenameId: string): void { // функция для кнопки для открытия всплывающего окна
+  private declineUser(nameId: string, gamenameId: string): void { // удаляем желающего из очереди
 
     const dialogRef = this.dialog.open(DelUserComponent, {
       width: '512px', // ширина всплывающего окна
       height: '228px', // высота всплывающего окна
-      data: { userToDel: this.userToDel } // название новой игры из Inputa
+      data: { score: this.score } // счёт игрока из окна ввода счёта
     });
-
-    dialogRef.afterClosed().subscribe(result => {
-      this.userToDel = result;
-      if (this.userToDel !== undefined) {
-        this.userToDel = parseInt(this.userToDel, 10);
-        // добавляем игру по имени this.newGame
-        if (Number.isInteger(this.userToDel)) {
-        this._userServise.declineUser(nameId, gamenameId, this.userToDel)
+    dialogRef.afterClosed().subscribe(result => { // окно для добавления счёта
+      this.score = result;
+      if (this.score !== undefined) { // проверка введено ли вообще значение счёта
+        this.score = parseInt(this.score, 10); // преобразование строки в number в 10-тичной системе счисления
+        if (Number.isInteger(this.score)) { // проверка преобразованного значения на тип int
+          this._userServise.declineUser(nameId, gamenameId, this.score) // отсылаем запрос серверу на удаление из очереди
           .subscribe(
             _ => {
-              this.loadPeople();
-              this.loadPickedGames();
+              this.loadPeople(); // подгружаем людей в очередь
+              this.loadPickedGames(); // подгружаем выбранные игры
             },
             e => {
-              this.toastr.error(`Игра ${this.userToDel} уже удалена или её не существует`, `Игра не была удалена`);
+              this.toastr.error(`Пользователь не был удалён из очереди | Ошибка`);
             },
-            () => this.toastr.success(`Игра ${this.userToDel} удалена`)
+            () => this.toastr.success(`Пользователь удален из очереди`)
           );
-          } else {
+        } else {
             this.toastr.error(`Счёт не является числом`, `Счёт не был добавлен`);
           }
       }
@@ -128,11 +120,6 @@ export class QueueComponent implements OnInit {
       err => console.log(err),
       () => console.log('_hubService.pickNotifier complete')
     );
-    /*this._hubService.queueNotifier.subscribe( // подписываемся на событие выбора игры,совершенного другим пользователем
-      (data: string) => {// забираем данные из переменной в наш массив
-        this.peopleQueue.find(g => g.playerId === data).status = `In game`;
-        console.log(this.peopleQueue + 'QUeueLOADALLPEOPLE '); // проверяем массив пришедших данных
-     });*/
     this._hubService.unpickNotifier.subscribe( // подписываемся на событие удаления игры из выбранных игр,совершенного другим пользователем
       n => this.loadPickedGames(),
       err => console.log(err),

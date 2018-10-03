@@ -27,10 +27,9 @@ export class TopComponent implements OnInit {
     private toastr: ToastrService, // уведомления
     private _hubService: HubService, // связь с другими пользователями
     ) { }
-    pickedGames: IPickedGames[]; // массив выбранных игр  типа интерфейса IData[]
-    Top: ITop[];
-    indexOfTop: Number;
-    Last: ILast[];
+    pickedGames: IPickedGames[]; // массив выбранных игр  типа интерфейса IPickedGames[]
+    Top: ITop[]; // лист топ игроков
+    Last: ILast[]; // лист последних игроков
     private loadPickedGames() {// подгружаем все игры
       this._userServise.getAllPicked().subscribe((data: IPickedGames []) => {// забираем данные из переменной в наш массив
         this.pickedGames = data; // присваиваем данные массиву игр
@@ -52,24 +51,24 @@ export class TopComponent implements OnInit {
 
     });
   }
-  public loadTop() {
+  public loadTop() { // подгружаем топ игроков
     this._userServise.getTop().subscribe((data: ITop[]) => {
       this.Top = data;
       // this.Top.map(g => this.indexOfTop = g.gamename.length);
       console.log(`top in top page ${this.Top}`);
     });
   }
-  public loadLast() {
+  public loadLast() { // подгужаем последних игроков
       this._userServise.getLast().subscribe((data: ILast[]) => {
         this.Last = data;
-        console.log(`top in top page ${this.Top}`);
+        console.log(`top in top page ${this.Last}`);
       });
     }
 
   ngOnInit() {
     this.loadPickedGames(); // подгружаем все выбранные игры
-    this.loadTop();
-    this.loadLast();
+    this.loadTop(); // подгружаем топ игроков
+    this.loadLast(); // подгужаем последних игроков
     // SignalR || Связь с другими пользователями
     this._hubService.pickNotifier.subscribe( // подписываемся на событие выбора игры,совершенного другим пользователем
       n => this.loadPickedGames(),
