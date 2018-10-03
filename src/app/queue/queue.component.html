@@ -20,7 +20,7 @@
 
     <div id="queue" class="queue">
 
-      <div id='people-area' *ngFor="let people of peopleQueue" class="queue-people-area">
+      <div id='people-area' *ngFor="let people of peopleQueue;let i=index" class="queue-people-area">
         
           <div class="queue-user_state" *ngIf='pickedGame.name===people.gameName'>
             {{people.status}}
@@ -38,9 +38,13 @@
           </div>
           
           <div id="btn-accept" *ngIf='pickedGame.name===people.gameName'>
-            <button mat-icon-button class="queue-user_accept" (click) = "accept_user(people.playerId)">
-              <img class="icon" src="assets/icons/accept_user.svg" />
-            </button> 
+            <div *ngIf='i===0'>
+            <div *ngIf="people.status==='InQueue'">
+              <button mat-icon-button class="queue-user_accept" (click) = "accept_user(people.playerId)">
+                <img class="icon" src="assets/icons/accept_user.svg" />
+              </button> 
+            </div>
+            </div>
           </div>
        
         

@@ -21,7 +21,7 @@ export interface IRating {
     date: string;
   }
 export interface ITop {
-    gameName: string;
+    gamename: string;
     username: string;
     scoreCount: Number;
 }

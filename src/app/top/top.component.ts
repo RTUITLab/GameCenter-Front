@@ -29,6 +29,7 @@ export class TopComponent implements OnInit {
     ) { }
     pickedGames: IPickedGames[]; // массив выбранных игр  типа интерфейса IData[]
     Top: ITop[];
+    indexOfTop: Number;
     Last: ILast[];
     private loadPickedGames() {// подгружаем все игры
       this._userServise.getAllPicked().subscribe((data: IPickedGames []) => {// забираем данные из переменной в наш массив
@@ -52,22 +53,13 @@ export class TopComponent implements OnInit {
     });
   }
   public loadTop() {
-  //  for (let i = 0; i < this.pickedGames.length; i++) {
-  //    this.pickedGames.map(g => this._userServise.loadCurrentTop(g.gameId).subscribe((data: ITop) => {
-   //     this.Top.push(data);
-   //   }));
-  //  }
     this._userServise.getTop().subscribe((data: ITop[]) => {
       this.Top = data;
+      // this.Top.map(g => this.indexOfTop = g.gamename.length);
       console.log(`top in top page ${this.Top}`);
     });
   }
   public loadLast() {
-    //  for (let i = 0; i < this.pickedGames.length; i++) {
-    //    this.pickedGames.map(g => this._userServise.loadCurrentTop(g.gameId).subscribe((data: ITop) => {
-     //     this.Top.push(data);
-     //   }));
-    //  }
       this._userServise.getLast().subscribe((data: ILast[]) => {
         this.Last = data;
         console.log(`top in top page ${this.Top}`);

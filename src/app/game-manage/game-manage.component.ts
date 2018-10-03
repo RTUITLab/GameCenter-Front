@@ -51,28 +51,7 @@ export class GameManageComponent implements OnInit {
   public games: IAllGames[]; // массив игр  типа интерфейса IAllGames[]
 
   // pickedGames: IPickedGames[]; // массив выбранных игр  типа интерфейса IPickedGames[]
-  pickedGames: IPickedGames [] = [
-   { name: 'sergei',
-    gameId: 'serf'},
-   { name: 'sergei',
-    gameId: 'serf'},
-   { name: 'sergei',
-    gameId: 'serf'},
-   { name: 'sergei',
-    gameId: 'serf'},
-   { name: 'sergei',
-    gameId: 'serf'},
-   { name: 'sergei',
-    gameId: 'serf'},
-   { name: 'sergei',
-    gameId: 'serf'},
-   { name: 'sergei',
-    gameId: 'serf'},
-   { name: 'sergei',
-    gameId: 'serf'},
-   { name: 'sergei',
-    gameId: 'serf'},
-  ];
+  pickedGames: IPickedGames [] ;
   // from https://material.angular.io/components/autocomplete/examples || фильтр автозаполнения поля ввода
 
   myControl = new FormControl();
