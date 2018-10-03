@@ -17,8 +17,8 @@
           </div>
 
           <div class="unpick">
-            <button class="btn" style="background-color:rgb(225, 228, 232);" (click)="unpick(pickedgame.gameId)">
-              x
+            <button mat-icon-button class="btn" style="background-color:rgb(225, 228, 232);" (click)="unpick(pickedgame.gameId)">
+              <img class="decline_all" src="assets/icons/decline_user.svg">
             </button>
           </div>
 
@@ -28,7 +28,7 @@
   
   <!--Добавление новой игры-->
   <div id="dialog1" class="addGame">
-    <button mat-button (click) = "addGame()" class="addGame_btn">
+    <button mat-button (click) = "addGame()" class="dialog_opener_text">
         Добавить игру
     </button>
   </div>

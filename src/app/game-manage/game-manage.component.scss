@@ -36,6 +36,10 @@
     background-color:rgb(225, 228, 232);
     border-radius: 40px;
 }
+.decline_all {
+    height: 5vh;
+    transform: rotate(45deg);
+}
 /*стиль кнопки для открытия всплывающего окна для добавления игры*/
 .delGame{
     grid-column: 8/10;
@@ -111,10 +115,8 @@ h3{
 }
 .btn {
     font-size: 2.8vh;
-    height: 4vh;
     color: red;
     background: url(http://subtlepatterns.com/patterns/extra_clean_paper.png);
-    width: 3vw;
     border-radius:100%;
 }
 
