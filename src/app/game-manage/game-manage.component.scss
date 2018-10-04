@@ -28,14 +28,28 @@
     grid-column: 8/10;
     grid-row: 1;
     padding-top: 1vh;
+    font-size: 3vh;
     justify-self: center;
     align-self: flex-end;
     color:green;
 }
-.dialog_opener_text{
+.addGame_opener_text{
     background-color:rgb(225, 228, 232);
     border-radius: 40px;
+    line-height: 6vh;
 }
+.delGame_opener_text{
+    background-color:rgb(225, 228, 232);
+    border-radius: 40px;
+    line-height: 6vh;
+}
+.btn_text{
+    font-size: 3vh;
+}
+::ng-deep .mat-button-wrapper{
+    font-size:1.5vh;
+}
+
 .decline_all {
     height: 5vh;
     transform: rotate(45deg);
@@ -44,10 +58,10 @@
 .delGame{
     grid-column: 8/10;
     grid-row: 2;
+    font-size: 3vh;
     justify-self: center;
     align-self: center;
     color:red;
-    height:2.5vh;
 }
 /*стиль кнопки для добавления игры в Выбранные игры*/
 .routeToMngedGame{
@@ -114,7 +128,6 @@ h3{
     color:rgb(218, 15, 15);
 }
 .btn {
-    font-size: 2.8vh;
     color: red;
     background: url(http://subtlepatterns.com/patterns/extra_clean_paper.png);
     border-radius:100%;

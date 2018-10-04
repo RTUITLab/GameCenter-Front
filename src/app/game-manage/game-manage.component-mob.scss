@@ -2,31 +2,44 @@
     .content{
     display: grid;
     grid-template-columns: repeat(16,1fr);
-    grid-template-rows: repeat(12,1fr);
     }
     .mngGame{
         grid-column: 3/15;
-        grid-row: 3;
+        grid-row: 5;
       text-align: center;
       color:black;
     }
     .mngedGame{
         grid-column: 1/17;
-        grid-row: 7;
+        grid-row: 8;
       text-align: center;
       color:black;
     }
+    .addGame_opener_text{
+      background-color:rgb(225, 228, 232);
+      border-radius: 40px;
+      line-height: 10vh;
+  }
+  .delGame_opener_text{
+      background-color:rgb(225, 228, 232);
+      border-radius: 40px;
+      line-height: 10vh;
+  }
     /*стиль кнопки для открытия всплывающего окна для добавления игры*/
     .addGame{
       text-align: center;
       grid-column: 8/10;
       grid-row: 1;
-      padding-top: 1vh;
-      justify-self: center;
-      align-self: flex-end;
       color:green;
       box-sizing: border-box;
       }
+    .delGame{
+      text-align: center;
+      grid-column: 8/10;
+      grid-row: 3;
+      color:red;
+      box-sizing: border-box;
+    }
     .addGame_btn{
       background-color:rgb(225, 228, 232);
       border-radius: 40px;
@@ -40,7 +53,7 @@
       /*стиль кнопки для добавления игры в Выбранные игры*/
     .routeToMngedGame{
         grid-column: 15;
-        grid-row: 4;
+        grid-row: 6;
       text-align: left;
       align-self: center;
       color:black;
@@ -50,27 +63,13 @@
     .mngGame-input{
       
         grid-column: 3/15;
-        grid-row: 5;
-        overflow: hidden;
-      text-align: center;
+        grid-row: 6;
+         text-align: center;
     
   }
-    ::ng-deep .mat-autocomplete-panel.extended { //изменяем ширину стандартного окна с помощью ::ng-deep
-      max-height: 40vh;
-  }
-    ::ng-deep .mat-icon-button.extended {
-      height: 5vh;
-      width: 5vh;
-  }
-  ::ng-deep .mat-icon.extended {
-    width: auto;
-    font-size: 3vh;
-}
-
     /*стиль карточек выбранных игр*/
     .cardsOfmngedGames{
       grid-column: 11/15;
-      grid-row: span 5;
       text-align: center;
       color:rgb(255, 0, 0); 
   
@@ -81,7 +80,7 @@
 .pickedGame{
   color:black; 
   grid-column: 3/16;
-  grid-row-start: 8;
+  grid-row-start: 10;
 }
 
 .gameNameColumn {
@@ -91,11 +90,6 @@
 }
 .filteredGame{
   color:black;
-}
-h3{
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 2vh;
 }
 
 /*кнопки для удаления из выбранных игр*/
