@@ -19,7 +19,7 @@ import { HubService } from '../hub.service';
 @Component({
   selector: 'app-top',
   templateUrl: './top.component.html',
-  styleUrls: ['./top.component.css']
+  styleUrls: ['./top.component.scss']
 })
 export class TopComponent implements OnInit {
   constructor(
@@ -79,6 +79,12 @@ export class TopComponent implements OnInit {
       n => this.loadPickedGames(),
       err => console.log(err),
       () => console.log('_hubService.unpickNotifier complete')
+    );
+    this._hubService.queueNotifier.subscribe( // подписываемся на событие выбора игры,совершенного другим пользователем
+      n => { this.loadLast();
+          this.loadTop(); },
+      err => console.log(err),
+      () => console.log('_hubService.pickNotifier complete')
     );
     this._hubService.deleteNotifier.subscribe( // подписываемся на событие удаления игры,совершенного другим пользователем
       n => this.loadPickedGames(),

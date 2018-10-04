@@ -18,26 +18,30 @@
 
         <div id = "people_top" *ngFor="let peopleList of Top">
           
-            <div *ngFor="let people of peopleList;let i = index"> 
-  
-              <div *ngIf='people.gameName===pickedGame.name' class = "people_top">
-  
-                <div id = "medal_top"   class = "medal_top">
+            <div *ngFor="let people of peopleList;let i = index">
+
+              <div *ngIf='people.scoreCount!=0'>
+
+                <div *ngIf='people.gameName===pickedGame.name' class = "people_top">
+                  
+                  <div id = "medal_top"   class = "medal_top">
                     <img *ngIf='i===0'class="icon" src="assets/icons/Gold_medal.svg">
                     <img *ngIf='i===1'class="icon" src="assets/icons/Silver_medal.svg">
                     <img *ngIf='i===2'class="icon" src="assets/icons/Bronze_medal.svg">
-                </div>
-
-                <div id = "name_top"   class = "name_top">
-                  {{people.username}}
+                  </div>
+                  
+                  <div id = "name_top"   class = "name_top">
+                    {{people.username}}
+                  </div>
+                  
+                  <div id = "score_top"   class = "score_top">
+                    {{people.scoreCount}}
+                  </div>
+                  
                 </div>
                 
-                <div id = "score_top"   class = "score_top">
-                  {{people.scoreCount}}
-                </div>
-  
               </div>
-              
+                
             </div>  
             
         </div>
@@ -66,20 +70,22 @@
         <div id = "people_last" *ngFor="let peopleList of Last">
           
           <div *ngFor="let people of peopleList">
+            <div *ngIf='people.scoreCount!=0'>
 
-            <div *ngIf='people.gameName===pickedGame.name' class = "people_last">
-
-              <div id = "name_last"   class = "name_last">
-                {{people.username}}
+              <div *ngIf='people.gameName===pickedGame.name' class = "people_last">
+                
+                <div id = "name_last"   class = "name_last">
+                  {{people.username}}
+                  
+                </div>
+                
+                <div id = "score_last"   class = "score_last">
+                  {{people.scoreCount}}
+                </div>
                 
               </div>
               
-              <div id = "score_last"   class = "score_last">
-                {{people.scoreCount}}
-              </div>
-
             </div>
-            
           </div>  
           
         </div>
