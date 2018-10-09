@@ -62,7 +62,7 @@ export class GameManageComponent implements OnInit {
   public newGame: string; // переменная для добавления игры по имени actGame
   private oldGame: string; // переменная для удаления игры по имени actGame
 
-  private addGame(): void { // функция для кнопки для открытия всплывающего окна
+  public addGame(): void { // функция для кнопки для открытия всплывающего окна
 
     const dialogRef = this.dialog.open(AddGameComponent, {
       width: '512px', // ширина всплывающего окна
@@ -85,7 +85,7 @@ export class GameManageComponent implements OnInit {
       }
     });
   }
-  private delGame(): void { // функция для кнопки для открытия всплывающего окна
+  public delGame(): void { // функция для кнопки для открытия всплывающего окна
 
     const dialogRef = this.dialog.open(DelGameComponent, {
       width: '512px', // ширина всплывающего окна
@@ -124,7 +124,7 @@ export class GameManageComponent implements OnInit {
       this.pickedGames = data; // присваиваем данные массиву игр
     });
   }
-  private pick(Gamename: string) { // выбираем игру
+  public pick(Gamename: string) { // выбираем игру
     const gameId = this.games.find(g => g.name === Gamename).gameId;
     this._userServise.pickGame(gameId)
       .subscribe(
@@ -145,7 +145,7 @@ export class GameManageComponent implements OnInit {
       ); // обновляем статус на Selected
 
   }
-  private unpick(game: string) { // удаляем из выбранных игр
+  public unpick(game: string) { // удаляем из выбранных игр
     const gameName = this.games.find(g => g.gameId === game).name;
     this._userServise.unpickGame(game)
       .subscribe(
