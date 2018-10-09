@@ -15,54 +15,66 @@
     grid-template-columns: repeat(5,1fr);
     grid-column: 1/17;
     grid-row: 1;
-    height: 50vh;
+    height: 100vh;
     overflow: hidden;
 }
 .header {
     width: 100vw;
     text-align: center;
-    height: 8vh;
+    height: 12vh;
     background-color: #05090e;
-    color:white;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
+    display: grid;
+    
 }
 .header_text{
-    padding: 1.5vh;
-    font-size: 3.5vh;
+    font-size: 9vh;
+    color:white;
     text-overflow: ellipsis;
+    align-self: center;
     overflow: hidden;
 }
 @keyframes twoSlides {
-    0% { left: 100vw; }
-    1% { left: 0%; }
-    50.99% { left : 0%; }
-    51% { left: -100.399vw; }
-    99.99% { left: -100.399vw; }
+    0% { left: 0%;opacity:0;transform:scale(0.5);}
+    40% { left: 0%;opacity:1;transform:scale(1);}
+    51% { left: -101vw;}
+    99.99% { left: -101vw; }
     100% { left: -203vw; }
 }
 @keyframes threeSlides {
     0% { left: 100vw; }
     1% { left: 0% }
     33.99% { left: 0% }
-    34% { left : -100.399vw; }
-    65.99% { left: -100.399vw; }
-    66% { left: -200.91vw; }
-    99.99% { left: -200.91vw }
+    34% { left : -101vw; }
+    65.99% { left: -101vw; }
+    66% { left: -202vw; }
+    99.99% { left: -202vw }
     100% { left: -303vw; }
 }
 @keyframes fourSlides {
     0% { left: 100vw; }
     1% { left: 0% }
     25.99% { left: 0% }
-    26% { left : -100.399vw; }
-    50.99% { left: -100.399vw; }
-    51% { left: -200.91vw; }
-    75.99% { left: -200.91vw; }
-    76% { left: -301.39vw; }
-    99.99% { left: -301.39vw; }
+    26% { left : -101vw; }
+    50.99% { left: -101vw; }
+    51% { left: -202vw; }
+    75.99% { left: -202vw; }
+    76% { left: -303vw; }
+    99.99% { left: -303vw; }
     100% { left: -403vw; }
+}
+@keyframes fiveSlides {
+    0% { left: 100vw; }
+    1% { left: 0% }
+    20.99% { left: 0% }
+    21% { left : -101vw; }
+    40.99% { left: -101vw; }
+    41% { left: -202vw; }
+    60.99% { left: -202vw; }
+    61% { left: -303vw; }
+    80.99% { left: -303vw; }
+    81% { left: -404vw; }
+    99.99% { left: -404vw; }
+    100% { left: -503vw; }
 }
 #game_top_area {
     display: grid;
@@ -70,28 +82,33 @@
     grid-row: 2/6;
     grid-template-columns: repeat(20,1fr);
     width: 500vw;
+    grid-column-gap: 1vw;
     position: relative;
     align-content: center;
     text-overflow: ellipsis;
     overflow: hidden;
 }
 .game_top {
-    grid-row-gap: 1px;
-    width: 24.52vw;
+    width:49.4vw;
     background: #1d1e22;
     border: 0.05vw solid #012f40;
-    box-shadow: 0 0 10px 0 #000;
+    box-shadow: 0 0 0.1vw 0 #000;
     text-overflow: ellipsis;
     overflow: hidden;
 }
 .game_top_name {
-    background-color: #111217;
-    color:white;
-    font-size: 3vh;
-    height: 5vh;
-    text-align: center;
+    background-image: url(../../assets/icons/Game_background.jpg);
+    height: 30vh;
+    display: grid;
+}
+.game_top_name_text {
+    font-size: 8vh;
     text-overflow: ellipsis;
     overflow: hidden;
+    text-align: center;
+    color:white;
+    align-self:end;
+
 }
 .people_top {
     display: grid;
@@ -101,12 +118,12 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.medal_top{
+.icon_top{
     grid-column: 1;
     text-align: center;
 }
 .name_top{
-    font-size: 2.5vh;
+    font-size: 4vh;
     grid-column: 2;
     text-align: center;
     align-self: center;
@@ -115,85 +132,12 @@
 }
 .score_top{
     align-self: center;
-    font-size: 2.5vh;
+    font-size: 4vh;
     grid-column: 3;
     text-align: center;
     text-overflow: ellipsis;
     overflow: hidden;
 }
-/***********/
-
-.last {
-    display: grid;
-    grid-template-columns: repeat(5,1fr);
-    grid-column: 1/17;
-    grid-row: 2;
-    height: 50vh;
-    overflow: hidden;
-    grid-gap: 10px;
-}
-.header_last {
-    grid-row: 1;
-    grid-column: 1/20;
-    text-align: center;
-    background-color: #05090e;
-    color:white;
-}
-#game_last_area {
-    display: grid;
-    grid-row: 2/6;
-    grid-column: inherit;
-    grid-template-columns: repeat(20,1fr);
-    width: 500vw;
-    align-content: center;
-    grid-column-gap: 0.5vw;
-    position: relative;
-    /* white-space: normal;
-    word-break: break-all; /* Перенос слов */ 
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-.game_last {
-    width: 24.52vw;
-    grid-row-gap: 1px;
-    background: #1d1e22;
-    border: 0.05vw  solid #012f40;
-    box-shadow: 0 0 10px 0 #000;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-.game_last_name {
-    background-color: #111217;
-    color:white;
-    font-size: 3.5vh;
-    height: 5vh;
-    text-align: center;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-.people_last {
-    display: grid;
-    background-color: #1d1e22;
-    grid-template-columns: 2fr 1fr;
-    color:white;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
 .icon{
-    height: 4.9vh;
-}
-.name_last {
-    font-size: 2.5vh;
-    grid-column: 1;
-    text-align: center;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-.score_last {
-    font-size: 2.5vh;
-    grid-column: 2;
-    text-align: center;
-    text-overflow: ellipsis;
-    overflow: hidden;
-
+    height: 8vh;
 }

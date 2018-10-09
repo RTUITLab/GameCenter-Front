@@ -53,8 +53,8 @@ export class QueueComponent implements OnInit {
     this._userServise.declineAllUsers(gameId)
           .subscribe(
             _ => {
-              this.loadPeople(); // подгружаем людей в очередь
               this.loadPickedGames(); // подгружаем выбранные игры
+              this.loadPeople(); // подгружаем людей в очередь
             },
             e => {
               this.toastr.error('Все желающие не были отклонены | Ошибка');

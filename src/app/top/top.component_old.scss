@@ -1,0 +1,199 @@
+/*ONLY for 1920x1080 screen*/
+.top_page {
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: repeat(16,1fr);
+    /* word-wrap: break-word; /* Перенос слов */  
+    background: #1e2a38;
+    background: linear-gradient(rgb(12,16,22) 0%,rgb(30,42,56) 100%);
+    height: 100vh;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.top {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-column: 1/17;
+    grid-row: 1;
+    height: 50vh;
+    overflow: hidden;
+}
+.header {
+    width: 100vw;
+    text-align: center;
+    height: 8vh;
+    background-color: #05090e;
+    color:white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+.header_text{
+    padding: 1.5vh;
+    font-size: 3.5vh;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+@keyframes twoSlides {
+    0% { left: 100vw; }
+    1% { left: 0%; }
+    50.99% { left : 0%; }
+    51% { left: -100.399vw; }
+    99.99% { left: -100.399vw; }
+    100% { left: -203vw; }
+}
+@keyframes threeSlides {
+    0% { left: 100vw; }
+    1% { left: 0% }
+    33.99% { left: 0% }
+    34% { left : -100.399vw; }
+    65.99% { left: -100.399vw; }
+    66% { left: -200.91vw; }
+    99.99% { left: -200.91vw }
+    100% { left: -303vw; }
+}
+@keyframes fourSlides {
+    0% { left: 100vw; }
+    1% { left: 0% }
+    25.99% { left: 0% }
+    26% { left : -100.399vw; }
+    50.99% { left: -100.399vw; }
+    51% { left: -200.91vw; }
+    75.99% { left: -200.91vw; }
+    76% { left: -301.39vw; }
+    99.99% { left: -301.39vw; }
+    100% { left: -403vw; }
+}
+#game_top_area {
+    display: grid;
+    grid-column: inherit;
+    grid-row: 2/6;
+    grid-template-columns: repeat(20,1fr);
+    width: 500vw;
+    position: relative;
+    align-content: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.game_top {
+    grid-row-gap: 1px;
+    width: 24.52vw;
+    background: #1d1e22;
+    border: 0.05vw solid #012f40;
+    box-shadow: 0 0 10px 0 #000;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.game_top_name {
+    background-color: #111217;
+    color:white;
+    font-size: 3vh;
+    height: 5vh;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.people_top {
+    display: grid;
+    background-color: #1d1e22;
+    grid-template-columns: 0.5fr 2fr 1fr;
+    color:white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.medal_top{
+    grid-column: 1;
+    text-align: center;
+}
+.name_top{
+    font-size: 2.5vh;
+    grid-column: 2;
+    text-align: center;
+    align-self: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.score_top{
+    align-self: center;
+    font-size: 2.5vh;
+    grid-column: 3;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+/***********/
+
+.last {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-column: 1/17;
+    grid-row: 2;
+    height: 50vh;
+    overflow: hidden;
+    grid-gap: 10px;
+}
+.header_last {
+    grid-row: 1;
+    grid-column: 1/20;
+    text-align: center;
+    background-color: #05090e;
+    color:white;
+}
+#game_last_area {
+    display: grid;
+    grid-row: 2/6;
+    grid-column: inherit;
+    grid-template-columns: repeat(20,1fr);
+    width: 500vw;
+    align-content: center;
+    grid-column-gap: 0.5vw;
+    position: relative;
+    /* white-space: normal;
+    word-break: break-all; /* Перенос слов */ 
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.game_last {
+    width: 24.52vw;
+    grid-row-gap: 1px;
+    background: #1d1e22;
+    border: 0.05vw  solid #012f40;
+    box-shadow: 0 0 10px 0 #000;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.game_last_name {
+    background-color: #111217;
+    color:white;
+    font-size: 3.5vh;
+    height: 5vh;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.people_last {
+    display: grid;
+    background-color: #1d1e22;
+    grid-template-columns: 2fr 1fr;
+    color:white;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.icon{
+    height: 4.9vh;
+}
+.name_last {
+    font-size: 2.5vh;
+    grid-column: 1;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.score_last {
+    font-size: 2.5vh;
+    grid-column: 2;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+}
