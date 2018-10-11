@@ -15,7 +15,7 @@ export interface IQueue {
   gameTypeId: string;
 }
 export interface IRating {
-    id: string;
+    scoreId: string;
     name: string;
     score: string;
     date: string;

@@ -30,7 +30,7 @@
             <mat-button-toggle value="year">За год</mat-button-toggle>
         </mat-button-toggle-group>
 
-        <button mat-icon-button id='delRecord' class="delRecord">
+        <button mat-icon-button id='delRecord' class="delRecord" (click)="deleteAllRecords()">
           <mat-icon>delete</mat-icon>
         </button> 
 
@@ -74,7 +74,7 @@
                 <th mat-header-cell *matHeaderCellDef> Удалить </th>
                 <td mat-cell *matCellDef="let row">
 
-                  <button mat-icon-button (click)="delScore(row.rating)">
+                  <button mat-icon-button (click)="delScore(row.scoreId)">
                     <mat-icon>remove</mat-icon>
                   </button>
 

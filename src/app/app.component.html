@@ -3,31 +3,39 @@
     class="sidenav-container" (backdropClick)="close('backdrop')" >
 
     <!--Sidenav То, что находится внутри слайдера-->
-        <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose style = "background-color:rgb(225, 228, 232);">
+        <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose style = "display:grid;background-color:rgb(225, 228, 232);">
             <!--кнопка с иконкой для закрытия слайдера-->
-                 <button mat-icon-button (click)="close('toggle button')" style="margin-left:75%">
-                     <mat-icon style="color: black;">menu</mat-icon>
+                 <button mat-icon-button (click)="close('toggle button')" style="margin-left:75%;font-size:3vh;">
+                     <mat-icon style="color: black;font-size:3.9vh;text-align: center;">menu</mat-icon>
                 </button>
             <!--end-->
 
-            <h1 style="text-align: center;color: black">Меню</h1>
+            <h1 style="text-align: center;color: black;font-size: 4vh">Меню</h1>
             
             <!--вкладки для перемещения на другие страницы-->
-                <p>
-                   <button mat-button routerLink = "game-manage" (click)="close('toggle button')" class="btn">Управление играми</button>
-                </p>
+                <div>
+                    <button mat-button routerLink = "game-manage" (click)="close('toggle button')" class="btn">
+                       <span class="text">Управление играми</span>
+                    </button>
+                </div>
 
-                <p>
-                 <button mat-button routerLink = "queue" (click)="close('toggle button')" class="btn">Очередь желающих</button>
-                </p>
+                <div>
+                    <button mat-button routerLink = "queue" (click)="close('toggle button')" class="btn">
+                     <span class="text">Очередь желающих</span>
+                    </button>
+                </div>
 
-                <p>
-                 <button mat-button routerLink = "record-manage" (click)="close('toggle button')" class="btn">Управление рекордами</button>
-                </p>
+                <div>
+                    <button mat-button routerLink = "record-manage" (click)="close('toggle button')" class="btn">
+                     <span class="text">Управление рекордами</span>
+                     </button>
+                </div>
 
-                <p>
-                  <button mat-button routerLink = "top" (click)="close('toggle button')" class="btn">Топ игроков</button>
-                </p>
+                <div>
+                    <button mat-button routerLink = "top" (click)="close('toggle button')" class="btn">
+                      <span class="text">Топ игроков</span>
+                    </button>
+                 </div>
             <!--end-->
         </mat-sidenav>
     <!--end-->

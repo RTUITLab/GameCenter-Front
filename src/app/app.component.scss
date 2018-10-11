@@ -6,10 +6,22 @@
     right: 0;
     background-color: rgb(255,255,255);
    }
-p{
+.text{
     text-align: center;
+    font-size: 2.5vh;
+    height: 5vh;
 }
+::ng-deep .mat-button-wrapper, .mat-icon-button, .mat-icon{
+    line-height: unset;
+}
+::ng-deep .mat-icon{
+    line-height: unset;
+    height: unset;
+    width: unset;
+}
+
 .btn{
     color: black;
     width: 100%;
+    height: 5vh;
 }

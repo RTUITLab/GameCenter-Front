@@ -23,10 +23,9 @@ export class UserService {
 
   public game: IAllGames[]; // массив игр  типа интерфейса IAllGames[]
 
-  // private global_url = 'https://gamecenterback.azurewebsites.net/api/Gametype/'; // сам сервер
-   public global_url = 'https://gamecenterback.azurewebsites.net/api/';
+  // public global_url = 'https://gamecenterback.azurewebsites.net/api/';
  //  public global_url = 'http://localhost:5000/api/';
-  //  public global_url = 'http://e2eaed7b.ngrok.io/api/';
+   public global_url = 'http://8c98036f.ngrok.io/api/';
   constructor(private http: HttpClient, // для предачи данных
   ) {
   }
@@ -72,7 +71,10 @@ export class UserService {
     console.log('pickGame ' + [gameid]);
     return this.http.put<Object>(this.global_url + 'Gametype/pickgames/', [gameid]); // посылаем запрос на изменение статуса на Selected
   }
-
+  public delAllRecords(gameid: string): Observable<Object> {// удаляем рекорды
+    console.log('delALlRecords ' + [gameid]);
+    return this.http.delete<Object>(this.global_url + 'scores/delete_all/' + gameid); // посылаем запрос на удаление всех рекордов
+  }
   public getTop(): Observable<Object> {
     console.log(`loadTop`);
     return this.http.get<Object>(`${this.global_url}scores/`);
@@ -85,7 +87,11 @@ export class UserService {
     console.log(`getRecords`);
     return this.http.get<Object>(`${this.global_url}scores/` + gameid);
   }
-  /* public pickGame(gameid:string){
+  public delRecord(scoreid): Observable<Object> {
+    console.log(`delRecord`);
+    return this.http.delete<Object>(`${this.global_url}scores/delete/` + scoreid);
+  }
+    /* public pickGame(gameid:string){
      console.log('pickGame '+ [gameid]);
      if(this._hubConnection){
        return this._hubConnection.invoke('Pick',gameid); //посылаем данные на сервер

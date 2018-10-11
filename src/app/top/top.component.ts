@@ -18,8 +18,8 @@ import { HubService } from '../hub.service';
 
 @Component({
   selector: 'app-top',
-  templateUrl: './top.component.html',
-  styleUrls: ['./top.component.scss']
+  templateUrl: './top.component_old.html',
+  styleUrls: ['./top.component_old.scss']
 })
 export class TopComponent implements OnInit {
   constructor(
@@ -33,25 +33,20 @@ export class TopComponent implements OnInit {
     private loadPickedGames() {// подгружаем все игры
       this._userServise.getAllPicked().subscribe((data: IPickedGames []) => {// забираем данные из переменной в наш массив
         this.pickedGames = data; // присваиваем данные массиву игр
-        // если выбранных игр больше 2 и меньше 5 , то устанавливаем двуслайдовую анимацию
-        if (this.pickedGames.length > 2 && this.pickedGames.length <= 4 ) {
+        // если выбранных игр больше 4 и меньше 9 , то устанавливаем двуслайдовую анимацию
+        if (this.pickedGames.length > 4 && this.pickedGames.length <= 8 ) {
           document.getElementById('game_top_area').style.animation = '10s twoSlides infinite';
           document.getElementById('game_last_area').style.animation = '10s twoSlides infinite';
         }
-       // если выбранных игр больше 4 и меньше 7 , то устанавливаем двуслайдовую анимацию
-       if (this.pickedGames.length > 4 && this.pickedGames.length <= 6 ) {
+       // если выбранных игр больше 8 и меньше 13 , то устанавливаем двуслайдовую анимацию
+       if (this.pickedGames.length > 8 && this.pickedGames.length <= 12 ) {
         document.getElementById('game_top_area').style.animation = '15s threeSlides infinite';
         document.getElementById('game_last_area').style.animation = '15s threeSlides infinite';
        }
-       // если выбранных игр больше 6 и меньше 9 , то устанавливаем двуслайдовую анимацию
-       if (this.pickedGames.length > 6 && this.pickedGames.length <= 8 ) {
+       // если выбранных игр больше 12 и меньше 17 , то устанавливаем двуслайдовую анимацию
+       if (this.pickedGames.length > 12 && this.pickedGames.length <= 16 ) {
         document.getElementById('game_top_area').style.animation = '20s fourSlides infinite';
         document.getElementById('game_last_area').style.animation = '20s fourSlides infinite';
-       }
-       // если выбранных игр больше 8 и меньше 11 , то устанавливаем двуслайдовую анимацию
-       if (this.pickedGames.length > 8 && this.pickedGames.length <= 10 ) {
-        document.getElementById('game_top_area').style.animation = '25s fiveSlides infinite';
-        document.getElementById('game_last_area').style.animation = '25s fiveSlides infinite';
        }
 
     });

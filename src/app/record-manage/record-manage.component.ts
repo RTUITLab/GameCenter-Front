@@ -28,6 +28,7 @@ export class RecordManageComponent implements OnInit {
   Records: IRating[]; // лист рекордов
   displayedColumns: string[] = ['rating', 'name', 'score', 'date', 'delete']; // отображаемые колонки таблицы
   dataSource: MatTableDataSource<IRating>; // переменная для отображения листа Records
+  pickedGameId: string;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(
@@ -36,8 +37,15 @@ export class RecordManageComponent implements OnInit {
     private _hubService: HubService // связь с другими пользователями
   ) {
   }
-  private delScore(name: string) {
-    console.log(name);
+  public delScore(scoreId: string) {
+    console.log('delScore' + scoreId);
+    this._userServise.delRecord(scoreId).subscribe(
+      _ => this.loadRecords(this.pickedGameId),
+      e => {
+        this.toastr.error(`Рекорд не были удален`);
+      },
+      () => this.toastr.success(`Рекорд удален`)
+      );
   }
   public loadAllGames() { // подгружаем все игры
     this._userServise.getAll().subscribe((data: IAllGames[]) => { // забираем данные из переменной в наш массив
@@ -48,10 +56,20 @@ export class RecordManageComponent implements OnInit {
     console.log('loadRECOrdINRECORDMANAGe');
     this._userServise.getRecords(gameId).subscribe((data: IRating[]) => {
       this.Records = data;
+      this.pickedGameId = gameId;
       this.dataSource = new MatTableDataSource(this.Records); // Данные для таблицы с рекордами
       this.dataSource.sort = this.sort; // Сортировка в таблице
       this.dataSource.paginator = this.paginator; // для того чтобы менять страницы
     });
+  }
+  public deleteAllRecords() {
+    this._userServise.delAllRecords(this.pickedGameId).subscribe(
+    _ => this.loadRecords(this.pickedGameId),
+    e => {
+      this.toastr.error(`Рекорды не были удалены`);
+    },
+    () => this.toastr.success(`Рекорды удалены`)
+    );
   }
 
 
