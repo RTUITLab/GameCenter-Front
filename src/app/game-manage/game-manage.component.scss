@@ -15,7 +15,14 @@
     word-break: break-all;
     color:black;  
 }
-
+::ng-deep .mat-icon, .mat-icon-button, .mat-icon{
+    line-height: unset;
+    height: unset;
+    width: unset;
+}
+::ng-deep .toast-message{
+    font-size:1.5vh;
+}
 .mngedGame{
     grid-column: 10/16;
     font-size: 3.5vh;
@@ -47,11 +54,13 @@
     font-size: 3vh;
 }
 ::ng-deep .mat-button-wrapper{
-    font-size:1.5vh;
+    font-size:2vh;
 }
 
 .decline_all {
     height: 5vh;
+    vertical-align: unset;
+    width: 5vh;
     transform: rotate(45deg);
 }
 /*стиль кнопки для открытия всплывающего окна для добавления игры*/
@@ -72,11 +81,23 @@
     align-self: left;
     color:black;
 }
+.routeToMngedGame_btn{
+    background-color:rgb(225, 228, 232);
+    color:green;
+    height:5vh;
+    width:5vh;
+}
+.routeToMngedGame_icon{
+    font-size:5vh;
+
+}
 
 /*Input Ввод данных from https://material.angular.io/components/autocomplete/examples-->*/
   .mngGame-input{
     grid-row: 3;
    grid-column: 2/8;
+   font-size: 2vh;
+   height: 15vh;
    overflow: hidden;
    text-align: center;
 }
@@ -130,8 +151,8 @@ h3{
 }
 .btn {
     color: red;
-    background: url(http://subtlepatterns.com/patterns/extra_clean_paper.png);
-    border-radius:100%;
+    width: 5vh;
+    height: 5vh;
 }
 
 

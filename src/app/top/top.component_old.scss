@@ -35,33 +35,36 @@
     overflow: hidden;
 }
 @keyframes twoSlides {
-    0% { left: 100vw; }
-    1% { left: 0%; }
+    0% { left: 100vw;opacity:0;transform:scale(0.5); }
+    20% { left: 0%;opacity:1;transform:scale(1); }
     50.99% { left : 0%; }
-    51% { left: -100.399vw; }
-    99.99% { left: -100.399vw; }
+    70% { left: -100.399vw;}
+    90% { left: -100.399vw; }
     100% { left: -203vw; }
 }
+
 @keyframes threeSlides {
-    0% { left: 100vw; }
+    0% { left: 100vw;opacity:0;transform:scale(0.5); }
     1% { left: 0% }
-    33.99% { left: 0% }
-    34% { left : -100.399vw; }
-    65.99% { left: -100.399vw; }
-    66% { left: -200.91vw; }
-    99.99% { left: -200.91vw }
+    6% { left: 0%;opacity:1;transform:scale(1); }
+    28% { left: 0%; }
+    35% { left : -100.399vw; }
+    65% { left: -100.399vw; }
+    72% { left: -200.91vw; }
+    98% { left: -200.91vw }
     100% { left: -303vw; }
 }
 @keyframes fourSlides {
-    0% { left: 100vw; }
+    0% { left: 100vw;opacity:0;transform:scale(0.5); }
     1% { left: 0% }
-    25.99% { left: 0% }
+    6% { left: 0%;opacity:1;transform:scale(1);  }
+    21%{ left: 0% }
     26% { left : -100.399vw; }
-    50.99% { left: -100.399vw; }
+    46% { left: -100.399vw; }
     51% { left: -200.91vw; }
-    75.99% { left: -200.91vw; }
-    76% { left: -301.39vw; }
-    99.99% { left: -301.39vw; }
+    71% { left: -200.91vw; }
+    77% { left: -301.39vw; }
+    98% { left: -301.39vw; }
     100% { left: -403vw; }
 }
 #game_top_area {
@@ -71,6 +74,7 @@
     grid-template-columns: repeat(20,1fr);
     width: 500vw;
     position: relative;
+    grid-column-gap: 0.5vw;
     align-content: center;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -130,14 +134,6 @@
     grid-row: 2;
     height: 50vh;
     overflow: hidden;
-    grid-gap: 10px;
-}
-.header_last {
-    grid-row: 1;
-    grid-column: 1/20;
-    text-align: center;
-    background-color: #05090e;
-    color:white;
 }
 #game_last_area {
     display: grid;
@@ -165,7 +161,7 @@
 .game_last_name {
     background-color: #111217;
     color:white;
-    font-size: 3.5vh;
+    font-size: 3vh;
     height: 5vh;
     text-align: center;
     text-overflow: ellipsis;
@@ -174,7 +170,7 @@
 .people_last {
     display: grid;
     background-color: #1d1e22;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2.5fr 1fr;
     color:white;
     text-overflow: ellipsis;
     overflow: hidden;

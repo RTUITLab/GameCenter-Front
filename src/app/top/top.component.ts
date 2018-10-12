@@ -40,8 +40,8 @@ export class TopComponent implements OnInit {
         }
        // если выбранных игр больше 8 и меньше 13 , то устанавливаем двуслайдовую анимацию
        if (this.pickedGames.length > 8 && this.pickedGames.length <= 12 ) {
-        document.getElementById('game_top_area').style.animation = '15s threeSlides infinite';
-        document.getElementById('game_last_area').style.animation = '15s threeSlides infinite';
+        document.getElementById('game_top_area').style.animation = '18s threeSlides infinite';
+        document.getElementById('game_last_area').style.animation = '18s threeSlides infinite';
        }
        // если выбранных игр больше 12 и меньше 17 , то устанавливаем двуслайдовую анимацию
        if (this.pickedGames.length > 12 && this.pickedGames.length <= 16 ) {

@@ -23,9 +23,9 @@ export class UserService {
 
   public game: IAllGames[]; // массив игр  типа интерфейса IAllGames[]
 
-  // public global_url = 'https://gamecenterback.azurewebsites.net/api/';
+   public global_url = 'https://gamecenterback.azurewebsites.net/api/';
  //  public global_url = 'http://localhost:5000/api/';
-   public global_url = 'http://8c98036f.ngrok.io/api/';
+   // public global_url = 'http://8c98036f.ngrok.io/api/';
   constructor(private http: HttpClient, // для предачи данных
   ) {
   }

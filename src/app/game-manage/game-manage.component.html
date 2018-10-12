@@ -45,8 +45,8 @@
   <div id = "routeToMngedGame" class = "routeToMngedGame">
     <div *ngFor="let game of filteredGames | async">
        <div *ngIf="Input.value === game">
-           <button mat-icon-button form = 'inputForm' type = "reset" style = "background-color:rgb(225, 228, 232);color:green" (click)="pick(Input.value)">
-              <mat-icon>add</mat-icon>
+           <button mat-icon-button form = 'inputForm' type = "reset" class="routeToMngedGame_btn" (click)="pick(Input.value)">
+              <mat-icon class="routeToMngedGame_icon">add</mat-icon>
             </button>
         </div>
     </div>
