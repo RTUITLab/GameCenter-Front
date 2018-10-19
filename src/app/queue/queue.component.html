@@ -5,7 +5,7 @@
     <div id="header" class="header">
 
       <div id="game_name" class="header-name">
-        {{pickedGame.name}}
+        {{pickedGame.gameName}}
       </div>
 
       <div id='button' class="header-place">
@@ -22,22 +22,22 @@
 
       <div id='people-area' *ngFor="let people of peopleQueue;let i=index" class="queue-people-area">
         
-          <div class="queue-user_state" *ngIf='pickedGame.name===people.gameName'>
+          <div class="queue-user_state" *ngIf='pickedGame.gameName===people.gameName'>
             {{people.status}}
           </div>
 
-          <div id="user_name" class="queue-user_name" *ngIf='pickedGame.name===people.gameName'>
-            {{people.username}}
+          <div id="user_name" class="queue-user_name" *ngIf='pickedGame.gameName===people.gameName'>
+            {{people.userName}}
           </div>
           
-          <div id="btn-deny" *ngIf='pickedGame.name===people.gameName'>
-            <button mat-icon-button class="queue-user_deny" (click) = "declineUser(people.playerId,people.gameTypeId)">
+          <div id="btn-deny" *ngIf='pickedGame.gameName===people.gameName'>
+            <button mat-icon-button class="queue-user_deny" (click) = "declineUser(people.playerId,people.gameId)">
                   <img class="icon decline_icon " src="assets/icons/decline_user.svg" />
             </button>
             
           </div>
           
-          <div id="btn-accept" *ngIf='pickedGame.name===people.gameName'>
+          <div id="btn-accept" *ngIf='pickedGame.gameName===people.gameName'>
             <div *ngIf="people.status==='InQueue'">
               <button mat-icon-button class="queue-user_accept" (click) = "accept_user(people.playerId)">
                 <img class="icon" src="assets/icons/accept_user.svg" />

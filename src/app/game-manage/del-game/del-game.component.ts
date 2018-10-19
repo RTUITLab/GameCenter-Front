@@ -70,7 +70,7 @@ export class DelGameComponent implements OnInit {
         return [`wait for load`]; // возвращем , если еще не загружены данные
       }
       return this.games
-      .map(game => game.name) // отбираем среди данных только имена игр
+      .map(game => game.gameName) // отбираем среди данных только имена игр
       .filter(game => game.toLowerCase().indexOf(filterValue) !== -1); // фильтруем по словосочетаниям
     }
   ////

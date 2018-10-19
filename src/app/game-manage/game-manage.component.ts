@@ -96,8 +96,9 @@ export class GameManageComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.oldGame = result;
       if (this.oldGame !== undefined) {
-        // добавляем игру по имени this.newGame
-        this._userServise.delGame(this.oldGame)
+        // delete игру по имени this.newGame
+    const gameId = this.games.find(g => g.gameName === this.oldGame).gameId;
+        this._userServise.delGame(gameId)
           .subscribe(
             _ => {
               this.loadAllGames();
@@ -125,7 +126,7 @@ export class GameManageComponent implements OnInit {
     });
   }
   public pick(Gamename: string) { // выбираем игру
-    const gameId = this.games.find(g => g.name === Gamename).gameId;
+    const gameId = this.games.find(g => g.gameName === Gamename).gameId;
     this._userServise.pickGame(gameId)
       .subscribe(
         _ => {this.loadPickedGames();
@@ -146,7 +147,7 @@ export class GameManageComponent implements OnInit {
 
   }
   public unpick(game: string) { // удаляем из выбранных игр
-    const gameName = this.games.find(g => g.gameId === game).name;
+    const gameName = this.games.find(g => g.gameId === game).gameName;
     this._userServise.unpickGame(game)
       .subscribe(
         _ => this.loadPickedGames(),
@@ -187,10 +188,13 @@ export class GameManageComponent implements OnInit {
       () => console.log('_hubService.addNotifier complete')
     );
     this._hubService.deleteNotifier.subscribe( // подписываемся на событие удаления игры,совершенного другим пользователем
-      n => {this.loadAllGames();
-            this.loadPickedGames(); },
+      _ => {this.loadAllGames();
+      this.loadPickedGames(); },
       err => console.log(err),
-      () => console.log('_hubService.deleteNotifier complete')
+      () => {
+        this.loadAllGames();
+      this.loadPickedGames();
+        console.log('_hubService.deleteNotifier complete'); }
     );
     ////
   }
@@ -204,7 +208,7 @@ export class GameManageComponent implements OnInit {
     }
 
     return this.games
-      .map(game => game.name)  // отбираем среди данных только имена игр
+      .map(game => game.gameName)  // отбираем среди данных только имена игр
       .filter(game => game.toLowerCase().indexOf(filterValue) !== -1); // фильтруем по словосочетаниям
   }
   ////

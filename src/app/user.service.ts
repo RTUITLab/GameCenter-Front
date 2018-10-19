@@ -23,8 +23,8 @@ export class UserService {
 
   public game: IAllGames[]; // массив игр  типа интерфейса IAllGames[]
 
-   public global_url = 'https://gamecenterback.azurewebsites.net/api/';
- //  public global_url = 'http://localhost:5000/api/';
+   // public global_url = 'https://gamecenterback.azurewebsites.net/api/';
+  public global_url = 'http://42aae2d7.ngrok.io/api/';
    // public global_url = 'http://8c98036f.ngrok.io/api/';
   constructor(private http: HttpClient, // для предачи данных
   ) {
@@ -33,12 +33,12 @@ export class UserService {
   // private _url:string = 'https://jsonplaceholder.typicode.com/users/';//ссылка для получения данных
 
   public getAll(): Observable<IAllGames[]> {
-    return this.http.get<IAllGames[]>(this.global_url + 'Gametype/'); // передаем все данные с ссылки
+    return this.http.get<IAllGames[]>(this.global_url + 'Gametype/getall/'); // передаем все данные с ссылки
   }
 
   public addGame(game: string): Observable<Object> { // добавляем игру
     console.log('addGame');
-    return this.http.post(this.global_url + `Gametype/` + game, '');
+    return this.http.post(this.global_url + `Gametype/`, {GameType: game});
 
   }
   public delGame(game: string): Observable<Object> {// удаляем игру
@@ -47,7 +47,7 @@ export class UserService {
   }
   public getAllPeople(): Observable<Object> { // получаем всех людей в очереди
     console.log(`getallpeople try to GET`);
-    return this.http.get(`${this.global_url}VkBot/getqueue/`);
+    return this.http.get(`${this.global_url}registration/queue/`);
   }
   public AddToQueue(nick: string, gameId: string): Observable<Object> { // получаем всех людей в очереди
     console.log(`${nick} ${gameId}`);
@@ -55,15 +55,15 @@ export class UserService {
   }
   public acceptUser(usernameId: string): Observable<Object> {
     console.log( `acceptUser` );
-    return this.http.put<Object>(this.global_url + 'playermanager/accept/' + usernameId, '');
+    return this.http.put<Object>(this.global_url + 'PlayerManager/accept/' + usernameId, '');
   }
   public declineUser(nameId: string , gamenameId: string, score: Number ): Observable<Object> {
     console.log( `declineUser`);
-    return this.http.put<Object>(this.global_url + 'playermanager/refuse/' + nameId + '/' + gamenameId + '/' + score, '');
+    return this.http.put<Object>(this.global_url + 'PlayerManager/refuse/' + nameId + '/' + gamenameId + '/' + score, '');
   }
   public declineAllUsers(name: string): Observable<Object> {
     console.log(`declineALLusers`);
-    return this.http.put<Object>(this.global_url + `playermanager/deleteall/` + name, '');
+    return this.http.delete<Object>(this.global_url + `PlayerManager/deleteall/` + name);
   }
 
   public getAllPicked(): Observable<IPickedGames[]> {// получаем все выбранные игры
@@ -73,7 +73,12 @@ export class UserService {
 
   public pickGame(gameid: string): Observable<Object> {// выбираем игру
     console.log('pickGame ' + [gameid]);
-    return this.http.put<Object>(this.global_url + 'Gametype/pickgames/', [gameid]); // посылаем запрос на изменение статуса на Selected
+    return this.http.put<Object>(this.global_url + 'Gametype/pickgame/', {Id: gameid}); // посылаем запрос на изменение статуса на Selected
+  }
+  public unpickGame(gameid: string): Observable<Object> {// удаляем игру из выбранных
+    console.log('unpickGame ' + [gameid]);
+    // посылаем запрос на изменение статуса на Selected
+    return this.http.put<Object>(this.global_url + 'Gametype/unpickgame/', {Id: gameid});
   }
   public delAllRecords(gameid: string): Observable<Object> {// удаляем рекорды
     console.log('delALlRecords ' + [gameid]);
@@ -81,7 +86,7 @@ export class UserService {
   }
   public getTop(): Observable<Object> {
     console.log(`loadTop`);
-    return this.http.get<Object>(`${this.global_url}scores/`);
+    return this.http.get<Object>(`${this.global_url}scores/top`);
   }
   public getLast(): Observable<Object> {
     console.log(`loadLast`);
@@ -106,10 +111,6 @@ export class UserService {
      });
    }
    */
-  public unpickGame(gameid: string): Observable<Object> {// удаляем игру из выбранных
-    console.log('unpickGame ' + [gameid]);
-    return this.http.put<Object>(this.global_url + 'Gametype/unpickgames/', [gameid]); // посылаем запрос на изменение статуса на Selected
-  }
 
 }
 

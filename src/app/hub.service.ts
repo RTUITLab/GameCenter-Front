@@ -14,8 +14,8 @@ import { Observable, Subscriber } from 'rxjs';
 })
 export class HubService {
   public _hubConnection: HubConnection; // SignalR
-  public hub_url = 'https://gamecenterback.azurewebsites.net'; // сам сервер
-  // public hub_url = 'http://8c98036f.ngrok.io';
+  // public hub_url = 'https://gamecenterback.azurewebsites.net'; // сам сервер
+   public hub_url = 'http://42aae2d7.ngrok.io';
   // public hub_url = 'http://localhost:5000';
 
   public pickNotifier: Observable<Object>;
@@ -32,6 +32,9 @@ export class HubService {
 
   public deleteNotifier: Observable<Object>;
   private deleteSubscriber: Subscriber<Object>;
+
+  public deleteRecordNotifier: Observable<Object>;
+  private deleteRecordSubscriber: Subscriber<Object>;
   constructor(
   ) {
     console.log('HUB here');
@@ -40,6 +43,7 @@ export class HubService {
     this.queueNotifier = new Observable<Object>(sub => this.queueSubscriber = sub );
     this.addNotifier = new Observable<Object>(sub => this.addSubscriber = sub);
     this.deleteNotifier = new Observable<Object>(sub => this.deleteSubscriber = sub);
+    this.deleteRecordNotifier = new Observable<Object>(sub => this.deleteRecordSubscriber = sub);
   }
   public connect() {
     this._hubConnection = new SignalR.HubConnectionBuilder()
@@ -76,6 +80,11 @@ export class HubService {
     this._hubConnection.on('Delete', () => { // получаем данные из сервер
       console.log('Received Delete');
       this.deleteSubscriber.next();
+    }
+    );
+    this._hubConnection.on('DeleteRecord', () => { // получаем данные из сервер
+      console.log('Received DeleteRecord');
+      this.deleteRecordSubscriber.next();
     }
     );
   }

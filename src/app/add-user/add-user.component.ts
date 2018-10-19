@@ -47,7 +47,7 @@ export class AddQueueComponent implements OnInit {
       if (nick === '') {
         this.toastr.error(`Псевдоним не введён`);
       } else {
-        const gameId = this.pickedGames.find(g => g.name === pickedGame).gameId; // находим id выбранной игры для отправки
+        const gameId = this.pickedGames.find(g => g.gameName === pickedGame).gameId; // находим id выбранной игры для отправки
         console.log(nick + gameId);
         this._userServise.AddToQueue(nick, gameId).subscribe(
           _ => {},
@@ -79,7 +79,7 @@ export class AddQueueComponent implements OnInit {
     }
 
     return this.pickedGames
-      .map(game => game.name)  // отбираем среди данных только имена игр
+      .map(game => game.gameName)  // отбираем среди данных только имена игр
       .filter(game => game.toLowerCase().indexOf(filterValue) !== -1); // фильтруем по словосочетаниям
   }
   ////

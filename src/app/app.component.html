@@ -3,7 +3,7 @@
     class="sidenav-container" (backdropClick)="close('backdrop')" >
 
     <!--Sidenav То, что находится внутри слайдера-->
-        <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose style = "display:grid;background-color:rgb(225, 228, 232);">
+        <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose class="in_slider">
             <!--кнопка с иконкой для закрытия слайдера-->
                  <button mat-icon-button (click)="close('toggle button')" style="margin-left:85%;text-align: center;">
                  <!-- <button mat-icon-button (click)="close('toggle button')" style="margin-left:85%;height: 4vh;width: 4vh;text-align: center;vertical-align: middle;"> -->

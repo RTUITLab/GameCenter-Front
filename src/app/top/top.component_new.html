@@ -14,7 +14,7 @@
 
         <div id = "game_top_name" class = "game_top_name">
           <span class = "game_top_name_text">
-            {{pickedGame.name}}
+            {{pickedGame.gameName}}
           </span>
         </div>
 
@@ -24,14 +24,14 @@
 
               <div *ngIf='people.scoreCount!=0'>
 
-                <div *ngIf='people.gameName===pickedGame.name' class = "people_top">
+                <div *ngIf='people.gameName===pickedGame.gameName' class = "people_top">
                   
                   <div id = "icon_top"   class = "icon_top">
                     <img class="icon" src="assets/icons/Vk_icon.png">
                   </div>
                   
                   <div id = "name_top"   class = "name_top">
-                    {{people.username}}
+                    {{people.userName}}
                   </div>
                   
                   <div id = "score_top"   class = "score_top">

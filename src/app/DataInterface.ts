@@ -1,18 +1,18 @@
 export interface IAllGames {
-    name: string;
+    gameName: string;
     gameId: string;
     state: string;
 }
 export interface IPickedGames {
-    name: string;
+    gameName: string;
     gameId: string;
 }
 export interface IQueue {
   gameName: string;
-  username: string;
+  userName: string;
   status: string;
   playerId: string;
-  gameTypeId: string;
+  gameId: string;
 }
 export interface IRating {
     scoreId: string;

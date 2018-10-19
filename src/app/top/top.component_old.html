@@ -13,7 +13,7 @@
       <div id = "game_top"  *ngFor="let pickedGame of pickedGames" class = "game_top">
 
         <div id = "game_top_name" class = "game_top_name">
-          {{pickedGame.name}}
+          {{pickedGame.gameName}}
         </div>
 
         <div id = "people_top" *ngFor="let peopleList of Top">
@@ -22,7 +22,7 @@
 
               <div *ngIf='people.scoreCount!=0'>
 
-                <div *ngIf='people.gameName===pickedGame.name' class = "people_top">
+                <div *ngIf='people.gameName===pickedGame.gameName' class = "people_top">
                   
                   <div id = "medal_top"   class = "medal_top">
                     <img *ngIf='i===0'class="icon" src="assets/icons/Gold_medal.svg">
@@ -31,11 +31,11 @@
                   </div>
                   
                   <div id = "name_top"   class = "name_top">
-                    {{people.username}}
+                    {{people.userName}}
                   </div>
                   
                   <div id = "score_top"   class = "score_top">
-                    {{people.scoreCount}}
+                    {{people.score}}
                   </div>
                   
                 </div>
@@ -64,7 +64,7 @@
       <div id = "game_last" *ngFor="let pickedGame of pickedGames" class = "game_last">
         
         <div id = "game_last" class = "game_last_name">
-         {{pickedGame.name}}
+         {{pickedGame.gameName}}
         </div>
         
         <div id = "people_last" *ngFor="let peopleList of Last">
@@ -72,10 +72,10 @@
           <div *ngFor="let people of peopleList">
             <div *ngIf='people.scoreCount!=0'>
 
-              <div *ngIf='people.gameName===pickedGame.name' class = "people_last">
+              <div *ngIf='people.gameName===pickedGame.gameName' class = "people_last">
                 
                 <div id = "name_last"   class = "name_last">
-                  {{people.username}}
+                  {{people.userName}}
                   
                 </div>
                 

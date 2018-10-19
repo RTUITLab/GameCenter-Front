@@ -26,6 +26,7 @@ import { IRating } from '../DataInterface';
 export class RecordManageComponent implements OnInit {
   public games: IAllGames[]; // массив игр  типа интерфейса IAllGames[]
   Records: IRating[]; // лист рекордов
+  tempVarForRecord: string;
   displayedColumns: string[] = ['rating', 'name', 'score', 'date', 'delete']; // отображаемые колонки таблицы
   dataSource: MatTableDataSource<IRating>; // переменная для отображения листа Records
   pickedGameId: string;
@@ -53,6 +54,7 @@ export class RecordManageComponent implements OnInit {
     });
   }
   public loadRecords(gameId) { // подгружаем все рекорды
+    this.tempVarForRecord = gameId;
     console.log('loadRECOrdINRECORDMANAGe');
     this._userServise.getRecords(gameId).subscribe((data: IRating[]) => {
       this.Records = data;
@@ -83,6 +85,11 @@ export class RecordManageComponent implements OnInit {
     );
     this._hubService.deleteNotifier.subscribe( // подписываемся на событие удаления игры,совершенного другим пользователем
       n => this.loadAllGames(),
+      err => console.log(err),
+      () => console.log('_hubService.deleteNotifier complete')
+    );
+    this._hubService.deleteRecordNotifier.subscribe( // подписываемся на событие удаления игры,совершенного другим пользователем
+      n => this.loadRecords(this.tempVarForRecord),
       err => console.log(err),
       () => console.log('_hubService.deleteNotifier complete')
     );
