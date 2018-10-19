@@ -22,7 +22,7 @@ import { HubService } from '../hub.service';
   templateUrl: './add-user.component.html',
   styleUrls: ['./add-user.component.css']
 })
-export class AddQueueComponent implements OnInit {
+export class AddUserComponent implements OnInit {
 
   constructor(
     private _userServise: UserService, // переменная для обращения к сервису

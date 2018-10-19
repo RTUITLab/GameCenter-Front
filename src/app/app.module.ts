@@ -54,7 +54,7 @@ import { ToastrModule } from 'ngx-toastr';
 
 // карточки с header and content
 import {MatCardModule} from '@angular/material/card';
-import { AddQueueComponent } from './add-user/add-user.component';
+import { AddUserComponent } from './add-user/add-user.component';
 ////
 
 
@@ -68,7 +68,7 @@ import { AddQueueComponent } from './add-user/add-user.component';
     RecordManageComponent,
     TopComponent,
     DelUserComponent,
-    AddQueueComponent,
+    AddUserComponent,
 
   ],
 
@@ -111,7 +111,7 @@ import { AddQueueComponent } from './add-user/add-user.component';
        },
       {
         path: 'add-user',
-        component: AddQueueComponent
+        component: AddUserComponent
        },
       {
         path: 'queue',
