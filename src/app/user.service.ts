@@ -49,6 +49,10 @@ export class UserService {
     console.log(`getallpeople try to GET`);
     return this.http.get(`${this.global_url}VkBot/getqueue/`);
   }
+  public AddToQueue(nick: string, gameId: string): Observable<Object> { // получаем всех людей в очереди
+    console.log(`${nick} ${gameId}`);
+    return this.http.post(`${this.global_url}registration/`, {GameId: gameId, Username: nick} );
+  }
   public acceptUser(usernameId: string): Observable<Object> {
     console.log( `acceptUser` );
     return this.http.put<Object>(this.global_url + 'playermanager/accept/' + usernameId, '');
