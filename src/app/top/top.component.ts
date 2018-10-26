@@ -91,6 +91,12 @@ export class TopComponent implements OnInit {
       err => console.log(err),
       () => console.log('_hubService.deleteNotifier complete')
     );
+    this._hubService.deleteRecordNotifier.subscribe( // подписываемся на событие удаления рекорда игры,совершенного другим пользователем
+      n => { this.loadLast();
+        this.loadTop(); },
+      err => console.log(err),
+      () => console.log('_hubService.deleteRecordNotifier complete')
+    );
     ////
   }
 
