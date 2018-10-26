@@ -11,8 +11,8 @@
 }
 .header{
     display: grid;
-    padding-top: 7px;
-    padding-bottom: 7px;
+    /* padding-top: 7px;
+    padding-bottom: 7px; */
     background-color: #24292e;
     overflow: hidden;
     border-top-left-radius: 7px;
@@ -62,8 +62,8 @@
     width: 100%;
     text-align: center;
     grid-template-columns: 15% 55% 15% 15%;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    /* padding-top: 5px;
+    padding-bottom: 5px; */
 
 }
 .queue-user_state{

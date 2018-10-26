@@ -88,7 +88,7 @@ export class RecordManageComponent implements OnInit {
       err => console.log(err),
       () => console.log('_hubService.deleteNotifier complete')
     );
-    this._hubService.deleteRecordNotifier.subscribe( // подписываемся на событие удаления игры,совершенного другим пользователем
+    this._hubService.deleteRecordNotifier.subscribe( // подписываемся на событие удаления рекорда игры,совершенного другим пользователем
       n => this.loadRecords(this.tempVarForRecord),
       err => console.log(err),
       () => console.log('_hubService.deleteNotifier complete')

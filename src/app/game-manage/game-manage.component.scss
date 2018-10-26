@@ -20,6 +20,12 @@
     height: unset;
     width: unset;
 }
+::ng-deep .mat-button{
+    line-height: 5vh;
+}
+::ng-deep .mat-drawer-inner-container{
+    line-height: 5vh;
+}
 ::ng-deep .toast-message{
     font-size:1.5vh;
 }

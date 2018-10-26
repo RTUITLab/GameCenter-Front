@@ -65,8 +65,8 @@ export class GameManageComponent implements OnInit {
   public addGame(): void { // функция для кнопки для открытия всплывающего окна
 
     const dialogRef = this.dialog.open(AddGameComponent, {
-      width: '512px', // ширина всплывающего окна
-      height: '228px', // высота всплывающего окна
+      width: 'fit-content', // ширина всплывающего окна
+      height: 'fit-content', // высота всплывающего окна
       data: { Game: this.newGame } // название новой игры из Inputa
     });
 
@@ -88,8 +88,8 @@ export class GameManageComponent implements OnInit {
   public delGame(): void { // функция для кнопки для открытия всплывающего окна
 
     const dialogRef = this.dialog.open(DelGameComponent, {
-      width: '512px', // ширина всплывающего окна
-      height: '228px', // высота всплывающего окна
+      width: 'fit-content', // ширина всплывающего окна
+      height: 'fit-content', // высота всплывающего окна
       data: { oldGame: this.oldGame } // название новой игры из Inputa
     });
 
