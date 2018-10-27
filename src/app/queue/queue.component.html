@@ -31,17 +31,17 @@
           </div>
           
           <div id="btn-deny" *ngIf='pickedGame.gameName===people.gameName'>
-            <button mat-icon-button class="queue-user_deny" (click) = "declineUser(people.playerId,people.gameId)">
+            <div class="queue-user_deny" (click) = "declineUser(people.playerId,people.gameId)">
                   <img class="icon decline_icon " src="assets/icons/decline_user.svg" />
-            </button>
+            </div>
             
           </div>
           
           <div id="btn-accept" *ngIf='pickedGame.gameName===people.gameName'>
             <div *ngIf="people.status==='InQueue'">
-              <button mat-icon-button class="queue-user_accept" (click) = "accept_user(people.playerId)">
+              <div class="queue-user_accept" (click) = "accept_user(people.playerId)">
                 <img class="icon" src="assets/icons/accept_user.svg" />
-              </button> 
+              </div> 
             </div>
           </div>
        

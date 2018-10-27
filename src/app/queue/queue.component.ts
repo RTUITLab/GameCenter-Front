@@ -79,8 +79,8 @@ export class QueueComponent implements OnInit {
   private declineUser(nameId: string, gamenameId: string): void { // удаляем желающего из очереди
 
     const dialogRef = this.dialog.open(DelUserComponent, {
-      width: '512px', // ширина всплывающего окна
-      height: '228px', // высота всплывающего окна
+      width: 'fit-content', // ширина всплывающего окна
+      height: 'fit-content', // высота всплывающего окна
       data: { score: this.score } // счёт игрока из окна ввода счёта
     });
     dialogRef.afterClosed().subscribe(result => { // окно для добавления счёта

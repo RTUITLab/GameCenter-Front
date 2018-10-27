@@ -20,7 +20,7 @@
           
             <div *ngFor="let people of peopleList;let i = index">
 
-              <div *ngIf='people.scoreCount!=0'>
+              <div *ngIf='people.score!=0'>
 
                 <div *ngIf='people.gameName===pickedGame.gameName' class = "people_top">
                   
@@ -70,7 +70,7 @@
         <div id = "people_last" *ngFor="let peopleList of Last">
           
           <div *ngFor="let people of peopleList">
-            <div *ngIf='people.scoreCount!=0'>
+            <div *ngIf='people.score!=0'>
 
               <div *ngIf='people.gameName===pickedGame.gameName' class = "people_last">
                 

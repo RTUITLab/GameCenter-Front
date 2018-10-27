@@ -55,7 +55,7 @@ export class UserService {
   }
   public acceptUser(usernameId: string): Observable<Object> {
     console.log( `acceptUser` );
-    return this.http.put<Object>(this.global_url + 'PlayerManager/accept/' + usernameId, '');
+    return this.http.put<Object>(this.global_url + 'PlayerManager/accept/' , usernameId);
   }
   public declineUser(nameId: string , gamenameId: string, score: Number ): Observable<Object> {
     console.log( `declineUser`);

@@ -21,7 +21,7 @@
 .mngGameText{
     color:white;
     text-align: center;
-    font-size: 3vh;
+    font-size: 4vh;
 }
 .games_area{
     box-sizing: border-box;
@@ -35,7 +35,6 @@
 }
 .pickGame {
     width: 100%;
-    font-size: 18px;
     white-space: normal;
     word-break: break-all; /* Перенос слов */ 
 }
