@@ -39,8 +39,10 @@
     line-height: 4vh;
 }
 .records_area {
-        display: grid;
-        grid-template-columns: unset;
+    display: grid;
+    grid-column: 6/17;
+    grid-template-columns: repeat(16,1fr);
+
 }
 .header_buttons {
     display: grid;
