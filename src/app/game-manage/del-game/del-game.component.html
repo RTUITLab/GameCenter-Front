@@ -1,34 +1,37 @@
 <div id="delGame">
 
-    <span mat-dialog-title style="text-align: center;font-size: 2.5vh;">Удаление игры</span>
+    <span mat-dialog-title class="delGame_header">Удаление игры</span>
 
     <div mat-dialog-content style="text-align: center">
-        
-        
-        <!--Input Ввод данных from https://material.angular.io/components/autocomplete/examples-->
-            <form>
-            <mat-form-field class="mngGame-full-width" >
-                <input type="text" matInput [(ngModel)]="data.oldGame" #Input placeholder="Введите название" style = 'color:black;font-size: 2vh;' aria-label="Number" [formControl]="myControl" [matAutocomplete]="auto">
-                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" class="extended">
-                    <div class="filteredGame"> 
-                        <mat-option *ngFor="let game of filteredGames | async" [value]="game" style="background-color:rgb(225, 228, 232);color:black;font-size: 2vh;">
-                        {{game}}
+        <div id="mngGame-input" class="mngGame-input">
+            <!--Input Ввод данных from https://material.angular.io/components/autocomplete/examples-->
+            <form id="inputForm">
+                <mat-form-field class="mngGame-full-width" >
+                    <input type="text" #Input placeholder="Введите название" [(ngModel)]="data.oldGame" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" class="extended">
+                        <div> 
+                        <mat-option *ngFor="let game of filteredGames | async" [value]="game" class="filteredgames">
+                            {{game}}
                         </mat-option>
-                    </div>
-                </mat-autocomplete>
-            </mat-form-field>
+                        </div>
+                    </mat-autocomplete>
+                </mat-form-field>
             </form>
-        <!---->
-        
+            <!---->
+        </div>         
     </div>
     <div mat-dialog-actions id="dialog-actions" class="dialog-actions">
         <div id="dialog-actions-deny" style="text-align: center;">
-            <button mat-button type = 'reset' form="matInput" (click)="onNoClick()" class="dialog-actions-deny">Отменить</button>
+            <button mat-button type = 'reset' form="matInput" (click)="onNoClick()" class="dialog-actions-deny">
+                Отменить
+            </button>
         </div>
         <div id="dialog-actions-continue">
             <div *ngFor="let game of filteredGames | async">
                     <div *ngIf="Input.value === game" style="text-align: center;">
-                        <button mat-button type = 'reset' form="matInput" [mat-dialog-close]="data.oldGame" class="dialog-actions-continue">Продолжить</button>
+                        <button mat-button type = 'reset' form="matInput" [mat-dialog-close]="data.oldGame" class="dialog-actions-continue">
+                            Продолжить
+                        </button>
                      </div>
             </div>
         </div>

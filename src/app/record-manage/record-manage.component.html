@@ -25,19 +25,21 @@
     <div id='header_buttons' class="header_buttons">
 
         <mat-button-toggle-group class="period">
-            <mat-button-toggle value="day">За день</mat-button-toggle>
-            <mat-button-toggle value="month">За месяц</mat-button-toggle>
-            <mat-button-toggle value="year">За год</mat-button-toggle>
+            <mat-button-toggle value="day" class="text">За день</mat-button-toggle>
+            <mat-button-toggle value="month" class="text">За месяц</mat-button-toggle>
+            <mat-button-toggle value="year" class="text">За год</mat-button-toggle>
         </mat-button-toggle-group>
 
-        <button mat-icon-button id='delRecord' class="delRecord" (click)="deleteAllRecords()">
-          <mat-icon>delete</mat-icon>
-        </button> 
+        <div id='delRecord' class="delRecord">
+          <button mat-button class="delRecord_btn" (click)="deleteAllRecords()">
+            Удалить все рекорды
+          </button> 
+        </div>
 
     </div>
 
     <div id='table' class="table">
-        <mat-form-field>
+        <mat-form-field class="table_input">
             <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Пойск по параметрам таблицы">
           </mat-form-field>
           
@@ -46,7 +48,7 @@
           
               <!-- rating Column -->
               <ng-container matColumnDef="rating">
-                <th mat-header-cell *matHeaderCellDef> Рейтинг </th>
+                <th mat-header-cell *matHeaderCellDef> Позиция </th>
                 <td mat-cell *matCellDef="let row;let i=index"> {{i}} </td>
               </ng-container>
           

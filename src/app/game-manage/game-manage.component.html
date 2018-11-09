@@ -17,9 +17,9 @@
           </div>
 
           <div class="unpick">
-            <div class="btn" (click)="unpick(pickedgame.gameId)">
-              <img class="decline_all" src="assets/icons/decline_user.svg">
-            </div>
+            <button mat-icon-button class="unpick_btn" (click)="unpick(pickedgame.gameId)">
+              <img class="unpick_icon" src="assets/icons/close-circular-button.svg">
+            </button>
           </div>
 
         </div>
@@ -46,7 +46,7 @@
     <div *ngFor="let game of filteredGames | async">
        <div *ngIf="Input.value === game">
            <button mat-icon-button form = 'inputForm' type = "reset" class="routeToMngedGame_btn" (click)="pick(Input.value)">
-              <mat-icon class="routeToMngedGame_icon">add</mat-icon>
+              <img class="routeToMngedGame_icon" src="assets/icons/add-circular-button.svg">
             </button>
         </div>
     </div>
@@ -54,7 +54,6 @@
   <!---->
   
   <div id="mngGame-input" class="mngGame-input">
-
     <!--Input Ввод данных from https://material.angular.io/components/autocomplete/examples-->
     <form id="inputForm">
       <mat-form-field class="mngGame-full-width" >
@@ -66,24 +65,10 @@
             </mat-option>
           </div>
         </mat-autocomplete>
-        
       </mat-form-field>
-      
-      
     </form>
       <!---->
-
-  
- 
-
-  
-   
-      
-
- 
-  
-    
-</div>
+  </div>
   
     
   

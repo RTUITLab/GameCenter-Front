@@ -10,13 +10,12 @@
     box-sizing: border-box;
 }
 .header{
-    display: grid;
-    /* padding-top: 7px;
-    padding-bottom: 7px; */
     background-color: #24292e;
     overflow: hidden;
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-top-right-radius: 2vh;
+    border-top-left-radius: 2vh;
     display: inline-flex;
     width: 100%;
     
@@ -27,30 +26,43 @@
     overflow: hidden;
     font-size: 4vh;
     text-align: center;
+    align-self: center;
     color:white;
     float: left;
 }
-.header-place{
+.header-decline_all{
+    overflow: hidden;
     width: 20%;
     float: right;
-    text-align: center;
+    display: grid;
+    justify-content: center;
+}
+.header-decline_all_btn{
+    height: 5vh;
+    width: 5vh;
+    align-self: center;
 }
 
-.decline_all {
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    margin: auto;
-    color: black;
-    border-radius: 15px;
-    
+.header-decline_all_icon {
+    height: 5vh;
+    vertical-align: unset;
+}
+.acceptUser_btn {
+    height: 5vh;
+    width: 5vh;
+    align-self: center;
+}
+.acceptUser_icon {
+    height: 5vh;
+    vertical-align: unset;
 }
 .queue{
     /* display: grid; */
     padding: 10px;
     margin-top: 2px;
     background-color:rgb(225, 228, 232);
-    border-bottom-right-radius: 7px;
-    border-bottom-left-radius: 7px;
-    /* grid-template-rows:repeat(50,50px); */
+    border-bottom-right-radius: 1vh;
+    border-bottom-left-radius: 1vh;
     overflow-y: scroll;
     height:40vh;
     box-sizing: border-box;
@@ -61,9 +73,7 @@
     align-self: center;
     width: 100%;
     text-align: center;
-    grid-template-columns: 15% 55% 15% 15%;
-    /* padding-top: 5px;
-    padding-bottom: 5px; */
+    grid-template-columns: 15% 55% 13% 4% 13%;
 
 }
 .queue-user_state{
@@ -77,28 +87,16 @@
 }
 .queue-user_name{
     grid-column: 2;
-    align-self: center;
     text-align: center;
     overflow: hidden;
-    text-overflow: ellipsis;
     font-size:2.5vh;
-    color:  black;
+    text-overflow: ellipsis;
+    align-self: center;
 
 }
 .queue-user_deny{
-    grid-column: 2;
-}
-.queue-user_accept{
     grid-column: 3;
 }
-
-.icon {
-  height: 3.4vh;
-}
-.decline_all {
-    height: 5vh;
-    transform: rotate(45deg);
-}
-.decline_icon {
-    transform: rotate(45deg);
+.queue-user_accept{
+    grid-column: 5;
 }

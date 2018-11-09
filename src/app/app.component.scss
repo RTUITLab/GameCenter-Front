@@ -14,14 +14,14 @@
     grid-template-rows: repeat(7,4vh);
 }
 .menu_icon{
-    height: 3.5vh;
+    height: 2.6vh;
     grid-row:1;
     padding: 1.5vh;
     justify-self: flex-end;
     
 }
 .menu_icon_out{
-    height: 3.5vh;
+    height: 2.6vh;
     position: absolute;
     padding: 1.5vh;   
 }
@@ -32,19 +32,17 @@
     font-size: 4vh;
 }
 .text{
-    font-size: 2.5vh;
+    font-size: 2vh;
 }
-::ng-deep .mat-button-wrapper, .mat-icon-button,{
-    line-height: unset;
-    font-size:4vh;
-}
+// ::ng-deep .mat-button-wrapper, .mat-icon-button,{
+//     line-height: unset;
+//     font-size:4vh;
+// }
 
 .btn{
     color: black;
     justify-self: center;
     align-self: center;
+    line-height: 4vh;
     width: 100%;
-}
-@media only screen and (max-width:1024px){
-
 }

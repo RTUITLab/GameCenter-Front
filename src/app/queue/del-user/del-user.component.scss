@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: repeat(2,1fr);
     grid-column-gap: 5px;
+    justify-content: center;
 
 }
 .dialog-actions-continue{
@@ -17,5 +18,14 @@
     border-radius: 10px;
     background-color:rgb(225, 228, 232);
     
+}
+.delUser_header{
+    text-align: center;
+    font-size:2.1vh;
+}
+.delUser_input{
+    font-size: 1.8vh;
+    overflow: hidden;
+    text-align: center;
 }
 

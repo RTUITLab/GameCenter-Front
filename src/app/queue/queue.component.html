@@ -8,9 +8,9 @@
         {{pickedGame.gameName}}
       </div>
 
-      <div id='button' class="header-place">
-         <button mat-icon-button class="header-button" (click) = "decline_all(pickedGame.gameId)">
-            <img class="decline_all" src="assets/icons/decline_user.svg">
+      <div id='button' class="header-decline_all">
+         <button mat-icon-button class="header-decline_all_btn" (click) = "decline_all(pickedGame.gameId)">
+            <img class="header-decline_all_icon" src="assets/icons/close-circular-button.svg">
           </button>
       </div>
 
@@ -27,20 +27,23 @@
           </div>
 
           <div id="user_name" class="queue-user_name" *ngIf='pickedGame.gameName===people.gameName'>
-            {{people.userName}}
+              {{people.userName}}
           </div>
           
-          <div id="btn-deny" *ngIf='pickedGame.gameName===people.gameName'>
-            <div class="queue-user_deny" (click) = "declineUser(people.playerId,people.gameId)">
-                  <img class="icon decline_icon " src="assets/icons/decline_user.svg" />
+          <div id="btn-deny"  class="queue-user_deny"*ngIf='pickedGame.gameName===people.gameName'>
+            <div>
+                  <button mat-icon-button class="header-decline_all_btn" (click) = "declineUser(people.playerId,people.gameId)">
+                    <img class="header-decline_all_icon" src="assets/icons/close-circular-button.svg">
+                  </button>
             </div>
-            
           </div>
           
-          <div id="btn-accept" *ngIf='pickedGame.gameName===people.gameName'>
+          <div id="btn-accept" class="queue-user_accept" *ngIf='pickedGame.gameName===people.gameName'>
             <div *ngIf="people.status==='InQueue'">
-              <div class="queue-user_accept" (click) = "accept_user(people.playerId)">
-                <img class="icon" src="assets/icons/accept_user.svg" />
+              <div>
+                <button mat-icon-button class="acceptUser_btn" (click) = "accept_user(people.playerId)">
+                  <img class="acceptUser_icon" src="assets/icons/accept_user.svg">
+                </button>
               </div> 
             </div>
           </div>

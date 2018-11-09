@@ -9,7 +9,7 @@
 .mngGame{
     grid-column: 2/8;
     grid-row: 2;
-    font-size: 3.5vh;
+    font-size: 3.2vh;
     align-self: center;
     text-align: center;
     word-break: break-all;
@@ -26,13 +26,11 @@
 ::ng-deep .mat-drawer-inner-container{
     line-height: 5vh;
 }
-::ng-deep .toast-message{
-    font-size:1.5vh;
-}
 .mngedGame{
     grid-column: 10/16;
-    font-size: 3.5vh;
+    font-size: 3.2vh;
     grid-row: 2;
+    align-self: center;
     text-align: center;
     color:black;  
 }
@@ -41,39 +39,26 @@
     grid-column: 8/10;
     grid-row: 1;
     padding-top: 1vh;
-    font-size: 3vh;
     justify-self: center;
     align-self: flex-end;
     color:green;
 }
 .addGame_opener_text{
     background-color:rgb(225, 228, 232);
-    border-radius: 40px;
+    border-radius: 100vh;
     line-height: 6vh;
+    font-size: 2.5vh;
 }
 .delGame_opener_text{
     background-color:rgb(225, 228, 232);
-    border-radius: 40px;
+    border-radius: 100vh;
     line-height: 6vh;
-}
-.btn_text{
-    font-size: 3vh;
-}
-::ng-deep .mat-button-wrapper{
-    font-size:2vh;
-}
-
-.decline_all {
-    height: 5vh;
-    vertical-align: unset;
-    width: 5vh;
-    transform: rotate(45deg);
+    font-size: 2.5vh;
 }
 /*стиль кнопки для открытия всплывающего окна для добавления игры*/
 .delGame{
     grid-column: 8/10;
     grid-row: 2;
-    font-size: 3vh;
     padding-top:1vh;
     justify-self: center;
     align-self: center;
@@ -88,21 +73,18 @@
     color:black;
 }
 .routeToMngedGame_btn{
-    background-color:rgb(225, 228, 232);
-    color:green;
     height:5vh;
     width:5vh;
 }
 .routeToMngedGame_icon{
-    font-size:5vh;
-
+    height: 5vh;
 }
 
 /*Input Ввод данных from https://material.angular.io/components/autocomplete/examples-->*/
   .mngGame-input{
     grid-row: 3;
    grid-column: 2/8;
-   font-size: 2vh;
+   font-size: 1.8vh;
    height: 15vh;
    overflow: hidden;
    text-align: center;
@@ -112,7 +94,7 @@
   }
 
 .filteredgames{
-    font-size: 2.1vh;
+    font-size: 1.8vh;
     height: 4.5vh;
     overflow: hidden;
 }
@@ -130,12 +112,11 @@
     color:black;  
     grid-column: 11/16;
     grid-row-start: 3;
-    display: inline-grid;
+    display: inline-block;
 }
 
 .gameNameColumn {
     width: 80%;
-    font-size: 1.17em;
     text-align: center;
     align-self: center;
     float: left;
@@ -143,22 +124,20 @@
 h3{
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 2.1vh;
-}
-.filteredGame{
-    color:black;
+    font-size: 1.9vh;
 }
 
 /*кнопки для удаления из выбранных игр*/
 .unpick{
     width: 20%;
     float: left;
-    color:rgb(218, 15, 15);
 }
-.btn {
-    color: red;
+.unpick_btn {
     width: 5vh;
     height: 5vh;
 }
-
+.unpick_icon{
+    height: 5vh;
+    vertical-align: unset;
+}
 
