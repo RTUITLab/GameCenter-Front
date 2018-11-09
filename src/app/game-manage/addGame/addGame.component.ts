@@ -7,7 +7,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 @Component({
   selector: 'app-add-game',
   templateUrl: './addGame.component.html',
-  styleUrls: ['./addGame.component.css', ]
+  styleUrls: ['./addGame.component.css', './addGame.component-mob.css' ]
 })
 
 export class AddGameComponent implements OnInit {

@@ -21,7 +21,7 @@ import {map, startWith} from 'rxjs/operators';
 @Component({
   selector: 'app-del-game',
   templateUrl: './del-game.component.html',
-  styleUrls: ['./del-game.component.scss']
+  styleUrls: ['./del-game.component.scss', './del-game.component-mob.scss']
 })
 export class DelGameComponent implements OnInit {
 

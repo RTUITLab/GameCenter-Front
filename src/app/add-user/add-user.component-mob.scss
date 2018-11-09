@@ -1,0 +1,47 @@
+@media only screen and (max-width:1068px){
+    .main{
+        display: grid;
+        grid-template-columns: 2% 96% 2%;
+        grid-template-rows: repeat(5,20vh);
+    }
+    .mngNick{
+        grid-row:1;
+        grid-column: 2;
+        font-size: 24px;
+        align-self: center;
+    }
+    .mngNick-input{
+        grid-row:2;
+        font-size: 18px;
+        text-align: center;
+        grid-column: 2;
+    }
+    .mngGame{
+        grid-row:3;
+        grid-column: 2;
+        font-size: 24px;
+        align-self: center;
+    }
+    .mngGame-input{
+        grid-row:4;
+        font-size: 18px;
+        text-align: center;
+        grid-column: 2;
+    }
+    .text{
+        font-size:18px;
+    }
+    .addToQueue_btn{
+        grid-row:5;
+        grid-column: 2;
+    }
+    .filteredgames{
+        font-size: 18px;
+        height: 32px;
+    }
+    .add_opener_text{
+        font-size: 18px;
+        line-height: 60px;
+    }
+
+}

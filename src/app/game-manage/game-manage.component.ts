@@ -95,6 +95,7 @@ export class GameManageComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.oldGame = result;
+      console.log(result);
       if (this.oldGame !== undefined) {
         // delete игру по имени this.newGame
     const gameId = this.games.find(g => g.gameName === this.oldGame).gameId;

@@ -7,7 +7,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 @Component({
   selector: 'app-del-user',
   templateUrl: './del-user.component.html',
-  styleUrls: ['./del-user.component.css']
+  styleUrls: ['./del-user.component.scss', './del-user.component-mob.scss']
 })
 export class DelUserComponent implements OnInit {
   constructor(

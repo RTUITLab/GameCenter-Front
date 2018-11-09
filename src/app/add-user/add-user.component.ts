@@ -20,7 +20,7 @@ import { HubService } from '../hub.service';
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.css']
+  styleUrls: ['./add-user.component.scss', './add-user.component-mob.scss' ]
 })
 export class AddUserComponent implements OnInit {
 

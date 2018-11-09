@@ -7,7 +7,7 @@ import { HubService } from './hub.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss', './app.component-mob.scss']
 })
 export class AppComponent {
   title = 'app';

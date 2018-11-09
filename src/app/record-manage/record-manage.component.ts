@@ -21,7 +21,7 @@ import { IRating } from '../DataInterface';
 @Component({
   selector: 'app-record-manage',
   templateUrl: './record-manage.component.html',
-  styleUrls: ['./record-manage.component.css']
+  styleUrls: ['./record-manage.component.scss', './record-manage.component-mob.scss']
 })
 export class RecordManageComponent implements OnInit {
   public games: IAllGames[]; // массив игр  типа интерфейса IAllGames[]
