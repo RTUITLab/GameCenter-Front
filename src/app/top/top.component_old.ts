@@ -21,7 +21,7 @@ import { HubService } from '../hub.service';
   templateUrl: './top.component_old.html',
   styleUrls: ['./top.component_old.scss']
 })
-export class TopComponent implements OnInit {
+export class TopOldComponent implements OnInit {
   constructor(
     private _userServise: UserService, // переменная для обращения к сервису
     private toastr: ToastrService, // уведомления

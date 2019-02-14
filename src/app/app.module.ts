@@ -15,7 +15,8 @@ import { DelGameComponent } from './game-manage/del-game/del-game.component';
 import { QueueComponent } from './queue/queue.component'; // вкладка очередь желающих
 import { DelUserComponent } from './queue/del-user/del-user.component';
 import { RecordManageComponent } from './record-manage/record-manage.component'; // вкладка Выборки рекордов
-import { TopComponent } from './top/top.component'; // вкладка топ игроков
+import { TopOldComponent } from './top/top.component_old'; // вкладка топ игроков
+import { TopComponent } from './top/top.component_new'; // вкладка топ игроков
 
 
 
@@ -66,6 +67,7 @@ import { AddUserComponent } from './add-user/add-user.component';
     DelGameComponent,
     QueueComponent,
     RecordManageComponent,
+    TopOldComponent,
     TopComponent,
     DelUserComponent,
     AddUserComponent,
@@ -123,7 +125,7 @@ import { AddUserComponent } from './add-user/add-user.component';
        },
       {
         path: 'top',
-        component: TopComponent
+        component: TopOldComponent
        },
     ]),
     ////

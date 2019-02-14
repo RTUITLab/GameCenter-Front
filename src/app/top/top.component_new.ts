@@ -18,8 +18,8 @@ import { HubService } from '../hub.service';
 
 @Component({
   selector: 'app-top',
-  templateUrl: './top.component.html',
-  styleUrls: ['./top.component.scss']
+  templateUrl: './top.component_new.html',
+  styleUrls: ['./top.component_new.scss']
 })
 export class TopComponent implements OnInit {
   constructor(
