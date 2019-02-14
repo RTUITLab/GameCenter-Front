@@ -6,6 +6,7 @@ import * as SignalR from '@aspnet/signalr';
 ////
 
 import { Observable, Subscriber } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -14,9 +15,6 @@ import { Observable, Subscriber } from 'rxjs';
 })
 export class HubService {
   public _hubConnection: HubConnection; // SignalR
-   public hub_url = 'https://gamecenterback.azurewebsites.net'; // сам сервер
- //  public hub_url = 'http://42aae2d7.ngrok.io';
-  // public hub_url = 'http://localhost:5000';
 
   public pickNotifier: Observable<Object>;
   private pickSubscriber: Subscriber<Object>;
@@ -47,7 +45,7 @@ export class HubService {
   }
   public connect() {
     this._hubConnection = new SignalR.HubConnectionBuilder()
-      .withUrl(this.hub_url + '/hub') // ссылка на сервер,с каким устанавливаем соединение
+      .withUrl(environment.baseUrl + 'hub') // ссылка на сервер,с каким устанавливаем соединение
       .build(); // подготавливаем к старту
 
     // this._hubConnection = new HubConnection('http://localhost:5000/chat');

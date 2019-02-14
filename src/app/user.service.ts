@@ -9,6 +9,7 @@ import {  IQueue, IAllGames, IPickedGames } from './DataInterface';
 
 //
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 ////
 
 
@@ -23,7 +24,7 @@ export class UserService {
 
   public game: IAllGames[]; // массив игр  типа интерфейса IAllGames[]
 
-    public global_url = 'https://gamecenterback.azurewebsites.net/api/';
+    public global_url = environment.baseUrl + 'api/';
   // public global_url = 'http://42aae2d7.ngrok.io/api/';
    // public global_url = 'http://8c98036f.ngrok.io/api/';
   constructor(private http: HttpClient, // для предачи данных
