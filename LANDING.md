@@ -7,6 +7,7 @@ GameCenter (система рекордов)
 
         Система предназначена для формирования очереди на выставочные стенды, для контроля посещаемости проектов лаборатории ИТ и предоставления игровой статистики пользователей.
         Также предусмотрено администрирование рекордов пользователей, игр, очередей.
+---
 # Images
 * ![](https://files.rtuitlab.ru/landing_src/records/1.png)
 * ![](https://files.rtuitlab.ru/landing_src/records/2.png)
@@ -33,8 +34,8 @@ GameCenter (система рекордов)
 # Site
 ---
 # SourceCode
-| name                         | link                                      |
-| ---------------------------- | ----------------------------------------- |
-|Фронтэнд                 |https://github.com/RTUITLab/GameCenter-Front      |
-|Бэкенд                 |https://github.com/RTUITLab/GameCenter-Backend      |
+| name     | link                                           |
+| -------- | ---------------------------------------------- |
+| Фронтенд | https://github.com/RTUITLab/GameCenter-Front   |
+| Бэкенд   | https://github.com/RTUITLab/GameCenter-Backend |
 ---
