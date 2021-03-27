@@ -9,10 +9,10 @@ GameCenter (система рекордов)
         Также предусмотрено администрирование рекордов пользователей, игр, очередей.
 ---
 # Images
-* ![](https://files.rtuitlab.ru/landing_src/records/1.png)
-* ![](https://files.rtuitlab.ru/landing_src/records/2.png)
-* ![](https://files.rtuitlab.ru/landing_src/records/3.png)
-* ![](https://files.rtuitlab.ru/landing_src/records/4.png)
+* ![](LANDING/1.png)
+* ![](LANDING/2.png)
+* ![](LANDING/3.png)
+* ![](LANDING/4.png)
 ---
 
 # Videos
