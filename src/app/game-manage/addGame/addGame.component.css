@@ -2,22 +2,32 @@
     display: grid;
     grid-template-columns: repeat(2,1fr);
     grid-column-gap: 5px;
+    justify-content: center;
 
+}
+.addGame_header{
+    text-align: center;
+    font-size:2.1vh;
 }
 .dialog-actions-continue{
-
-    color: white;  
-    text-align: center;
-    border-radius: 10px;
-    background-color: rgb(23, 23, 99);
+    color: green;  
+    border-radius: 100vh;
+    background-color:rgb(225, 228, 232);
+    line-height: 4vh;
+    font-size: 2vh;
 }
 .dialog-actions-deny{
+    color: red;     
+    background-color:rgb(225, 228, 232);
+    border-radius: 100vh;
+    line-height: 4vh;
+    font-size: 2vh;
+    
+}
+.addGame_input{
+    font-size: 1.8vh;
+    overflow: hidden;
     text-align: center;
-    color: white;     
-    border-radius: 10px;
-    
-    background-color: rgb(23, 23, 99);
-    
 }
 
 

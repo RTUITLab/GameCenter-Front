@@ -1,6 +1,7 @@
-# Site
+# GameCenter (система рекордов)
+Система предназначена для формирования очереди на выставочные стенды, для контроля посещаемости проектов лаборатории ИТ и предоставления игровой статистики пользователей.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+Также предусмотрено администрирование рекордов пользователей, игр, очередей.
 
 ## Development server
 
@@ -24,4 +25,4 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

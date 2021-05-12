@@ -1,0 +1,100 @@
+<div id = "top_page" class = "top_page">
+
+  <div id = "top" class = "top">
+
+    <div id = "header_top" class = "header">
+      <div class="header_text">
+        Топ игроков
+      </div>
+    </div>
+    
+    <div id = "game_top_area" class = "game_top_area">
+
+      <div id = "game_top"  *ngFor="let pickedGame of pickedGames" class = "game_top">
+
+        <div id = "game_top_name" class = "game_top_name">
+          {{pickedGame.gameName}}
+        </div>
+
+        <div id = "people_top" *ngFor="let peopleList of Top">
+          
+            <div *ngFor="let people of peopleList;let i = index">
+
+              <div *ngIf='people.score!=0'>
+
+                <div *ngIf='people.gameName===pickedGame.gameName' class = "people_top">
+                  
+                  <div id = "medal_top"   class = "medal_top">
+                    <img *ngIf='i===0'class="icon" src="assets/icons/Gold_medal.svg">
+                    <img *ngIf='i===1'class="icon" src="assets/icons/Silver_medal.svg">
+                    <img *ngIf='i===2'class="icon" src="assets/icons/Bronze_medal.svg">
+                  </div>
+                  
+                  <div id = "name_top"   class = "name_top">
+                    {{people.userName}}
+                  </div>
+                  
+                  <div id = "score_top"   class = "score_top">
+                    {{people.score}}
+                  </div>
+                  
+                </div>
+                
+              </div>
+                
+            </div>  
+            
+        </div>
+
+      </div>
+        
+    </div>
+
+  </div>
+
+  <div id = "last" class = "last">
+
+    <div id = "header_last" class = "header">
+      <div class="header_text">
+        Последние результаты игроков
+      </div>
+    </div>
+
+    <div id = "game_last_area" class = "game_last_area">
+      <div id = "game_last" *ngFor="let pickedGame of pickedGames" class = "game_last">
+        
+        <div id = "game_last" class = "game_last_name">
+         {{pickedGame.gameName}}
+        </div>
+        
+        <div id = "people_last" *ngFor="let peopleList of Last">
+          
+          <div *ngFor="let people of peopleList">
+            <div *ngIf='people.score!=0'>
+
+              <div *ngIf='people.gameName===pickedGame.gameName' class = "people_last">
+                
+                <div id = "name_last"   class = "name_last">
+                  {{people.userName}}
+                  
+                </div>
+                
+                <div id = "score_last"   class = "score_last">
+                  {{people.score}}
+                </div>
+                
+              </div>
+              
+            </div>
+          </div>  
+          
+        </div>
+          
+      </div>
+
+    </div>
+    
+
+  </div>
+
+</div>

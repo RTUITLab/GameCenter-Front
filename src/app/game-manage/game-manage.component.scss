@@ -1,0 +1,143 @@
+
+.content{
+  display: grid;
+  grid-template-columns: repeat(16,1fr);
+  grid-template-rows: repeat(11,1fr);
+  height: 100vh;
+}
+
+.mngGame{
+    grid-column: 2/8;
+    grid-row: 2;
+    font-size: 3.2vh;
+    align-self: center;
+    text-align: center;
+    word-break: break-all;
+    color:black;  
+}
+::ng-deep .mat-icon, .mat-icon-button, .mat-icon{
+    line-height: unset;
+    height: unset;
+    width: unset;
+}
+::ng-deep .mat-button{
+    line-height: 5vh;
+}
+::ng-deep .mat-drawer-inner-container{
+    line-height: 5vh;
+}
+.mngedGame{
+    grid-column: 10/16;
+    font-size: 3.2vh;
+    grid-row: 2;
+    align-self: center;
+    text-align: center;
+    color:black;  
+}
+/*стиль кнопки для открытия всплывающего окна для добавления игры*/
+.addGame{
+    grid-column: 8/10;
+    grid-row: 1;
+    padding-top: 1vh;
+    justify-self: center;
+    align-self: flex-end;
+    color:green;
+}
+.addGame_opener_text{
+    background-color:rgb(225, 228, 232);
+    border-radius: 100vh;
+    line-height: 6vh;
+    font-size: 2.5vh;
+}
+.delGame_opener_text{
+    background-color:rgb(225, 228, 232);
+    border-radius: 100vh;
+    line-height: 6vh;
+    font-size: 2.5vh;
+}
+/*стиль кнопки для открытия всплывающего окна для добавления игры*/
+.delGame{
+    grid-column: 8/10;
+    grid-row: 2;
+    padding-top:1vh;
+    justify-self: center;
+    align-self: center;
+    color:red;
+}
+/*стиль кнопки для добавления игры в Выбранные игры*/
+.routeToMngedGame{
+    grid-column: 8;
+    grid-row: 3;
+    text-align: left;
+    align-self: left;
+    color:black;
+}
+.routeToMngedGame_btn{
+    height:5vh;
+    width:5vh;
+}
+.routeToMngedGame_icon{
+    height: 5vh;
+}
+
+/*Input Ввод данных from https://material.angular.io/components/autocomplete/examples-->*/
+  .mngGame-input{
+    grid-row: 3;
+   grid-column: 2/8;
+   font-size: 1.8vh;
+   height: 15vh;
+   overflow: hidden;
+   text-align: center;
+}
+::ng-deep .mat-autocomplete-panel.extended { //изменяем ширину стандартного окна с помощью ::ng-deep
+    max-height: 60vh;
+  }
+
+.filteredgames{
+    font-size: 1.8vh;
+    height: 4.5vh;
+    overflow: hidden;
+}
+.mngGame-full-width {
+    height: 100vh;
+    text-align: center;
+    grid-column: 2/8;
+     grid-row: 3;
+    color:black;  
+    width: 100%;
+  }
+  /**/
+/*список выбранных игр*/
+.pickedGame{
+    color:black;  
+    grid-column: 11/16;
+    grid-row-start: 3;
+    display: inline-block;
+}
+
+.gameNameColumn {
+    width: 80%;
+    text-align: center;
+    align-self: center;
+    float: left;
+}
+h3{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1.9vh;
+}
+
+/*кнопки для удаления из выбранных игр*/
+.unpick{
+    width: 20%;
+    float: left;
+}
+.unpick_btn {
+    width: 5vh;
+    height: 5vh;
+}
+.unpick_icon{
+    height: 5vh;
+    vertical-align: unset;
+}
+

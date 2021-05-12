@@ -1,0 +1,69 @@
+.main{
+    display: grid;
+    grid-template-columns: 2vw 38vw 20vw 38vw 2vw;
+    grid-template-rows: 25vh 50vh 25vh 25vh;
+    overflow: hidden;
+}
+.text{
+    font-size: 2vh;
+}
+.mngNick{
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 3.2vh;
+    align-self: flex-end;
+    text-align: center;
+    word-break: break-all;
+    color:black;  
+}
+.mngNick-input{
+    
+        grid-column: 2;
+        grid-row: 2;
+        text-align: center;
+        
+}
+.addToQueue_btn{
+    grid-column: 3;
+    grid-row:2;
+    text-align: center;
+    align-self: center;
+    color:green;
+}
+.add_opener_text{
+    background-color:rgb(225, 228, 232);
+    border-radius: 100vh;
+    line-height: 10vh;
+    font-size: 2.5vh;
+}
+.mngGame{
+    grid-column: 4;
+    grid-row: 1;
+    font-size: 3.2vh;
+    align-self: flex-end;
+    text-align: center;
+    word-break: break-all;
+    color:black;  
+}
+    /*Input Ввод данных from https://material.angular.io/components/autocomplete/examples-->*/
+.mngGame-input{
+    
+        grid-column: 4;
+        grid-row: 2;
+        font-size: 1.8vh;
+        height: 15vh;
+        text-align: center;
+        
+}
+ ::ng-deep .mat-autocomplete-panel.extended {
+        max-height: 60vh;
+}
+.filteredgames{
+    font-size: 1.8vh;
+    height: 4.5vh;
+}
+.mngGame-full-width {
+    text-align: center;
+    color:black;  
+    width: 100%;
+}

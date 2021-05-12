@@ -1,0 +1,46 @@
+<div class="main">
+
+  <div id = 'mngNick' class = "mngNick">Введите псевдоним</div>
+
+  <div class="mngNick-input">
+    <form id="inputForm1">
+      <mat-form-field class="mngGame-full-width text" >
+        <input type="text" #Nick class="text" placeholder="Введите псевдоним" aria-label="Number" matInput >
+      </mat-form-field>
+    </form>
+  </div>
+
+  
+  <div id = 'mngGame' class = "mngGame">Выберите игру</div>
+  
+  <div id="mngGame-input" class="mngGame-input">
+    
+    <!--Input Ввод данных from https://material.angular.io/components/autocomplete/examples-->
+    <form id="inputForm">
+      <mat-form-field class="mngGame-full-width text" >
+        <input type="text" #PickedGame placeholder="Введите название" class='text' aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" class="extended">
+          <div> 
+            <mat-option *ngFor="let game of filteredGames | async" [value]="game" class="filteredgames text">
+              {{game}}
+            </mat-option>
+          </div>
+        </mat-autocomplete>
+        
+      </mat-form-field>
+      
+      
+    </form>
+    <!---->
+  </div>
+      <div class="addToQueue_btn">
+          <div *ngFor="let game of filteredGames | async">
+              <div *ngIf="PickedGame.value === game">
+                <button mat-button class="add_opener_text" type='reset' form='inputForm1'(click)="addToQueue(Nick.value,PickedGame.value)">
+                      Добавить в очередь
+                </button>
+              </div>
+          </div>
+      </div>
+  
+</div>

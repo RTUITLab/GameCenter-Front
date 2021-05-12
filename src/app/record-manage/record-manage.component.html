@@ -1,0 +1,97 @@
+<div id='global_rec_mng_style' class="global_rec_mng_style">
+
+  <div id='select_game' class="select_game">
+
+    <div id='mngGameText' class="mngGameText_area">
+      <div class="mngGameText">
+          Выберите игру
+      </div>
+    </div>
+
+    <div id='games_area' class="games_area">
+
+      <div id='select_record' class="select_record" *ngFor='let game of games'>
+        <button mat-button class="pickGame" (click)="loadRecords(game.gameId)">
+          {{game.gameName}}
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id='records_area' class="records_area">
+
+    <div id='header_buttons' class="header_buttons">
+
+        <mat-button-toggle-group class="period">
+            <mat-button-toggle value="day" class="text">За день</mat-button-toggle>
+            <mat-button-toggle value="month" class="text">За месяц</mat-button-toggle>
+            <mat-button-toggle value="year" class="text">За год</mat-button-toggle>
+        </mat-button-toggle-group>
+
+        <div id='delRecord' class="delRecord">
+          <button mat-button class="delRecord_btn" (click)="deleteAllRecords()">
+            Удалить все рекорды
+          </button> 
+        </div>
+
+    </div>
+
+    <div id='table' class="table">
+        <mat-form-field class="table_input">
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Поиск по параметрам таблицы">
+          </mat-form-field>
+          
+          <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" matSort>
+          
+              <!-- rating Column -->
+              <ng-container matColumnDef="rating">
+                <th mat-header-cell *matHeaderCellDef> Позиция </th>
+                <td mat-cell *matCellDef="let row;let i=index"> {{i}} </td>
+              </ng-container>
+          
+          
+              <!-- Name Column -->
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> ФИО </th>
+                <td mat-cell *matCellDef="let row"> {{row.userName}} </td>
+              </ng-container>
+          
+              <!-- score Column -->
+              <ng-container matColumnDef="score">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Счёт </th>
+                <td mat-cell *matCellDef="let row"> {{row.score}} </td>
+              </ng-container>
+
+              <!-- date Column -->
+              <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Дата </th>
+                <td mat-cell *matCellDef="let row"> {{row.date}} </td>
+              </ng-container>
+
+              <!-- delete Column -->
+              <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef> Удалить </th>
+                <td mat-cell *matCellDef="let row">
+
+                  <button mat-icon-button (click)="delScore(row.scoreId)">
+                    <mat-icon>remove</mat-icon>
+                  </button>
+
+                </td>
+              </ng-container>
+          
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+              </tr>
+            </table>
+            
+            <mat-paginator [length]="1000" [pageSizeOptions]="[9]"></mat-paginator>
+          </div>
+    </div>
+     
+  </div>
+
+</div>

@@ -1,67 +1,102 @@
 .allGames{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
-    grid-column-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(44vw,44vw));
+    grid-column-gap: 20px;
     grid-row-gap: 20px;
-    color:white;
-    margin: 20px;
+    color:black;
+    padding: 50px;
+    justify-content: center;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
 }
 .header{
-    display: grid;
-    background-color: rgb(27, 40, 56);
-    border-radius: 10px;
-    border-style: ridge;
-    border-color: rgb(36, 53, 75);
-    grid-template-rows:repeat(1,50px);
-    grid-template-columns: repeat(5,1fr);
+    background-color: #24292e;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-top-right-radius: 2vh;
+    border-top-left-radius: 2vh;
+    display: inline-flex;
+    width: 100%;
     
 }
 .header-name{
-    grid-column: 2/5;
-    align-self: center;
-    font-size: 22px;
+    text-overflow: ellipsis;
+    width: 80%;
+    overflow: hidden;
+    font-size: 4vh;
     text-align: center;
+    align-self: center;
+    color:white;
+    float: left;
 }
-.header-button{
-    grid-column: 5;
-    color:red;
+.header-decline_all{
+    overflow: hidden;
+    width: 20%;
+    float: right;
+    display: grid;
+    justify-content: center;
+}
+.header-decline_all_btn{
+    height: 5vh;
+    width: 5vh;
     align-self: center;
-    text-align: center;
+}
+
+.header-decline_all_icon {
+    height: 5vh;
+    vertical-align: unset;
+}
+.acceptUser_btn {
+    height: 5vh;
+    width: 5vh;
+    align-self: center;
+}
+.acceptUser_icon {
+    height: 5vh;
+    vertical-align: unset;
 }
 .queue{
-    display: grid;
-    background-color: rgb(27, 40, 56);
-    border-radius: 10px;
-    border-style: ridge;
-    border-color: rgb(36, 53, 75);
-    grid-template-rows:repeat(5,50px);
+    /* display: grid; */
+    padding: 10px;
+    margin-top: 2px;
+    background-color:rgb(225, 228, 232);
+    border-bottom-right-radius: 1vh;
+    border-bottom-left-radius: 1vh;
+    overflow-y: scroll;
+    height:40vh;
+    box-sizing: border-box;
     
 }
 .queue-people-area{
-    margin: 10px;
     display: grid;
-    grid-gap: 10px;
     align-self: center;
+    width: 100%;
     text-align: center;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: 15% 55% 13% 4% 13%;
+
+}
+.queue-user_state{
+    grid-column: 1;
+    text-align: center;
+    overflow: hidden;
+    font-size:2.5vh;
+    text-overflow: ellipsis;
+    align-self: center;
 
 }
 .queue-user_name{
-    grid-column: 2/4;
-    align-self: center;
+    grid-column: 2;
     text-align: center;
-    font-size:18px;
+    overflow: hidden;
+    font-size:2.5vh;
+    text-overflow: ellipsis;
+    align-self: center;
+
 }
 .queue-user_deny{
-    grid-column: 4;
-    background-color: rgb(23, 23, 99);
-    color:red;
-    border-radius: 10px;
+    grid-column: 3;
 }
 .queue-user_accept{
     grid-column: 5;
-    background-color: rgb(23, 23, 99);
-    color:green;
-    border-radius: 10px;
-
 }

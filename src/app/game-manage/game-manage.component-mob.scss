@@ -1,0 +1,114 @@
+@media only screen and (max-width: 1068px){/*для ширины экрана меньше 1068x*/
+    .content{
+    display: grid;
+    grid-template-columns: 10vw 80vw 10vw;
+    grid-template-rows: repeat(6,1fr);
+    height:unset;
+    }
+    .mngGame{
+      grid-column: 2;
+      grid-row: 3;
+      font-size: 24px;
+      text-align: center;
+      color:black;
+    }
+    .mngedGame{
+      grid-column: 2;
+      grid-row: 6;
+      font-size: 24px;
+      text-align: center;
+      color:black;
+    }
+    /*стиль кнопки для открытия всплывающего окна для добавления игры*/
+    .addGame{
+      text-align: center;
+      grid-column: 2;
+      font-size: 24px;
+      align-self: center;
+      grid-row: 1;
+      color:green;
+      box-sizing: border-box;
+    }
+    .addGame_opener_text{
+      font-size: 18px;
+      line-height: 60px;
+    }
+    .delGame_opener_text{
+      font-size: 18px;
+      line-height: 60px;
+    }
+    .delGame{
+      text-align: center;
+      align-self: center;
+      grid-column: 2;
+      grid-row: 2;
+      color:red;
+      box-sizing: border-box;
+    }
+      /*стиль кнопки для добавления игры в Выбранные игры*/
+    .routeToMngedGame{
+        grid-column: 2;
+        grid-row: 5;
+      text-align: center;
+      align-self: center;
+      color:black;
+  }
+  .routeToMngedGame_btn{
+    height:60px;
+    width:60px;
+  }
+  .routeToMngedGame_icon{
+    height: 60px;
+  }
+  
+    /*Input Ввод данных from https://material.angular.io/components/autocomplete/examples-->*/
+    .mngGame-input{
+      
+        grid-column: 2;
+        grid-row: 4;
+        font-size: 18px;
+         text-align: center;
+    
+  }
+    /*стиль карточек выбранных игр*/
+    .cardsOfmngedGames{
+      grid-column: 2;
+      text-align: center;
+      color:rgb(255, 0, 0); 
+  
+  }
+  /*список выбранных игр*/
+  .pickedGame{
+  color:black; 
+  grid-column: 2;
+  grid-row: 7;
+  }
+
+  .gameNameColumn {
+  width: 90%;
+  text-align: center;
+  float: left;
+  }
+  .filteredgames{
+    font-size: 16px;
+    height: 32px;
+  }
+  h3{
+    font-size:18px;
+  }
+
+  /*кнопки для удаления из выбранных игр*/
+  .unpick{
+    justify-self: start;
+    width: 10%;
+    float: right;
+  }
+  .unpick_btn{
+    height:45px;
+    width:45px;
+  }
+  .unpick_icon{
+    height: 45px;
+  }
+
+}

@@ -3,37 +3,55 @@
     class="sidenav-container" (backdropClick)="close('backdrop')" >
 
     <!--Sidenav То, что находится внутри слайдера-->
-        <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose style = "background-color: rgb(32, 33, 36);">
+        <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose class="in_slider">
             <!--кнопка с иконкой для закрытия слайдера-->
-                 <button mat-icon-button (click)="close('toggle button')" style="margin-left:75%;">
-                     <mat-icon style="color: white;">menu</mat-icon>
-                </button>
+                <img src="../assets/icons/menu.svg" (click)="close('toggle button')" class="menu_icon">
             <!--end-->
 
-            <h1 style="text-align: center;color: white">Меню</h1>
+            <span class='menu_text'>Меню</span>
             
             <!--вкладки для перемещения на другие страницы-->
-                <p style="text-align: center">
-                   <button mat-button routerLink = "game-manage">Управление играми</button>
-                </p>
-
-                <p style="text-align: center">
-                 <button mat-button routerLink = "queue">Очередь желающих</button>
-                </p>
-
-                <p style="text-align: center">
-                  <button mat-button routerLink = "top" style="border-radius: 5px;">Топ игроков</button>
-                </p>
-            <!--end-->
-        </mat-sidenav>
-    <!--end-->
-
-        <mat-sidenav-content>
-            <!--Content То, что находится вне слайдера-->
-                <!--кнопка с иконкой для закрытия слайдера-->
-                    <button mat-icon-button (click)="sidenav.open()" style="margin-left:1%;">
-                     <mat-icon style="color: white;">menu</mat-icon>
+            <div style="grid-row-start: 4;">
+                
+                <div>
+                    <button mat-button routerLink = "game-manage" (click)="close('toggle button')" class="btn">
+                        <span class="text">Управление играми</span>
                     </button>
+                </div>
+                
+                <div>
+                    <button mat-button routerLink = "add-user" (click)="close('toggle button')" class="btn">
+                        <span class="text">Добавление пользователя</span>
+                    </button>
+                </div>
+                
+                <div>
+                    <button mat-button routerLink = "queue" (click)="close('toggle button')" class="btn">
+                        <span class="text">Очередь желающих</span>
+                    </button>
+                </div>
+                
+                <div>
+                    <button mat-button routerLink = "record-manage" (click)="close('toggle button')" class="btn">
+                        <span class="text">Управление рекордами</span>
+                    </button>
+                </div>
+                
+                <div>
+                    <button mat-button routerLink = "top" (click)="close('toggle button')" class="btn">
+                        <span class="text">Топ игроков</span>
+                    </button>
+                </div>
+            </div>
+                <!--end-->
+            </mat-sidenav>
+            <!--end-->
+            
+            <mat-sidenav-content>
+                <!--Content То, что находится вне слайдера-->
+                <!--кнопка с иконкой для закрытия слайдера-->
+                <img src="../assets/icons/menu.svg" (click)="sidenav.open()"class="menu_icon_out">
+
                 <!--end-->
 
 

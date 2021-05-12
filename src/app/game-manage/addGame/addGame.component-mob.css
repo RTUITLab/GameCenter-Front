@@ -1,0 +1,18 @@
+@media only screen and (max-width: 1068px){
+    .addGame_header{
+        font-size:24px;
+    }
+    .dialog-actions-continue{
+        line-height: 36px;
+        font-size: 18px;
+    }
+    .dialog-actions-deny{
+        line-height: 36px;
+        font-size: 18px;
+        
+    }
+    .addGame_input{
+        font-size: 18px;
+    }
+}
+

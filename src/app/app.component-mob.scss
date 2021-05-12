@@ -1,0 +1,22 @@
+@media only screen and (max-width:1024px){
+    .menu_icon{
+        height: 24px;
+        padding: 1.5vh;
+        
+    }
+    .menu_icon_out{
+        height: 24px;
+        position: absolute;
+        padding: 1.5vh;   
+    }
+    .menu_text{
+        font-size: 30px;
+    }
+    .text{
+        font-size: 18px;
+    }
+    .mat-button {
+        line-height: 36px;
+        vertical-align: middle;
+    }
+}

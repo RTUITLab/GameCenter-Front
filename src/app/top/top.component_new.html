@@ -1,0 +1,55 @@
+<div id = "top_page" class = "top_page">
+
+  <div id = "top" class = "top">
+
+    <div id = "header_top" class = "header">
+      <span class="header_text">
+        Топ игроков
+      </span>
+    </div>
+    
+    <div id = "game_top_area" class = "game_top_area">
+
+      <div id = "game_top"  *ngFor="let pickedGame of pickedGames" class = "game_top">
+
+        <div id = "game_top_name" class = "game_top_name">
+          <span class = "game_top_name_text">
+            {{pickedGame.gameName}}
+          </span>
+        </div>
+
+        <div id = "people_top" *ngFor="let peopleList of Top">
+          
+            <div *ngFor="let people of peopleList;let i = index">
+
+              <div *ngIf='people.scoreCount!=0'>
+
+                <div *ngIf='people.gameName===pickedGame.gameName' class = "people_top">
+                  
+                  <div id = "icon_top"   class = "icon_top">
+                    <img class="icon" src="assets/icons/Vk_icon.png">
+                  </div>
+                  
+                  <div id = "name_top"   class = "name_top">
+                    {{people.userName}}
+                  </div>
+                  
+                  <div id = "score_top"   class = "score_top">
+                    {{people.scoreCount}}
+                  </div>
+                  
+                </div>
+                
+              </div>
+                
+            </div>  
+            
+        </div>
+
+      </div>
+        
+    </div>
+
+  </div>
+
+</div>

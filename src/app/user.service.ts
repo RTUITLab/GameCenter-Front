@@ -1,98 +1,122 @@
-import { Injectable ,OnInit} from '@angular/core';
-//для обращения к http
-import {HttpClient} from '@angular/common/http'
+import { Injectable, OnInit } from '@angular/core';
+// для обращения к http
+import { HttpClient } from '@angular/common/http';
 ////
 
-//прототип получаемых данных
-import { IData ,TestPickedGamesIData} from './DataInterface';
+// прототип получаемых данных
+import {  IQueue, IAllGames, IPickedGames } from './DataInterface';
 ////
 
 //
-import{Observable} from 'rxjs'
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 ////
 
-//for SignalR
-import { HubConnection } from '@aspnet/signalr';
-////
 
 
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserService {
-  constructor(private http: HttpClient ,//для предачи данных
+  public ic = 0;
 
-  ) { }
+  public game: IAllGames[]; // массив игр  типа интерфейса IAllGames[]
 
-  private addGame_url:string = 'https://gamecenterback.azurewebsites.net/api/GameType/';//все игры
-  private delGame_url:string = 'https://gamecenterback.azurewebsites.net/api/GameType/delete/';//все игры
-  private pickGame_url:string = 'https://gamecenterback.azurewebsites.net/api/GameType/pickgames';//ссылка для выбора игр
-  private unpickGame_url:string = 'https://gamecenterback.azurewebsites.net/api/GameType/unpickgames';//ссылка для удаления из выбранных
-  private pickedGames_url:string = 'https://gamecenterback.azurewebsites.net/api/GameType/selected/';//все выбранные игры
-  //private _url:string = 'https://jsonplaceholder.typicode.com/users/';//ссылка для получения данных
- 
-  public getAll():Observable<IData []>{
-    return this.http.get<IData []>(this.addGame_url);//передаем все данные с ссылки
+    public global_url = environment.baseUrl + 'api/';
+  // public global_url = 'http://42aae2d7.ngrok.io/api/';
+   // public global_url = 'http://8c98036f.ngrok.io/api/';
+  constructor(private http: HttpClient, // для предачи данных
+  ) {
   }
 
-  public addGame(game:string):Observable<Object>{//добавляем игру
-    console.log("addGame");
-    return this.http.post(this.addGame_url + game,'');
- 
-  }
-  public delGame(game:string):Observable<Object>{//удаляем игру
-    console.log("delGame "+game);
-     return this.http.delete<Object>(this.delGame_url + game);
+  // private _url:string = 'https://jsonplaceholder.typicode.com/users/';//ссылка для получения данных
+
+  public getAll(): Observable<IAllGames[]> {
+    return this.http.get<IAllGames[]>(this.global_url + 'Gametype/getall/'); // передаем все данные с ссылки
   }
 
-  public getAllPicked():Observable<Object>{//получаем все выбранные игры
-    return this.http.get<Object>(this.pickedGames_url);//передаем все данные с ссылки
+  public addGame(game: string): Observable<Object> { // добавляем игру
+    console.log('addGame');
+    return this.http.post(this.global_url + `Gametype/`, {GameType: game});
+
+  }
+  public delGame(game: string): Observable<Object> {// удаляем игру
+    console.log('delGame ' + game);
+    return this.http.delete<Object>(this.global_url + 'Gametype/delete/' + game);
+  }
+  public getAllPeople(): Observable<Object> { // получаем всех людей в очереди
+    console.log(`getallpeople try to GET`);
+    return this.http.get(`${this.global_url}registration/queue/`);
+  }
+  public AddToQueue(nick: string, gameId: string): Observable<Object> { // получаем всех людей в очереди
+    console.log(`${nick} ${gameId}`);
+    return this.http.post(`${this.global_url}registration/`, {GameId: gameId, Username: nick} );
+  }
+  public acceptUser(usernameId: string): Observable<Object> {
+    console.log( `acceptUser` );
+    return this.http.put<Object>(this.global_url + 'PlayerManager/accept/' , {Id: usernameId});
+  }
+  public declineUser(nameId: string , gamenameId: string, score: Number ): Observable<Object> {
+    console.log( `declineUser`);
+    return this.http.put<Object>(this.global_url + 'PlayerManager/refuse/' + nameId + '/' + gamenameId + '/' + score, '');
+  }
+  public declineAllUsers(name: string): Observable<Object> {
+    console.log(`declineALLusers`);
+    return this.http.delete<Object>(this.global_url + `PlayerManager/deleteall/` + name);
   }
 
-  public pickGame(gameid:string):Observable<Object>{//выбираем игру
-    console.log("pickGame "+ [gameid]);
-    return this.http.put<Object>(this.pickGame_url,[gameid]);//посылаем запрос на изменение статуса на Selected
+  public getAllPicked(): Observable<IPickedGames[]> {// получаем все выбранные игры
+    console.log('getallpicked');
+    return this.http.get<IPickedGames[]>(this.global_url + 'Gametype/selected/'); // передаем все данные с ссылки;
   }
 
-  public unpickGame(gameid:string):Observable<Object>{//удаляем игру из выбранных 
-    console.log("unpickGame "+ [gameid]);
-    return this.http.put<Object>(this.unpickGame_url,[gameid]);//посылаем запрос на изменение статуса на Selected
+  public pickGame(gameid: string): Observable<Object> {// выбираем игру
+    console.log('pickGame ' + [gameid]);
+    return this.http.put<Object>(this.global_url + 'Gametype/pickgame/', {Id: gameid}); // посылаем запрос на изменение статуса на Selected
   }
+  public unpickGame(gameid: string): Observable<Object> {// удаляем игру из выбранных
+    console.log('unpickGame ' + [gameid]);
+    // посылаем запрос на изменение статуса на Selected
+    return this.http.put<Object>(this.global_url + 'Gametype/unpickgame/', {Id: gameid});
+  }
+  public delAllRecords(gameid: string): Observable<Object> {// удаляем рекорды
+    console.log('delALlRecords ' + [gameid]);
+    return this.http.delete<Object>(this.global_url + 'scores/delete_all/' + gameid); // посылаем запрос на удаление всех рекордов
+  }
+  public getTop(): Observable<Object> {
+    console.log(`loadTop`);
+    return this.http.get<Object>(`${this.global_url}scores/top`);
+  }
+  public getLast(): Observable<Object> {
+    console.log(`loadLast`);
+    return this.http.get<Object>(`${this.global_url}scores/last`);
+  }
+  public getRecords(gameid): Observable<Object> {
+    console.log(`getRecords`);
+    return this.http.get<Object>(`${this.global_url}scores/` + gameid);
+  }
+  public delRecord(scoreid): Observable<Object> {
+    console.log(`delRecord`);
+    return this.http.delete<Object>(`${this.global_url}scores/delete/` + scoreid);
+  }
+    /* public pickGame(gameid:string){
+     console.log('pickGame '+ [gameid]);
+     if(this._hubConnection){
+       return this._hubConnection.invoke('Pick',gameid); //посылаем данные на сервер
+     }
+     this._hubConnection.on('Pick', (data: any) => {   //получаем данные из сервера
+       const received = `Received: ${data}`;
+
+     });
+   }
+   */
 
 }
 
-export class SomeComponent implements OnInit {
-  private _hubConnection: HubConnection;
-  nick = '';
-  message = '';
-  messages: string[] = [];
-
-  public sendMessage(): void {
-    this._hubConnection
-      .invoke('sendToAll', this.nick, this.message)
-      .catch(err => console.error(err));
-  }
-
-  ngOnInit() {
-    this.nick = window.prompt('Your name:', 'John');
-
-    //this._hubConnection = new HubConnection('http://localhost:5000/chat');
-
-    this._hubConnection
-      .start()
-      .then(() => console.log('Connection started!'))
-      .catch(err => console.log('Error while establishing connection :('));
-
-      this._hubConnection.on('sendToAll', (nick: string, receivedMessage: string) => {
-        const text = `${nick}: ${receivedMessage}`;
-        this.messages.push(text);
-      });
-
-    }
-}
 
 
- 
+
 
 

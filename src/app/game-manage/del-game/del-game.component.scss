@@ -1,0 +1,50 @@
+.dialog-actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 5px;
+  justify-content: center;
+}
+.dialog-actions-continue{
+  color: green;  
+  border-radius: 100vh;
+  background-color:rgb(225, 228, 232);
+  line-height: 4vh;
+  font-size: 2vh;
+}
+.dialog-actions-deny{
+  color: red;     
+  background-color:rgb(225, 228, 232);
+  border-radius: 100vh;
+  line-height: 4vh;
+  font-size: 2vh;
+  
+}
+/*::ng-deep {
+  .mat-autocomplete-panel.extended {
+    max-height: 40vh;
+  }*/
+.delGame_header {
+  text-align: center;
+  font-size:2.1vh;
+}
+/*Input Ввод данных from https://material.angular.io/components/autocomplete/examples-->*/
+.mngGame-input{
+  grid-row: 3;
+ grid-column: 2/8;
+ font-size: 1.8vh;
+ overflow: hidden;
+ text-align: center;
+}
+.filteredgames{
+  font-size: 1.8vh;
+  height: 4.5vh;
+  overflow: hidden;
+}
+.mngGame-full-width {
+  text-align: center;
+  grid-column: 2/8;
+   grid-row: 3;
+  color:black;  
+  width: 100%;
+}
+/**/

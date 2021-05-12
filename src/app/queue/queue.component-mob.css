@@ -1,0 +1,33 @@
+@media only screen and (max-width: 1040px){/*для ширины экрана меньше 1068x*/
+
+    .allGames{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(80vw,80vw));
+    }
+    .acceptUser_icon {
+        height: 40px;
+    }
+    .acceptUser_btn {
+        height: 40px;
+        width: 40px;
+    }
+    .header-decline_all_icon {
+        height: 40px;
+    }
+    .header-decline_all_btn{
+        height: 40px;
+        width: 40px;
+    }
+    .header{
+        height: 50px;
+    }
+    .header-name{
+        font-size: 32px;
+    }
+    .queue-user_state{
+        font-size:18px;
+    }
+    .queue-user_name{
+        font-size:18px;
+    }
+}

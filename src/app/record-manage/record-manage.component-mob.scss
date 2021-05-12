@@ -1,0 +1,106 @@
+@media only screen and (max-width: 1068px){/*для ширины экрана меньше 1068x*/
+    .global_rec_mng_style {
+        display: grid;
+        grid-template-columns: 12% 76% 12%;
+        grid-template-rows: 540px 60vh;
+        //word-wrap: break-word; /* Перенос слов */ 
+        height: unset;
+        overflow-x: hidden;
+    }
+    .select_game {
+        display: grid;
+        grid-column: 2;
+        grid-row:1;
+        grid-template-columns: unset;
+        height: unset;
+    }
+    .mngGameText_area{
+        grid-row:1;
+        height: 40px;
+    }
+    .mngGameText{
+        font-size: 28px;
+    }
+    .games_area{
+        grid-row:2;
+        height: 500px;
+    }
+    .pickGame {
+        font-size: 18px;
+        line-height: 32px;
+    }
+    .records_area {
+        display: grid;
+        grid-column: 2;
+        grid-row:2;
+        grid-template-columns:5% 90% 5%;
+        grid-template-rows: 200px;
+        justify-self: center;
+    }
+    .header_buttons {
+        display: grid;
+        grid-row: 1;
+        grid-column:2;
+        padding-top: 1vh;
+        grid-template-columns:5% 90% 5%;
+        grid-row-gap: 1vh;
+        align-self: center;
+        justify-self: center;
+    }
+    .period {
+        grid-row:1;
+        grid-column: 2;
+        align-self: center;
+        justify-self: center;
+        font-size: 18px;
+        line-height: 32px;
+    }
+    .delRecord {
+        grid-row:3;
+        grid-column: 2;
+        justify-self: center;
+    }
+    .delRecord_btn{
+        background-color:rgb(225, 228, 232);
+        border-radius: 100vh;
+        line-height: 36px;
+        font-size: 18px;
+    }
+    .table {
+        grid-column: 1/17;
+        height: 100vh;
+
+    }
+    table {
+        width: 100%;
+        height: 100%;
+    }
+
+    .mat-form-field {
+        height: 50px;
+        text-align: center;
+        font-size: 14px;
+        width: 100%;
+    }
+
+    td {
+        width: 25%;
+        font-size:12px;
+        text-align: center;
+        height: 12px;
+    }
+    th {
+        width: 25%;
+        font-size:14px;
+        height: 14px;
+    }
+    .table_input {
+        font-size:12px;
+    }
+    mat-paginator {
+        font-size:12px;
+    }
+    .mob_table_header-center{
+        text-align: center;
+    }
+}
