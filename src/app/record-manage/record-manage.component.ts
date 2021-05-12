@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
-import { MatSort, MatTableDataSource, MatPaginator } from '@angular/material';
+import { MatSort} from '@angular/material/sort';
+import { MatTableDataSource} from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 // сервис для операций с данными
 import { UserService } from '../user.service';

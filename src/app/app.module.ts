@@ -21,15 +21,20 @@ import { TopComponent } from './top/top.component_new'; // вкладка топ
 
 
 // Game-manage //from https://material.angular.io/components/autocomplete/examples
-import {MatAutocompleteModule, MatFormFieldModule, MatInputModule} from '@angular/material'; // автозаполнение
+import {MatAutocompleteModule} from '@angular/material/autocomplete'; // автозаполнение
+import { MatInputModule} from '@angular/material/input'; // автозаполнение
+import { MatFormFieldModule} from '@angular/material/form-field'; // автозаполнение
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 
 // slider from https://material.angular.io/components/sidenav/examples
-import {MatSidenavModule, MatIconModule} from '@angular/material'; // слайдер
+import {MatSidenavModule} from '@angular/material/sidenav'; // слайдер
+import {MatIconModule} from '@angular/material/icon'; // слайдер
 ////
 
 // table from https://material.angular.io/components/table/api
-import {MatTableModule, MatSortModule, MatPaginatorModule} from '@angular/material';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+import {MatPaginatorModule} from '@angular/material/paginator';
 ////
 
 // routes
@@ -104,7 +109,7 @@ import { AddUserComponent } from './add-user/add-user.component';
     // routes
     RouterModule.forRoot([
       {
-         path: '',
+        path: '',
          component: GameManageComponent
       },
       {

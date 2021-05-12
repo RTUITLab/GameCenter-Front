@@ -7,7 +7,7 @@ import { map, startWith, find } from 'rxjs/operators';
 ////
 
 // from https://material.angular.io/components/dialog/examples Всплывающее окно для Добавления / удаления игр
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { AddGameComponent } from './addGame/addGame.component';
 import { DelGameComponent } from './del-game/del-game.component';
 ////

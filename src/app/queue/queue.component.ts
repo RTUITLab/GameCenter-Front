@@ -15,7 +15,7 @@ import { ToastrService } from 'ngx-toastr';
 // связь с другими пользователями
 import { HubService } from '../hub.service';
 import { DelUserComponent } from './del-user/del-user.component';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 ////
 
 @Component({

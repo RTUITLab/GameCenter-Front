@@ -1,7 +1,7 @@
 import { Component, OnInit , Inject} from '@angular/core';
 
 // from https://material.angular.io/components/dialog/examples Всплывающее окно для Добавления / удаления игр
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 ////
 
 @Component({
