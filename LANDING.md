@@ -19,8 +19,7 @@ GameCenter (система рекордов)
 ---
 
 # Tags
-* Web
-* Tool
+* Frontend
 ---
 # Tech
 * Angular
