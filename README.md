@@ -2,7 +2,14 @@
 Система предназначена для формирования очереди на выставочные стенды, для контроля посещаемости проектов лаборатории ИТ и предоставления игровой статистики пользователей.
 
 Также предусмотрено администрирование рекордов пользователей, игр, очередей.
-
+## Init 
+  Для работы необходимо создать в src папку environments и файл environment.ts с соответвующем содержанием 
+```typescript
+export const environment = {
+  production: false,
+  baseUrl: '<LinkToServerRestApi>'
+};
+```
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
